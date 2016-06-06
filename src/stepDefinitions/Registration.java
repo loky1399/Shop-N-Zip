@@ -7,6 +7,7 @@ import pageObjects.AboutUs;
 import pageObjects.BaseClass;
 import pageObjects.HeaderLinks;
 import pageObjects.SignIn;
+import pageObjects.SignUp;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -111,144 +112,213 @@ public class Registration extends BaseClass {
 	public void i_should_see_button_in_header_area(String arg1)
 			throws Throwable {
 		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		boolean signup=HeaderLinks.signUp_Menulink().isDisplayed();
+		if(signup==true){
+			System.out.println("Signup button is displaying");
+		}
 	}
 
 	@When("^I click on \"(.*?)\" button$")
 	public void i_click_on_button(String arg1) throws Throwable {
 		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		HeaderLinks.signUp_Menulink().click();
 	}
 
 	@Then("^I should see \"(.*?)\" heading at Sign Up form$")
 	public void i_should_see_heading_at_Sign_Up_form(String arg1)
 			throws Throwable {
 		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		boolean heading=SignUp.orCreatNewTFCaccunt_title().isDisplayed();
+		if(heading==true){
+		String headingTitle=SignUp.orCreatNewTFCaccunt_title().getText();
+		System.out.println(headingTitle);
+			
+		}
 	}
 
 	@Given("^I am in Sign Up page$")
 	public void i_am_in_Sign_Up_page() throws Throwable {
 		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		boolean SignupPage=SignUp.signupForm().isDisplayed();
+		if(SignupPage==true){
+			System.out.println("I m in signup page");
+		}
 	}
 
 	@Then("^I should see Name field$")
 	public void i_should_see_Name_field() throws Throwable {
 		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		boolean  Name_field=SignUp.NameTextBox().isDisplayed();
+		if(Name_field==true){
+			System.out.println("Name_field is available in page" +Name_field);
+		}
 	}
+	
 
 	@Then("^I should see Country of current residence drop down$")
 	public void i_should_see_Country_of_current_residence_drop_down()
 			throws Throwable {
 		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		boolean  Country_of_current_residence_drop_down=SignUp.currentCountryDropDown().isDisplayed();
+		if(Country_of_current_residence_drop_down==true){
+			System.out.println("Country_of_current_residence_drop_down is available in page" +Country_of_current_residence_drop_down);
+		}
 	}
 
 	@Then("^I should see Email address field$")
 	public void i_should_see_Email_address_field() throws Throwable {
 		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		boolean Email_address_field=SignUp.emailAddressTextBox().isDisplayed();
+		if(Email_address_field==true){
+			System.out.println("Email_address_fieldis available in page" +Email_address_field);
+		}
 	}
 
 	@Then("^I should see Phone number field$")
 	public void i_should_see_Phone_number_field() throws Throwable {
 		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		boolean Phone_number_field=SignUp.phoneNumberTextBox().isDisplayed();
+		if(Phone_number_field==true){
+			System.out.println("Phone_number_field is available in page" +Phone_number_field);
+		}
 	}
 
 	@Then("^I should see Password field$")
 	public void i_should_see_Password_field() throws Throwable {
 		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		boolean Password_field=SignUp.passWordTextBox().isDisplayed();
+		if(Password_field==true){
+			System.out.println("Password_field is available in page" +Password_field);
+		}
 	}
 
 	@Then("^I should see Re-type password field$")
 	public void i_should_see_Re_type_password_field() throws Throwable {
 		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		boolean Re_type_password_field=SignUp.reTypePasswordTextBox().isDisplayed();
+		if(Re_type_password_field==true){
+			System.out.println("Re_type_password_field is available in page" +Re_type_password_field);
+		}
 	}
 
 	@Then("^I should see Address text field$")
 	public void i_should_see_Address_text_field() throws Throwable {
 		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		boolean Address_text_field=SignUp.addressTextBox().isDisplayed();
+		if(Address_text_field==true){
+			System.out.println("Address_text_field is available in page" +Address_text_field);
+		}
 	}
 
 	@Then("^I should see City text field$")
 	public void i_should_see_City_text_field() throws Throwable {
 		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		boolean City_text_field=SignUp.cityTextBox().isDisplayed();
+		if(City_text_field==true){
+			System.out.println("City_text_field is available in page" +City_text_field);
+		}
 	}
 
 	@Then("^I should see State selection drop down$")
 	public void i_should_see_State_selection_drop_down() throws Throwable {
 		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		boolean State_selection_drop_down=SignUp.stateDropDown().isDisplayed();
+		if(State_selection_drop_down==true){
+			System.out.println("State_selection_drop_down is available in page" +State_selection_drop_down);
+		}
 	}
 
 	@Then("^I should see Register Now button$")
 	public void i_should_see_Register_Now_button() throws Throwable {
 		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		boolean Register_Now_button=SignUp.registerNowButton().isDisplayed();
+		if(Register_Now_button==true){
+			System.out.println("Register_Now_button is available in page" +Register_Now_button);
+		}
 	}
 
 	@Then("^I should see Agree check box$")
 	public void i_should_see_Agree_check_box() throws Throwable {
 		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		boolean Agree_check_box=SignUp.tearmNconditionCheckBox().isDisplayed();
+		if(Agree_check_box==true){
+			System.out.println("Agree_check_box is available in page" +Agree_check_box);
+		}
 	}
 
 	@Then("^I should see Terms and condition link$")
 	public void i_should_see_Terms_and_condition_link() throws Throwable {
 		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		boolean Terms_and_condition_link=SignUp.termsAndConditionLink().isDisplayed();
+		if(Terms_and_condition_link==true){
+			System.out.println("Terms_and_condition_link is available in page" +Terms_and_condition_link);
+		}
 	}
 
 	@Then("^I should see Privacy Policy link$")
 	public void i_should_see_Privacy_Policy_link() throws Throwable {
 		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		boolean Privacy_Policy_link=SignUp.privacypolicyLink().isDisplayed();
+		if(Privacy_Policy_link==true){
+			System.out.println("Privacy_Policy_link is available in page" +Privacy_Policy_link);
+		}
 	}
 
 	@Then("^I should see Name field as mendatory$")
 	public void i_should_see_Name_field_as_mendatory() throws Throwable {
 		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		boolean Name_field_as_mendatory=SignUp.NameTextBoxRequiredSymbol().isDisplayed();
+		if(Name_field_as_mendatory==true){
+			System.out.println("Name_field_as_mendatory  symbol is available in page" +Name_field_as_mendatory);
+		}
 	}
 
 	@Then("^I should see Country of current residence drop down as mendatory$")
 	public void i_should_see_Country_of_current_residence_drop_down_as_mendatory()
 			throws Throwable {
 		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		boolean Country_of_current_residence_drop_down_as_mendatory=SignUp.currentCountryDropDownRequiredSymbol().isDisplayed();
+		if(Country_of_current_residence_drop_down_as_mendatory==true){
+			System.out.println("Country_of_current_residence_drop_down_as_mendatory  symbol is available in page" + Country_of_current_residence_drop_down_as_mendatory);
+		}
 	}
 
 	@Then("^I should see Email address field as mendatory$")
 	public void i_should_see_Email_address_field_as_mendatory()
 			throws Throwable {
 		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		boolean Email_address_field_as_mendatory=SignUp.emailAddressTextBoxRequiredSymbol().isDisplayed();
+		if(Email_address_field_as_mendatory==true){
+			System.out.println("Email_address_field_as_mendatory symbol is available in page" + Email_address_field_as_mendatory);
+		}
 	}
 
 	@Then("^I should see Phone number field as mendatory$")
 	public void i_should_see_Phone_number_field_as_mendatory() throws Throwable {
 		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		boolean Phone_number_field_as_mendatory=SignUp.phoneNumberTextBoxRequiredSymbol().isDisplayed();
+		if(Phone_number_field_as_mendatory==true){
+			System.out.println("Phone_number_field_as_mendatorysymbol is available in page" + Phone_number_field_as_mendatory);
+		}
 	}
 
 	@Then("^I should see Password field as mendatory$")
 	public void i_should_see_Password_field_as_mendatory() throws Throwable {
 		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		boolean Password_field_as_mendatory=SignUp.passWordTextBoxRequiredSymbol().isDisplayed();
+		if(Password_field_as_mendatory==true){
+			System.out.println("Password_field_as_mendatory symbol is available in page" + Password_field_as_mendatory);
+		}
 	}
 
 	@Then("^I should see Re-type password field as mendatory$")
 	public void i_should_see_Re_type_password_field_as_mendatory()
 			throws Throwable {
 		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		boolean Re_type_password_field_as_mendatory=SignUp.reTypePasswordRequiredSymbol().isDisplayed();
+		if(Re_type_password_field_as_mendatory==true){
+			System.out.println("Re_type_password_field_as_mendatory symbol is available in page" + Re_type_password_field_as_mendatory);
+		}
 	}
 
 	@Given("^I clicked on <socila network icon > icon in signup page\\.$")

@@ -9,13 +9,13 @@ import pageObjects.FAQs;
 import pageObjects.HeaderLinks;
 
 public class FAQsPage extends BaseClass {
-	@Given("^I am in Shop N Zip site$")
+	@Given("^I am in Shop N Zip site with URL$")
 	public void i_am_in_Shop_N_Zip_site() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 	   driver.get("");
 	}
 
-	@When("^I clicked on \"(.*?)\" link in header$")
+	@When("^I clicked on \"(.*?)\" link in header part$")
 	public void i_clicked_on_link_in_header(String arg1) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 	   HeaderLinks.FAQ_Menulink().click();

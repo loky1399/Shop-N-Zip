@@ -32,6 +32,10 @@ public class SignUp extends BaseClass {
 		return element;
 
 	}
+	public static WebElement signupForm() {
+		element = driver.findElement(By.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]"));
+		return element;
+	}
 	public static WebElement sigUp_with_socialNWtitle() {
 		element = driver.findElement(By.xpath(".//*[@id='form']/div[6]/div/div/div/div/h3"));
 		return element;
