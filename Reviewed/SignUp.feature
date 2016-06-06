@@ -95,7 +95,7 @@ Scenario Outline: Verifying the availability of mandatory fields in Sign Up form
   #Possitive
   Scenario Outline: Verify functionality of Sign Up using social network icons.
     Given I am in Sign Up page
-    And I clicked on <socila network icon > icon in signup page.
+    When I clicked on <socila network icon > icon in signup page.
     Then I should see a pop for <socila network icon > login is appeared
     When I loged in with my <signin with socila network> credintials
     Then I should see Name field in the sign up from is auto filled

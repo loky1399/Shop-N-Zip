@@ -72,8 +72,8 @@ Scenario: Verifying the status of "Email"
     Then I shoul be able to navigated on "My profile" page
 #Negative
 
-  #Scenario Outline: Verifying functionality of socila sharing icons in my profile page
-    Given: I clicked on "Edit profile" link
+  Scenario Outline: Verifying functionality of socila sharing icons in my profile page
+    Given I clicked on "Edit profile" link
     When I clicked on <Socila sharing icon> when user is not logged in with respective  socila sharing sites
     Then I should be able to redirected on <Result page>
 
@@ -83,8 +83,8 @@ Scenario: Verifying the status of "Email"
       | Twitter sharing     | Twitterlogin page   |
       | G+ socila sharing   | G+ login page       |
 
- # Scenario Outline: Verifying functionality of socila sharing icons in my profile page
-    Given: I clicked on "Edit profile" link
+ Scenario Outline: Verifying functionality of socila sharing icons in my profile page
+    Given I clicked on "Edit profile" link
 
     When I clicked on <Socila sharing icon> when user is logged in with respective  socila sharing sites
     Then I should be able to redirected on <Result page>
