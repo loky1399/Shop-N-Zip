@@ -1,5 +1,5 @@
 package stepDefinitions;
 
-public class SnZSignin {
+public class SignIn {
 
 }
