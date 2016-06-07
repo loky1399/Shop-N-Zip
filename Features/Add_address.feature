@@ -1,23 +1,23 @@
 Feature: Add address popup
   
-  As a user I should be able to add "Reciepient Address" then I can recieve my items.
+  As a user I should be able to add 'Reciepient Address' then I can recieve my items.
 
   Background: 
     Given I am in home page
     When I logged In
     And I clicked on my username drop-down in header
-    And I selected  "My account" from drop down option
-    Then I should be navigated to "My Account" page
+    And I selected  'My account' from drop down option
+    Then I should be navigated to 'My Account' page
     Given I have not added more than 3 recipient address so far
-    When I clicked on "Add recipient" option beside "My recipient shipping address" in page.
-    Then I should be able to see "Add Recipient " popup  with cancel icon
+    When I clicked on 'Add recipient' option beside 'My recipient shipping address' in page.
+    Then I should be able to see 'Add Recipient ' popup  with cancel icon
 
   #Availability
-  Scenario: Verify title of the "Add Recipient" popup
-    And I should see the title of the popup as  "ADD RECIPIENT"
+  Scenario: Verify title of the 'Add Recipient' popup
+    And I should see the title of the popup as  'ADD RECIPIENT'
 
-  Scenario: Verifying available fields in "Add Recipient " popup.
-    Then I should be able to see all field related recipient details in "Add Recipient " popup as below
+  Scenario: Verifying available fields in 'Add Recipient ' popup.
+    Then I should be able to see all field related recipient details in 'Add Recipient ' popup as below
       | First name mandatory text box                                                      |
       | Middle name text box                                                               |
       | last name mandatory text box                                                       |
@@ -32,11 +32,11 @@ Feature: Add address popup
       | cancel button                                                                      |
 
   #Positive
-  Scenario Outline: Verifying functionality of "Add recipient" ( with all valid details)
+  Scenario Outline: Verifying functionality of 'Add recipient' ( with all valid details)
     When I entered <valid data> in <respective fields>.
-    And I clicked on "Contunue" button.
+    And I clicked on 'Contunue' button.
     Then I should be able to add my entered recipient  address  with its details in my account page.
-    And I should be able to redirected on "my account" and  popup window should be closed.
+    And I should be able to redirected on 'my account' and  popup window should be closed.
 
     Examples: 
       | valid first         | First name text field     |
@@ -49,35 +49,35 @@ Feature: Add address popup
       | valid city name     | City text field           |
       | valid Province name | Province text field       |
 
-  Scenario: Verifying functionality of "use this as my default account" check box in add recipient popup.
+  Scenario: Verifying functionality of 'use this as my default account' check box in add recipient popup.
     Given: I entered all valid details in required fields.
 
-    When I checked "use this as my default account" check box .
-    And I clicked on "Submit" button.
+    When I checked 'use this as my default account' check box .
+    And I clicked on 'Submit' button.
     Then I should be able to see this added recipient as default recipient address in my account page.
 
-  Scenario: Verifying functionality of "cancel" icon at popup.
-    When I clicked on "Canceled" icon of add credit card popup.
+  Scenario: Verifying functionality of 'cancel' icon at popup.
+    When I clicked on 'Canceled' icon of add credit card popup.
     Then add recipient popup should be canceled
     And I should be able to see my account page on my screen.
 
   #Negative
-  Scenario: Verifying  functionality of "Add recipient" without entering any data in fields.
-    When I clicked on "Continue" button without entered any data in fields.
+  Scenario: Verifying  functionality of 'Add recipient' without entering any data in fields.
+    When I clicked on 'Continue' button without entered any data in fields.
     Then I submit button should not be clickable.
     And I should be able to see all required field are highlighted with red marks.
     And no action should be  performed
 
-  Scenario: Verifying functionality of cancel button in "Add recipient" pop up
-    When I clicked on "cancel" button without entered any data in fields.
-    Then I should be able to see "Cancel" button is in disable mode.
+  Scenario: Verifying functionality of cancel button in 'Add recipient' pop up
+    When I clicked on 'cancel' button without entered any data in fields.
+    Then I should be able to see 'Cancel' button is in disable mode.
     And I should not be able to click on it.
 
-  Scenario Outline: Verifying functionality of "Add recipient" with datails to only one required filed.
+  Scenario Outline: Verifying functionality of 'Add recipient' with datails to only one required filed.
     When I enter <data> in only  <required field>
-    And I clicked on "submit" button.
+    And I clicked on 'submit' button.
     Then I should be able to see <result> on my screen.
-    And I should be able to see error message "please entered all required information" on my screen.
+    And I should be able to see error message 'please entered all required information' on my screen.
 
     Examples: 
       | data                       | required field | result |
@@ -88,8 +88,8 @@ Feature: Add address popup
       | Hyderabad                  | City           |        |
       |                     500081 | postal code    |        |
 
-  Scenario Outline: validating "First name " text box in "Add recipient" (with invalid data)
-    When I entere<invalid data> in "First name" text box .
+  Scenario Outline: validating 'First name ' text box in 'Add recipient' (with invalid data)
+    When I entere<invalid data> in 'First name' text box .
     Then I should be able to see <result> on my screen.
 
     Examples: 
@@ -100,8 +100,8 @@ Feature: Add address popup
       | gsdjgh@hd32424      | it should not be expectable by text box |
       | baby@1233           | it should not be expectable by text box |
 
-  Scenario Outline: Verifying "Last name " text box in "Add recipient" (with invalid data)
-    When I entere<invalid data> in "Last name" text box .
+  Scenario Outline: Verifying 'Last name ' text box in 'Add recipient' (with invalid data)
+    When I entere<invalid data> in 'Last name' text box .
     Then I should be able to see <result> on my screen.
 
     Examples: 
@@ -112,8 +112,8 @@ Feature: Add address popup
       | gsdjgh@hd32424      | it should not be expectable by text box |
       | baby@1233           | it should not be expectable by text box |
 
-  Scenario Outline: Verifying "Email address" text box "Add recipient" (with invalid datas)
-    When I entere<invalid data> in "Email address" text box .
+  Scenario Outline: Verifying 'Email address' text box 'Add recipient' (with invalid datas)
+    When I entere<invalid data> in 'Email address' text box .
     Then I should be able to see <result> on my screen.
 
     Examples: 
@@ -125,8 +125,8 @@ Feature: Add address popup
       | baby@1233             | it should not be expectable by text box |
       | baby.kumari@ggdfk.com |                                         |
 
-  Scenario Outline: Verifying "Phone number " text box in "Add recipient" (with invalid datas)
-    When I entere<invalid data> in "phone number" text box .
+  Scenario Outline: Verifying 'Phone number ' text box in 'Add recipient' (with invalid datas)
+    When I entere<invalid data> in 'phone number' text box .
     Then I should be able to see <result> on my screen.
 
     Examples: 
@@ -138,8 +138,8 @@ Feature: Add address popup
       | baby@1233           | it should not be expectable by text box |
       |   98764716582351699 | it should not be expectable by text box |
 
-  Scenario Outline: Verifying "postal code " text box in "Add recipient" popup (with invalid datas)
-    When I entere<invalid data> in "postal code" text box .
+  Scenario Outline: Verifying 'postal code ' text box in 'Add recipient' popup (with invalid datas)
+    When I entere<invalid data> in 'postal code' text box .
     Then I should be able to see <result> on my screen.
 
     Examples: 
@@ -152,10 +152,10 @@ Feature: Add address popup
       |   98764716582351699 | it should not be expectable by text box |
       |            12356974 | it should not be expectable by text box |
 
-  Scenario Outline: Verifying functionality of "Add recipient"  and other valid data.
+  Scenario Outline: Verifying functionality of 'Add recipient'  and other valid data.
     When I entered <one one invalid data> in <Related field>
     And I entered valid datas in remaining fields.
-    And I clicked on "Submit" button.
+    And I clicked on 'Submit' button.
     Then I should be able to see error message  <Result> on my screen.
 
     Examples: 

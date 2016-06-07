@@ -1,4 +1,4 @@
-Feature: Verifying "FAQs" page.
+Feature: Verifying 'FAQs' page.
 
   Background: This is common for all scenarios.
     Given I am in FAQ page
@@ -6,7 +6,7 @@ Feature: Verifying "FAQs" page.
 
   #Availability
   Scenario Outline: Verify categories availabile in FAQs page
-    Then I should see <Category>category below of "Shop N Zip FAQs" title.
+    Then I should see <Category>category below of 'Shop N Zip FAQs' title.
 
     Examples: 
       | Category                     |
@@ -16,8 +16,8 @@ Feature: Verifying "FAQs" page.
       | General Shipping Information |
       | Returns                      |
 
-  Scenario: Verifying availability of "Contact Us" link
-    Then I should be able to see  "Contact Us" link in page
+  Scenario: Verifying availability of 'Contact Us' link
+    Then I should be able to see  'Contact Us' link in page
 
   Scenario: Verify availablity of ad slots
     And I should see there are three ad slots displayed in the page
@@ -35,6 +35,6 @@ Feature: Verifying "FAQs" page.
       | General Shipping Information |
       | Returns                      |
 
-  Scenario: Verifying functionality of "Contact Us" link
-    When I clicked on "Contact Us" link
-    Then I should be navigated to "Contact Us" page where I can ask FAQs
+  Scenario: Verifying functionality of 'Contact Us' link
+    When I clicked on 'Contact Us' link
+    Then I should be navigated to 'Contact Us' page where I can ask FAQs

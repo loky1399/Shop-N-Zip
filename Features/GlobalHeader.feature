@@ -56,9 +56,9 @@ Feature: Global Header
     Then I should see ad slot is displayed in header
 
   #Possitive
-  Scenario: Verifying the functionality of "Shop N Zip" logo in header section.
-    When I click on "Shop N Zip" logo in  header.
-    Then I should be redirected to "Shop N Zip" home page.
+  Scenario: Verifying the functionality of 'Shop N Zip' logo in header section.
+    When I click on 'Shop N Zip' logo in  header.
+    Then I should be redirected to 'Shop N Zip' home page.
 
   Scenario Outline: Verify the links functionality in header
     Then I should see the link <links in header> is displayed in the header

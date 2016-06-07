@@ -2,12 +2,12 @@ Feature: Shop Now page
 
   Background: 
     Given I entered Shop N Zip url in the borwser and click on go
-    And I clicked on "Hamburger" in left corner of header.
-    Then I should see "Shop Now " page on my screen with its details.
-    When I click on "Shop Now" link
+    And I clicked on 'Hamburger' in left corner of header.
+    Then I should see 'Shop Now ' page on my screen with its details.
+    When I click on 'Shop Now' link
 
-  Scenario: Verifying availability of "Shop n Zip Deals" title with all the 3rd party links which are in tie-up with Shop N Zip
-    Then I should be able to see  "Shop n Zip Deals" title with all the 3rd party links which are in tie-up with Shop N Zip
+  Scenario: Verifying availability of 'Shop n Zip Deals' title with all the 3rd party links which are in tie-up with Shop N Zip
+    Then I should be able to see  'Shop n Zip Deals' title with all the 3rd party links which are in tie-up with Shop N Zip
     And I should see two 3rd party links in each row.
 
   Scenario: Verifying availability of deals list

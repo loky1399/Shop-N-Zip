@@ -6,11 +6,11 @@ Feature: Registration to Shop N Zip application
   #Availability
   Scenario: Verify the Sign Up button is displayed in header
     Given I am in home page
-    Then I should see "Sign Up" button in header
+    Then I should see 'Sign Up' button in header
 
   Scenario: Verify the Sign Up button is displayed in About us page
     Given I am in About us page
-    Then I should see "Sign Up" button
+    Then I should see 'Sign Up' button
 
   Scenario: Verify the Sign Up button is not displayed in About us page (when user logged in)
     Given I am in About us page
@@ -19,7 +19,7 @@ Feature: Registration to Shop N Zip application
 
   Scenario: Verify the Sign Up button is displayed in FAQ page
     Given I am in FAQ page
-    Then I should see "Sign Up" button
+    Then I should see 'Sign Up' button
 
   Scenario: Verify the Sign Up button is not displayed in FAQ page (when user logged in)
     Given I am in FAQ page
@@ -28,7 +28,7 @@ Feature: Registration to Shop N Zip application
 
   Scenario: Verifying the Sign Up button is displayed in How It Works page
     Given I am in How It Works page
-    Then I should see "Sign Up" button
+    Then I should see 'Sign Up' button
 
   Scenario: Verifying the Sign Up button is not displayed in How It Works page (when user logged in)
     Given I am in How It Works page
@@ -37,7 +37,7 @@ Feature: Registration to Shop N Zip application
 
   Scenario: Verifying the Sign Up button is displayed in Shop Now page
     Given I am in Shop Now page
-    Then I should see "Sign Up" button
+    Then I should see 'Sign Up' button
 
   Scenario: Verifying the Sign Up button is not displayed in Shop Now page (when user logged in)
     Given I am in Shop Now page
@@ -46,18 +46,18 @@ Feature: Registration to Shop N Zip application
 
   Scenario: Verifying the Sign Up button is displayed in Carousel in home page
     Given I am in home page
-    Then I should see "Sign Up" button
+    Then I should see 'Sign Up' button
 
   Scenario: Verifying the Sign Up button is not displayed in Carousel in home page (when user logged in)
     Given I am in home page
     And I logged in
     Then I should not see the sign up button in the current page
 
-  Scenario: Verify the title of sign up form as "Or Creat a new TFC account!"
+  Scenario: Verify the title of sign up form as 'Or Creat a new TFC account!'
     Given I am in home page
-    And I should see "Sign Up" button in header
-    When I click on "Sign Up" button
-    Then I should see "Or Creat a new TFC account!" heading at Sign Up form
+    And I should see 'Sign Up' button in header
+    When I click on 'Sign Up' button
+    Then I should see 'Or Creat a new TFC account!' heading at Sign Up form
 
   Scenario Outline: Verifying the availability of fields in Sign Up form
     Given I am in Sign Up page
@@ -114,14 +114,14 @@ Scenario Outline: Verifying the availability of mandatory fields in Sign Up form
     And Registered with valid details
     Then I should see Registration is successful
 
-  Scenario: verify the "welcome" pop up after successful sign up
+  Scenario: verify the 'welcome' pop up after successful sign up
     Given I am in Sign Up page
     And I completed sign up
     Then I should see a welcome pop up
-    And I should see "Thank you for registering with us" text along with User name
-    And I should see "Your shop N zip ID" text along with ID
-    And I should see "Your Shop N Zip address" text along with shop N zip US location address
-    And I should see "Start shopping" button
+    And I should see 'Thank you for registering with us' text along with User name
+    And I should see 'Your shop N zip ID' text along with ID
+    And I should see 'Your Shop N Zip address' text along with shop N zip US location address
+    And I should see 'Start shopping' button
     
         Scenario: Verify the Sign In verification link exipre time
       Given I am in sign up page
@@ -147,7 +147,7 @@ Scenario Outline: Verifying the availability of mandatory fields in Sign Up form
     When I logged out
     And click on same verficatoin link again in email 
     Then I should be redirected to shop n zip application
-    And I should see a message saying "Your email is already been verified"
+    And I should see a message saying 'Your email is already been verified'
     
     
      Scenario: verify the Sign in verification link functionality(of not a verified link after one year)
@@ -156,11 +156,11 @@ Scenario Outline: Verifying the availability of mandatory fields in Sign Up form
     Then I should get verification link to the specified email address
     When I click on verficatoin link in email after one year
     Then I should be redirected to shop n zip application
-    And I should see a message saying "Your link is either incorrect or expired" 
+    And I should see a message saying 'Your link is either incorrect or expired' 
   #Negative
   Scenario: Verifying the functionality of Sign Up (without Entering any of the fields)
     Given I am in Sign Up page
-    And I clicked on "Register now" button
+    And I clicked on 'Register now' button
     Then it should see registration is unsuccessful
 
   Scenario: Verifying the functionality of Sign Up (without Entering details to Name field)

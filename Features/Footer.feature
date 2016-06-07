@@ -10,7 +10,7 @@ Feature: Footer  Header
     Then I should see the footer section in the home page.
 
   Scenario: Verify background color  of Footer
-    Then I should see the footer section in "Black" background color.
+    Then I should see the footer section in 'Black' background color.
 
   Scenario: Verifying the availability of Elements present in footer.
     Then I should see <Elements> in footer.
@@ -38,10 +38,10 @@ Feature: Footer  Header
       | Tearms and Conditions |
       | Contact Us            |
 
-  Scenario: Verifying functionality of "Terms and Conditions " link in footer.
-    When I clicked on "Terms and Conditions " link in footer.
-    Then I should be redirected on "Terms and Conditions" page of Shop N Zip.
+  Scenario: Verifying functionality of 'Terms and Conditions ' link in footer.
+    When I clicked on 'Terms and Conditions ' link in footer.
+    Then I should be redirected on 'Terms and Conditions' page of Shop N Zip.
 
-  Scenario: Verifying functionality of "Contact Us" link in footer.
-    When I clicked on "Contact Us " link in footer.
-    Then I should be redirected on "Contact Us" page of Shop N Zip.
+  Scenario: Verifying functionality of 'Contact Us' link in footer.
+    When I clicked on 'Contact Us ' link in footer.
+    Then I should be redirected on 'Contact Us' page of Shop N Zip.

@@ -1,12 +1,11 @@
 Feature: Shop Now page
 
   Background: 
-    Given I am in "Shop Now" page
-    Then I should see "Shop Now" is highlighted in header
-
+    Given I am in 'Shop Now' page
+    Then I should see 'Shop Now' is highlighted in header
   #Availablity
-  Scenario: Verifying availability of "Shop n Zip Deals" title all the 3rd party links which are in tie-up with Shop N Zip
-    Then I should be able to see  "Shop n Zip Deals" title with all the 3rd party links which are in tie-up with Shop N Zip
+  Scenario: Verifying availability of 'Shop n Zip Deals' title all the 3rd party links which are in tie-up with Shop N Zip
+    Then I should be able to see  'Shop n Zip Deals' title with all the 3rd party links which are in tie-up with Shop N Zip
 
   Scenario: Verifying availability of deals list
     Then I should be able to see list of  deals
