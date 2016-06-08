@@ -60,9 +60,9 @@ public class Registration extends BaseClass {
 	public void i_logged_in() throws Throwable {
 		
 		HeaderLinks.SignIn_Menulink().click();
-		SignIn.signIn_with_TFC_credentials_EmailIdTextbox().sendKeys("");
-		SignIn.signIn_with_TFC_credentials_PassWordTextbox().sendKeys("");
-		SignIn.signIn_with_TFC_credentials_SignInButton().click();
+		SignIn.with_TFC_credentials_EmailIdTextbox().sendKeys("");
+		SignIn.with_TFC_credentials_PassWordTextbox().sendKeys("");
+		SignIn.with_TFC_credentials_SignInButton().click();
 	}
 
 	@Then("^I should not see the sign up button in the current page$")

@@ -3,7 +3,7 @@ Feature: Sign In page
   # Availability
   Scenario: Verify the Sign In link is displayed in header
     Given I am in home page
-    Then I should see 'Sign In' link in header
+    Then I should see 'Sign In' link
 
   Scenario: Verify the Sign In link is displayed in About us page
     Given I am in About us page
@@ -71,7 +71,7 @@ Feature: Sign In page
   Scenario Outline: Verify the items displayed in the drop down list at user name
     When I logged in
     And I click on the drop dwon at user name in header
-    Then I should se the item <items in the drop list> is displayed in the drop list
+    Then I should see the option <items in the drop list> is displayed in the drop list
 
     Examples: Following are the items displayed in the drop down at user name
       | items in the drop list |
@@ -84,7 +84,7 @@ Feature: Sign In page
   #Possitive Functionality
   Scenario Outline: Verify functionality of 'Sign In' using social network icons
     Given I am in sign In page
-    And I clicked on <socila network icon > icon in signin page
+    When I clicked on <socila network icon > icon in signin page
     Then I should should see a pop up is displayed to log in with <socila network icon> credentials
     When I logged in with valid <socila network icon> log in credentials
     Then I should see log in is successful
