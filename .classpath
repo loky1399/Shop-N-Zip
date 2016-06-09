@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5"/>
-	<classpathentry kind="lib" path="D:/lib/selenium-java-2.48.2.jar"/>
-	<classpathentry kind="lib" path="D:/lib/selenium-server-standalone-2.53.0.jar"/>
-	<classpathentry kind="lib" path="D:/lib/jxl-2.6.jar"/>
-	<classpathentry kind="lib" path="D:/Cucumber_JarFiles/cobertura-2.1.1.jar"/>
-	<classpathentry kind="lib" path="D:/Cucumber_JarFiles/cucumber-core-1.2.2.jar" sourcepath="C:/Users/user/.m2/repository/info/cukes/cucumber-core/1.2.2/cucumber-core-1.2.2-sources.jar"/>
-	<classpathentry kind="lib" path="D:/Cucumber_JarFiles/cucumber-html-0.2.3.jar"/>
-	<classpathentry kind="lib" path="D:/Cucumber_JarFiles/cucumber-java-1.2.2.jar"/>
-	<classpathentry kind="lib" path="D:/Cucumber_JarFiles/cucumber-junit-1.2.2.jar"/>
-	<classpathentry kind="lib" path="D:/Cucumber_JarFiles/cucumber-jvm-deps-1.0.3.jar"/>
-	<classpathentry kind="lib" path="D:/Cucumber_JarFiles/cucumber-reporting-0.1.0.jar"/>
-	<classpathentry kind="lib" path="D:/Cucumber_JarFiles/cucumber-testng-1.2.2.jar"/>
-	<classpathentry kind="lib" path="D:/Cucumber_JarFiles/gherkin-2.12.2.jar"/>
-	<classpathentry kind="lib" path="D:/Cucumber_JarFiles/mockito-all-2.0.2-beta.jar"/>
-	<classpathentry kind="lib" path="D:/lib/htmlunit-core-js-2.17.jar"/>
-	<classpathentry kind="lib" path="D:/lib/log4j.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="D:/BDD_Project/lib/cobertura-2.1.1.jar"/>
+	<classpathentry kind="lib" path="D:/BDD_Project/lib/cucumber-core-1.2.2.jar"/>
+	<classpathentry kind="lib" path="D:/BDD_Project/lib/cucumber-html-0.2.3.jar"/>
+	<classpathentry kind="lib" path="D:/BDD_Project/lib/cucumber-java-1.2.2.jar"/>
+	<classpathentry kind="lib" path="D:/BDD_Project/lib/cucumber-junit-1.2.4.jar"/>
+	<classpathentry kind="lib" path="D:/BDD_Project/lib/cucumber-jvm-deps-1.0.3.jar"/>
+	<classpathentry kind="lib" path="D:/BDD_Project/lib/cucumber-reporting-0.1.0.jar"/>
+	<classpathentry kind="lib" path="D:/BDD_Project/lib/gherkin-2.12.2.jar"/>
+	<classpathentry kind="lib" path="D:/BDD_Project/lib/jxl-2.6.jar"/>
+	<classpathentry kind="lib" path="D:/BDD_Project/lib/log4j.jar"/>
+	<classpathentry kind="lib" path="D:/BDD_Project/lib/mockito-all-2.0.2-beta.jar"/>
+	<classpathentry kind="lib" path="D:/BDD_Project/lib/selenium-java-2.53.0.jar"/>
+	<classpathentry kind="lib" path="D:/BDD_Project/lib/selenium-server-standalone-2.53.0.jar"/>
+	<classpathentry kind="lib" path="D:/BDD_Project/lib/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="D:/BDD_Project/lib/commons-lang3-3.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
