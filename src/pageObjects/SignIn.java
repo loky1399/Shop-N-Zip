@@ -71,45 +71,75 @@ public class SignIn extends BaseClass {
 		return element;
 
 	}
-	
+
 	public static WebElement welcomePopup_welcomeBackLableTitle() {
 		element = driver.findElement(By
 				.xpath("//h4[@class='modal-title text-center']"));
 		return element;
 
 	}
-	
+
 	public static WebElement welcomePopup_UserName() {
-		element = driver.findElement(By
-				.xpath(".//*[@id='p_lt_WebPartZone5_ZonePlaceHolder_pageplaceholder_p_lt_WebPartZone11_ZoneRealSignUp_ShopNZipLoginPopUp_lblmodalfirstname']"));
+		element = driver
+				.findElement(By
+						.xpath(".//*[@id='p_lt_WebPartZone5_ZonePlaceHolder_pageplaceholder_p_lt_WebPartZone11_ZoneRealSignUp_ShopNZipLoginPopUp_lblmodalfirstname']"));
 		return element;
 
 	}
-	
+
 	public static WebElement welcomePopup_yourShopNZipIDlableTitle() {
 		element = driver.findElement(By
 				.xpath(".//*[@id='myModal5']/div/div/div[2]/h5[1]"));
 		return element;
 
 	}
-	
+
 	public static WebElement welcomePopup_yourShopNZipID() {
 		element = driver.findElement(By
 				.xpath(".//*[@id='myModal5']/div/div/div[2]/h5[1]/span"));
 		return element;
 
 	}
+
 	public static WebElement welcomePopup_yourShopNZipAddressLableTitle() {
 		element = driver.findElement(By
 				.xpath(".//*[@id='myModal5']/div/div/div[2]/h5[2]"));
 		return element;
 
 	}
-	
+
 	public static WebElement welcomePopup_yourShopNZipAddress() {
-		element = driver.findElement(By
-				.xpath(".//*[@id='p_lt_WebPartZone5_ZonePlaceHolder_pageplaceholder_p_lt_WebPartZone11_ZoneRealSignUp_ShopNZipLoginPopUp_lblmodaladdress']"));
+		element = driver
+				.findElement(By
+						.xpath(".//*[@id='p_lt_WebPartZone5_ZonePlaceHolder_pageplaceholder_p_lt_WebPartZone11_ZoneRealSignUp_ShopNZipLoginPopUp_lblmodaladdress']"));
 		return element;
 
+	}
+
+	public static WebElement welcomePopup() {
+		element = driver.findElement(By.xpath("//div[@class='modal-dialog']"));
+		return element;
+
+	}
+
+	public static WebElement welcomePopup_MyItemsButton() {
+		element = driver
+				.findElement(By
+						.xpath(".//*[@id='p_lt_WebPartZone5_ZonePlaceHolder_pageplaceholder_p_lt_WebPartZone11_ZoneRealSignUp_ShopNZipLoginPopUp_btnMyItems']"));
+		return element;
+	}
+	
+	public static WebElement emailId_validation() {
+		element = driver
+				.findElement(By
+						.xpath("//div[@class='UserNameformError parentFormform formError']/div[1]"));
+		return element;
+	}
+	
+	public static WebElement password_validation() {
+		element = driver
+				.findElement(By
+						.xpath("//div[@class='PasswordformError parentFormform formError']/div[1]"));
+		return element;
 	}
 }

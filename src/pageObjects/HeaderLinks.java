@@ -4,9 +4,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class HeaderLinks extends BaseClass {
-	public static BaseClass bc = BaseClass.getInstance();
-	public static WebDriver driver = bc.driver;
+import stepDefinitions.Hooks;
+
+public class HeaderLinks {
+	
+	public static WebDriver driver=Hooks.driver;
 	public static WebElement element = null;
 
 	public static WebElement howItWorks_Menulink() {
