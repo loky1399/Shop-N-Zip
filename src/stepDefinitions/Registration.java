@@ -13,14 +13,9 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class Registration extends BaseClass {
-
-	@Given("^I am in home page$")
-	public void i_am_in_home_page() throws Throwable {
-		driver.get("home page URL");
-		// AboutUs.aboutus_Menulink().sendKeys("");
-	}
-
+public class Registration  {
+public WebDriver driver;
+	
 	@Then("^I should see \"(.*?)\" button in header$")
 	public void i_should_see_button_in_header(String arg1) throws Throwable {
 		boolean signup_button = HeaderLinks.signUp_Menulink().isDisplayed();
@@ -55,16 +50,6 @@ public class Registration extends BaseClass {
 			System.out.println("This scenario is fail");
 		}
 	}
-
-	@Given("^I logged in$")
-	public void i_logged_in() throws Throwable {
-		
-		HeaderLinks.SignIn_Menulink().click();
-		SignIn.with_TFC_credentials_EmailIdTextbox().sendKeys("");
-		SignIn.with_TFC_credentials_PassWordTextbox().sendKeys("");
-		SignIn.with_TFC_credentials_SignInButton().click();
-	}
-
 	@Then("^I should not see the sign up button in the current page$")
 	public void i_should_not_see_the_sign_up_button_in_the_current_page()
 			throws Throwable {

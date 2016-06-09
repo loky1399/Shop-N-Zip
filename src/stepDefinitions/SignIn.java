@@ -1,20 +1,28 @@
 package stepDefinitions;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 import pageObjects.BaseClass;
 import pageObjects.HeaderLinks;
 import utils.Constant;
 import utils.Utils;
-import cucumber.api.DataTable;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class SignIn extends BaseClass {
+public class SignIn{
+
+	public static WebDriver driver=Hooks.driver;
+	
+	@Given("^I am in home page$")
+	public void i_am_in_home_page() throws Throwable {
+		driver.get("http://demo24kentico8.raybiztech.com");
+		Thread.sleep(3000);
+		// AboutUs.aboutus_Menulink().sendKeys("");
+	}
+
 
 	@Then("^I should see 'Sign In' link$")
 	public void i_should_see_Sign_In_link() throws Throwable {
@@ -309,12 +317,18 @@ public class SignIn extends BaseClass {
 		}
 	}
 
-	
 	@Then("^I should should see a pop up is displayed to log in with Facebook credentials$")
 	public void i_should_should_see_a_pop_up_is_displayed_to_log_in_with_Facebook_credentials()
 			throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try {
+			Utils.switchToNewWindow();
+			String title = driver.getTitle();
+			Assert.assertEquals(title, "Facebook");
+		} catch (Exception e) {
+			Utils.takeScreenshot("Login_with_Facebook");
+			Assert.fail("failed to log in with facebook credentials");
+		}
+
 	}
 
 	@When("^I logged in with valid Facebook log in credentials$")
@@ -326,21 +340,36 @@ public class SignIn extends BaseClass {
 
 	@Then("^I should see log in is successful$")
 	public void i_should_see_log_in_is_successful() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try {
+			Assert.assertTrue(pageObjects.SignIn.welcomePopup().isDisplayed());
+		} catch (Exception e) {
+			Utils.takeScreenshot("SignIn_successful");
+			Assert.fail("welcome pop up after sign in not displayed");
+		}
 	}
 
 	@Then("^I should see the user name in header$")
-	public void i_should_see_the_user_name_in_header() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+	public void i_should_see_the_user_name_in_header()
+			throws Throwable {
+		try {
+			Assert.assertTrue(HeaderLinks.userNameDropdown().isDisplayed());
+		} catch (Exception e) {
+			Utils.takeScreenshot("I should see the user name in header");
+			Assert.fail("user name is either wrong or not displayed");
+		}
 	}
 
 	@Then("^I should should see a pop up is displayed to log in with Twitter credentials$")
 	public void i_should_should_see_a_pop_up_is_displayed_to_log_in_with_Twitter_credentials()
 			throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try {
+			Utils.switchToNewWindow();
+			String title = driver.getTitle();
+			Assert.assertEquals(title, "Twitter / Authorize an application");
+		} catch (Exception e) {
+			Utils.takeScreenshot("Login_with_Twitter");
+			Assert.fail("failed to log in with Twitter credentials");
+		}
 	}
 
 	@When("^I logged in with valid Twitter log in credentials$")
@@ -353,8 +382,14 @@ public class SignIn extends BaseClass {
 	@Then("^I should should see a pop up is displayed to log in with Google\\+ credentials$")
 	public void i_should_should_see_a_pop_up_is_displayed_to_log_in_with_Google_credentials()
 			throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try {
+			Utils.switchToNewWindow();
+			String title = driver.getTitle();
+			Assert.assertEquals(title, "Sign in - Google Accounts");
+		} catch (Exception e) {
+			Utils.takeScreenshot("Login_with_Google Accounts");
+			Assert.fail("failed to log in with Google Accounts credentials");
+		}
 	}
 
 	@When("^I logged in with valid Google\\+ log in credentials$")
@@ -366,248 +401,553 @@ public class SignIn extends BaseClass {
 
 	@When("^I Entered valid email address$")
 	public void i_Entered_valid_email_address() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try {
+			if (pageObjects.SignIn.with_TFC_credentials_EmailIdTextbox()
+					.isDisplayed()) {
+				pageObjects.SignIn.with_TFC_credentials_EmailIdTextbox()
+						.sendKeys(Constant.userName_Hemant);
+			} else {
+				Utils.takeScreenshot("I Entered valid email address");
+				Assert.fail("email id fiels is not displayed in sign in page");
+			}
+		} catch (Exception e) {
+			Utils.takeScreenshot("I Entered valid email address");
+			Assert.fail("failed to enter email address in sign in form");
+		}
 	}
 
 	@When("^I entered correct password$")
 	public void i_entered_correct_password() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try {
+			if (pageObjects.SignIn.with_TFC_credentials_EmailIdTextbox()
+					.isDisplayed()) {
+				pageObjects.SignIn.with_TFC_credentials_EmailIdTextbox()
+						.sendKeys(Constant.password_UserHemant);
+			} else {
+				Utils.takeScreenshot("I Entered valid email address");
+				Assert.fail("email id fiels is not displayed in sign in page");
+			}
+		} catch (Exception e) {
+			Utils.takeScreenshot("I Entered valid email address");
+			Assert.fail("failed to enter email address in sign in form");
+		}
 	}
 
 	@When("^I selected 'remember me' check box$")
 	public void i_selected_remember_me_check_box() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try {
+			if (pageObjects.SignIn.checkBox_RememberMe().isDisplayed()) {
+				if (!pageObjects.SignIn.checkBox_RememberMe().isSelected()) {
+					pageObjects.SignIn.checkBox_RememberMe().click();
+				} else {
+					Assert.assertTrue(true);
+				}
+			} else {
+				Utils.takeScreenshot("select_RemeberMe_checkBox");
+				Assert.fail("check box is not displayed");
+			}
+		} catch (Exception e) {
+			Utils.takeScreenshot("select_RemeberMe_checkBox");
+			Assert.fail("failed to select the remember me check box");
+		}
 	}
 
 	@When("^click on Sign in button$")
 	public void click_on_Sign_in_button() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try {
+			if (pageObjects.SignIn.with_TFC_credentials_SignInButton()
+					.isDisplayed()
+					&& pageObjects.SignIn.with_TFC_credentials_SignInButton()
+							.isEnabled()) {
+				pageObjects.SignIn.with_TFC_credentials_SignInButton().click();
+			} else {
+				Utils.takeScreenshot("click_SignIn_button");
+				Assert.fail("sign button is either not displayed or not enabled");
+			}
+		} catch (Exception e) {
+			Utils.takeScreenshot("click_SignIn_button");
+			Assert.fail("failed to click on sign in button");
+		}
 	}
 
 	@Then("^I should see the log in is successful$")
 	public void i_should_see_the_log_in_is_successful() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try {
+			Assert.assertTrue(pageObjects.SignIn.welcomePopup().isDisplayed());
+		} catch (Exception e) {
+			Utils.takeScreenshot("SignIn_successful");
+			Assert.fail("welcome pop up after sign in not displayed");
+		}
 	}
 
 	@When("^I navigated to sign in page again$")
 	public void i_navigated_to_sign_in_page_again() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		driver.navigate().to(Constant.SignIn_URL);
 	}
 
 	@Then("^I should see the Email Address is auto filled with remembered email address$")
 	public void i_should_see_the_Email_Address_is_auto_filled_with_remembered_email_address()
 			throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try {
+			String EmailFieldValue = pageObjects.SignIn
+					.with_TFC_credentials_EmailIdTextbox().getText();
+			boolean value = EmailFieldValue.isEmpty();
+			if (!value) {
+				Assert.assertTrue(!value);
+			} else {
+				Utils.takeScreenshot("remember_emailID");
+				Assert.fail("remember email address functionality failed");
+			}
+		} catch (Exception e) {
+			Utils.takeScreenshot("remember_emailID");
+			Assert.fail("remember me functionality failed");
+		}
+
 	}
 
 	@Then("^I should see the Password field is auto filled with remembered password$")
-	public void i_should_see_the_Password_field_is_auto_filled_with_remembered_password(
-			DataTable arg1) throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		// For automatic transformation, change DataTable to one of
-		// List<YourType>, List<List<E>>, List<Map<K,V>> or Map<K,V>.
-		// E,K,V must be a scalar (String, Integer, Date, enum etc)
-		throw new PendingException();
+	public void i_should_see_the_Password_field_is_auto_filled_with_remembered_password()
+			throws Throwable {
+		try {
+			String PasswordFieldValue = pageObjects.SignIn
+					.with_TFC_credentials_ForgotpasswordLink().getText();
+			boolean value = PasswordFieldValue.isEmpty();
+			if (!value) {
+				Assert.assertTrue(!value);
+			} else {
+				Utils.takeScreenshot("remember_password");
+				Assert.fail("remember me functionality failed");
+			}
+		} catch (Exception e) {
+			Utils.takeScreenshot("remember_emailID");
+			Assert.fail("remember email address functionality failed");
+		}
 	}
 
 	@When("^I clicked on forgot password link$")
 	public void i_clicked_on_forgot_password_link() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try {
+			if (pageObjects.SignIn.with_TFC_credentials_ForgotpasswordLink()
+					.isDisplayed()) {
+				pageObjects.SignIn.with_TFC_credentials_ForgotpasswordLink()
+						.click();
+			} else {
+				Utils.takeScreenshot("click_ForgotPasswordLink");
+				Assert.fail("forgot password link is not displayed");
+			}
+		} catch (Exception e) {
+			Utils.takeScreenshot("click_ForgotPasswordLink");
+			Assert.fail("failed to click forgot password link");
+		}
 	}
 
 	@Then("^I should be be navigated to Forgot Password page$")
 	public void i_should_be_be_navigated_to_Forgot_Password_page()
 			throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try {
+			Assert.assertEquals(driver.getTitle(),
+					"Shop n Zip - Forgot Password");
+		} catch (Exception e) {
+			Utils.takeScreenshot("click_ForgotPasswordLink");
+			Assert.fail("forgot password link is redirected to wrong page");
+		}
 	}
 
-	@When("^I logged in |#Email id||# password|$")
-	public void i_logged_in_Email_id_password() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+	@When("^I logged in$")
+	public void i_logged_in() throws Throwable {
+		try {
+			if (HeaderLinks.SignIn_Menulink().isDisplayed()) {
+				HeaderLinks.SignIn_Menulink().click();
+				pageObjects.SignIn.with_TFC_credentials_EmailIdTextbox()
+						.sendKeys(Constant.userName_Hemant);
+				pageObjects.SignIn.with_TFC_credentials_PassWordTextbox()
+						.sendKeys(Constant.password_UserHemant);
+				pageObjects.SignIn.with_TFC_credentials_SignInButton().click();
+			} else {
+				Utils.takeScreenshot("SignIn");
+				Assert.fail("sign in link is not displayed in the header");
+			}
+		} catch (Exception e) {
+			Utils.takeScreenshot("SignIn");
+			Assert.fail("failed to sign in");
+		}
 	}
 
 	@Then("^I should see 'Welcome Back' popup$")
 	public void i_should_see_Welcome_Back_popup() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try {
+			Assert.assertTrue(pageObjects.SignIn.welcomePopup().isDisplayed());
+		} catch (Exception e) {
+			Utils.takeScreenshot("SignIn");
+			Assert.fail("welcome pop up after sign in not displayed");
+		}
 	}
 
 	@Then("^I should see 'Welcome back' text along with User name$")
-	public void i_should_see_Welcome_back_text_along_with_User_name()
-			throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+	public void i_should_see_Welcome_back_text_along_with_User_name(
+			String nameOfTheUser) throws Throwable {
+		try {
+			if (pageObjects.SignIn.welcomePopup().isDisplayed()) {
+				Assert.assertEquals(pageObjects.SignIn
+						.welcomePopup_welcomeBackLableTitle().getText().trim(),
+						"THANKYOU FOR REGISTERING WITH US");
+				Assert.assertEquals(pageObjects.SignIn.welcomePopup_UserName(),
+						nameOfTheUser);
+			} else {
+				Utils.takeScreenshot("SignIn");
+				Assert.fail("welcome pop up is not displayed");
+			}
+		} catch (Exception e) {
+			Utils.takeScreenshot("SignIn");
+			Assert.fail("either \"Welcome Back\" lable along with user name is not displayed or user name is wrong");
+		}
 	}
 
 	@Then("^I should see 'Your shop N zip ID' text along with ID$")
-	public void i_should_see_Your_shop_N_zip_ID_text_along_with_ID()
-			throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+	public void i_should_see_Your_shop_N_zip_ID_text_along_with_ID(
+			String shopNzipId) throws Throwable {
+		try {
+			if (pageObjects.SignIn.welcomePopup().isDisplayed()) {
+				Assert.assertEquals(pageObjects.SignIn
+						.welcomePopup_yourShopNZipIDlableTitle().getText()
+						.trim(), "YOUR SHOP N ZIP ID: ");
+				Assert.assertEquals(
+						pageObjects.SignIn.welcomePopup_yourShopNZipID(),
+						shopNzipId);
+			} else {
+				Utils.takeScreenshot("SignIn");
+				Assert.fail("welcome pop up is not displayed");
+			}
+		} catch (Exception e) {
+			Utils.takeScreenshot("SignIn");
+			Assert.fail("either \"Your shop N zip ID\" lable along with ID is not displayed or ID is wrong");
+		}
 	}
 
 	@Then("^I should see 'Your Shop N Zip address' text along with shop N zip US location address$")
 	public void i_should_see_Your_Shop_N_Zip_address_text_along_with_shop_N_zip_US_location_address()
 			throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try {
+			if (pageObjects.SignIn.welcomePopup().isDisplayed()) {
+				Assert.assertEquals(pageObjects.SignIn
+						.welcomePopup_yourShopNZipAddressLableTitle().getText()
+						.trim(), "YOUR SHOP N ZIP ADDRESS:");
+				Assert.assertTrue(pageObjects.SignIn
+						.welcomePopup_yourShopNZipAddress()
+						.getText()
+						.trim()
+						.equals(Constant.userName_Hemant
+								+ "c/o Shop n Zip SZ0W23S4" + " "
+								+ "150 Shoreline Drive," + " "
+								+ "Redwood City,California,94065"));
+			} else {
+				Utils.takeScreenshot("SignIn");
+				Assert.fail("welcome pop up is not displayed");
+			}
+		} catch (Exception e) {
+			Utils.takeScreenshot("SignIn");
+			Assert.fail("either \"Your Shop N Zip address\" lable along with shop N zip US location address is not displayed or shop N zip US location address is wrong");
+		}
 	}
 
 	@Then("^I should see 'My Items' button$")
 	public void i_should_see_My_Items_button() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try {
+			if (pageObjects.SignIn.welcomePopup().isDisplayed()) {
+				Assert.assertTrue(pageObjects.SignIn
+						.welcomePopup_MyItemsButton().isDisplayed());
+				Assert.assertTrue(pageObjects.SignIn
+						.welcomePopup_MyItemsButton().isEnabled());
+			} else {
+				Utils.takeScreenshot("SignIn");
+				Assert.fail("welcome pop up is not displayed");
+			}
+		} catch (Exception e) {
+			Utils.takeScreenshot("SignIn");
+			Assert.fail("my items button is either not displayed or not clickable");
+		}
 	}
 
 	@When("^I click on 'My Items' button$")
 	public void i_click_on_My_Items_button() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try {
+			if (pageObjects.SignIn.welcomePopup().isDisplayed()) {
+				if (pageObjects.SignIn.welcomePopup_MyItemsButton()
+						.isDisplayed()
+						&& pageObjects.SignIn.welcomePopup_MyItemsButton()
+								.isEnabled()) {
+					pageObjects.SignIn.welcomePopup_MyItemsButton().click();
+				} else {
+					Utils.takeScreenshot("Click_MyItemButton_signIn");
+					Assert.fail("my items button is either not displayed or not clickable");
+				}
+			} else {
+				Utils.takeScreenshot("SignIn");
+				Assert.fail("welcome pop up is not displayed");
+			}
+		} catch (Exception e) {
+			Utils.takeScreenshot("SignIn");
+			Assert.fail("my items button is either not displayed or not clickable");
+		}
 	}
 
 	@Then("^I should be redicted to 'My Items' page$")
 	public void i_should_be_redicted_to_My_Items_page() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try {
+			Assert.assertEquals(driver.getTitle().trim(),
+					"Shop n Zip - My Items");
+		} catch (Exception e) {
+			Utils.takeScreenshot("navigateTo_MyItemsPage");
+			Assert.fail("navigated to wrong page instead of my items page");
+		}
 	}
 
 	@Given("^I Logged in with TFC login credentials$")
 	public void i_Logged_in_with_TFC_login_credentials() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try {
+			if (HeaderLinks.SignIn_Menulink().isDisplayed()) {
+				HeaderLinks.SignIn_Menulink().click();
+				pageObjects.SignIn.with_TFC_credentials_EmailIdTextbox()
+						.sendKeys(Constant.userName_Hemant);
+				pageObjects.SignIn.with_TFC_credentials_PassWordTextbox()
+						.sendKeys(Constant.password_UserHemant);
+				pageObjects.SignIn.with_TFC_credentials_SignInButton().click();
+			} else {
+				Utils.takeScreenshot("SignIn");
+				Assert.fail("sign in link is not displayed in the header");
+			}
+		} catch (Exception e) {
+			Utils.takeScreenshot("SignIn");
+			Assert.fail("failed to sign in");
+		}
 	}
 
 	@Then("^I should see the log in is succesful$")
 	public void i_should_see_the_log_in_is_succesful() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try {
+			Assert.assertTrue(pageObjects.SignIn.welcomePopup().isDisplayed());
+		} catch (Exception e) {
+			Utils.takeScreenshot("SignIn_successful");
+			Assert.fail("welcome pop up after sign in not displayed");
+		}
 	}
 
 	@Then("^I click on the item My Items in drop list$")
 	public void i_click_on_the_item_My_Items_in_drop_list() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try {
+			if (HeaderLinks.userNameDropdown().isDisplayed()) {
+				HeaderLinks.userNameDropdown().click();
+				HeaderLinks.userNameDropdown_MyItems().click();
+			} else {
+				Utils.takeScreenshot("click_myItemsLink");
+				Assert.fail("user name dropdown in not displayed");
+			}
+		} catch (Exception e) {
+			Utils.takeScreenshot("click_myItemsLink");
+			Assert.fail("failed to click my items link");
+		}
 	}
 
 	@Then("^I click on the item My Accounts in drop list$")
 	public void i_click_on_the_item_My_Accounts_in_drop_list() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try {
+			if (HeaderLinks.userNameDropdown().isDisplayed()) {
+				HeaderLinks.userNameDropdown().click();
+				HeaderLinks.userNameDropdown_MyAccount().click();
+			} else {
+				Utils.takeScreenshot("click_myAccountLink");
+				Assert.fail("user name dropdown in not displayed");
+			}
+		} catch (Exception e) {
+			Utils.takeScreenshot("click_myAccountsLink");
+			Assert.fail("failed to click my accounts link");
+		}
 	}
 
 	@Then("^I click on the item Track My Packages in drop list$")
 	public void i_click_on_the_item_Track_My_Packages_in_drop_list()
 			throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try {
+			if (HeaderLinks.userNameDropdown().isDisplayed()) {
+				HeaderLinks.userNameDropdown().click();
+				HeaderLinks.userNameDropdown_TrackMyPackage().click();
+			} else {
+				Utils.takeScreenshot("click_trackMyPackageLink");
+				Assert.fail("user name dropdown in not displayed");
+			}
+		} catch (Exception e) {
+			Utils.takeScreenshot("click_trackMyPackageLink");
+			Assert.fail("failed to click track my package link");
+		}
 	}
 
 	@Then("^I click on the item My Profile in drop list$")
 	public void i_click_on_the_item_My_Profile_in_drop_list() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try {
+			if (HeaderLinks.userNameDropdown().isDisplayed()) {
+				HeaderLinks.userNameDropdown().click();
+				HeaderLinks.userNameDropdown_MyProfile().click();
+			} else {
+				Utils.takeScreenshot("click_myProfileLink");
+				Assert.fail("user name dropdown in not displayed");
+			}
+		} catch (Exception e) {
+			Utils.takeScreenshot("click_myProfileLink");
+			Assert.fail("failed to click my profile link");
+		}
 	}
 
 	@Then("^I click on the item Logout in drop list$")
 	public void i_click_on_the_item_Logout_in_drop_list() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
-	}
-
-	@When("^I clicked on 'Sign In' button$")
-	public void i_clicked_on_Sign_In_button() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try {
+			if (HeaderLinks.userNameDropdown().isDisplayed()) {
+				HeaderLinks.userNameDropdown().click();
+				HeaderLinks.userNameDropdown_Logout().click();
+			} else {
+				Utils.takeScreenshot("click_logout");
+				Assert.fail("user name dropdown in not displayed");
+			}
+		} catch (Exception e) {
+			Utils.takeScreenshot("click_myProfileLink");
+			Assert.fail("failed to click log out");
+		}
 	}
 
 	@Then("^I should see the log in is unsuccesful$")
 	public void i_should_see_the_log_in_is_unsuccesful() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try {
+			Assert.assertTrue(!pageObjects.SignIn.welcomePopup().isDisplayed());
+		} catch (Exception e) {
+			Utils.takeScreenshot("SignIn_successful");
+			Assert.fail("welcome pop up after sign in not displayed");
+		}
 	}
 
 	@Then("^I should see a validation message is displayed as 'Please fill out this field' at every field$")
-	public void i_should_see_a_validation_message_is_displayed_as_Please_fill_out_this_field_at_every_field()
-			throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+	public void i_should_see_a_validation_message_is_displayed_as_Please_fill_out_this_field_at_every_field(
+			String validationMessage) throws Throwable {
+		try {
+			Assert.assertTrue(pageObjects.SignIn.emailId_validation()
+					.isDisplayed());
+			Assert.assertTrue(pageObjects.SignIn.password_validation()
+					.isDisplayed());
+		} catch (Exception e) {
+			Utils.takeScreenshot("SignIn_fieldValidations");
+			Assert.fail("failed to see the field validation messages in sign in page");
+		}
 	}
 
-	@When("^I entered valid email in Email Address field #Email id$")
+	@When("^I entered valid email in Email Address field$")
 	public void i_entered_valid_email_in_Email_Address_field_Email_id()
 			throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try {
+			pageObjects.SignIn.with_TFC_credentials_EmailIdTextbox().sendKeys(
+					Constant.userName_Hemant);
+		} catch (Exception e) {
+			Utils.takeScreenshot("enter_Valid_emailID");
+			Assert.fail("failed to check the email id field validation");
+		}
 	}
 
 	@When("^I left password field blank$")
 	public void i_left_password_field_blank() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try {
+			Assert.assertTrue(true, "left password field blank");
+		} catch (Exception e) {
+			Utils.takeScreenshot("leave_passwordBlank");
+			Assert.fail();
+		}
 	}
 
 	@When("^I clicked on sign in button$")
 	public void i_clicked_on_sign_in_button() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try {
+			pageObjects.SignIn.with_TFC_credentials_SignInButton().click();
+		} catch (Exception e) {
+			Utils.takeScreenshot("click_signInButton");
+			Assert.fail("failed to click on sign in button");
+		}
 	}
 
 	@Then("^I should see a validation message is displayed as 'Please fill out this field' at password field$")
 	public void i_should_see_a_validation_message_is_displayed_as_Please_fill_out_this_field_at_password_field()
 			throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try {
+			Assert.assertTrue(pageObjects.SignIn.password_validation()
+					.isDisplayed());
+		} catch (Exception e) {
+			Utils.takeScreenshot("password_validation");
+			Assert.fail("failed to check the password field validation");
+		}
 	}
 
 	@When("^I left email id field blank$")
 	public void i_left_email_id_field_blank() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try {
+			Assert.assertTrue(true, "left password field blank");
+		} catch (Exception e) {
+			Utils.takeScreenshot("leave_EmailIDfield_Blank");
+			Assert.fail();
+		}
 	}
 
-	@When("^I entered valid Password in password field #password$")
+	@When("^I entered valid Password in password field$")
 	public void i_entered_valid_Password_in_password_field_password()
 			throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try {
+			pageObjects.SignIn.with_TFC_credentials_PassWordTextbox().sendKeys(
+					Constant.password_UserHemant);
+		} catch (Exception e) {
+			Utils.takeScreenshot("enter_Valid_password");
+			Assert.fail("failed to check the password field validation");
+		}
 	}
 
 	@Then("^I should see a validation message is displayed as 'Please fill out this field' at Email Address field$")
 	public void i_should_see_a_validation_message_is_displayed_as_Please_fill_out_this_field_at_Email_Address_field()
 			throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try {
+			Assert.assertTrue(pageObjects.SignIn.emailId_validation()
+					.isDisplayed());
+		} catch (Exception e) {
+			Utils.takeScreenshot("emailID_validation");
+			Assert.fail("failed to check the email id field validation");
+		}
 	}
 
-	@When("^I entered invalid Email address in Email Address field #Invalid email id$")
+	@When("^I entered invalid Email address in Email Address field$")
 	public void i_entered_invalid_Email_address_in_Email_Address_field_Invalid_email_id()
 			throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try {
+			pageObjects.SignIn.with_TFC_credentials_EmailIdTextbox().sendKeys(Utils.generateRandomEmail(25));
+		} catch (Exception e) {
+			Utils.takeScreenshot("enter_InValid_email");
+			Assert.fail("failed to check the email field validation");
+		}
 	}
 
-	@When("^I entered password in password field #password$")
+	@When("^I entered password in password field$")
 	public void i_entered_password_in_password_field_password()
 			throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try {
+			pageObjects.SignIn.with_TFC_credentials_PassWordTextbox().sendKeys(
+					Constant.password_UserHemant);
+		} catch (Exception e) {
+			Utils.takeScreenshot("enter_Valid_password");
+			Assert.fail("failed to check the password field validation");
+		}
 	}
 
 	@Then("^I should see a validation message is displayed as 'Email Address is invalid' at Email Address field$")
 	public void i_should_see_a_validation_message_is_displayed_as_Email_Address_is_invalid_at_Email_Address_field()
 			throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try {
+			Assert.assertTrue(pageObjects.SignIn.emailId_validation()
+					.isDisplayed());
+		} catch (Exception e) {
+			Utils.takeScreenshot("emailID_validation");
+			Assert.fail("failed to check the email id field validation");
+		}
 	}
 
 }
