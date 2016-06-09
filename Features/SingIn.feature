@@ -1,6 +1,8 @@
+
 Feature: Sign In page
 
   # Availability
+
   Scenario: Verify the Sign In link is displayed in header
     Given I am in home page
     Then I should see 'Sign In' link
@@ -42,6 +44,7 @@ Feature: Sign In page
     Given I am in Sing in page
     Then I should see 'Remember me' check box is selected by default
 
+ 
   Scenario: verify the Sign in button color
     Given I am in Sing in page
     Then I should see 'Sign In' button is displayed in orange color
@@ -108,7 +111,6 @@ Feature: Sign In page
     And I navigated to sign in page again
     Then I should see the Email Address is auto filled with remembered email address
     And I should see the Password field is auto filled with remembered password
-      | #Email id |  | # password |
 
   Scenario: verifying the functionality of 'Forgot Password' link
     Given I am in sign In page
@@ -117,7 +119,7 @@ Feature: Sign In page
 
   Scenario: Verifying 'Welcomeback' popup after success logg in
     Given I am in sign In page
-    When I logged in |#Email id||# password|
+    When I logged in
     Then I should see 'Welcome Back' popup
     And I should see 'Welcome back' text along with User name
     And I should see 'Your shop N zip ID' text along with ID
@@ -126,7 +128,7 @@ Feature: Sign In page
 
   Scenario: Verifying the functionality of 'My Items' button in 'Welcome Back'  popup page
     Given I am in sign In page
-    When I logged in |#Email id||# password|
+    When I logged in
     Then I should see 'Welcome Back' popup
     When I click on 'My Items' button
     Then I should be redicted to 'My Items' page
@@ -159,7 +161,7 @@ Feature: Sign In page
 
   Scenario: Verifying functionality of 'Sign In ' (without providing password)
     Given I am in sign In page
-    When I entered valid email in Email Address field #Email id
+    When I entered valid email in Email Address field
     And I left password field blank
     And I clicked on sign in button
     Then I should see the log in is unsuccesful
@@ -168,15 +170,15 @@ Feature: Sign In page
   Scenario: Verifying functionality of 'Sign In ' (without providing Email Address)
     Given I am in sign In page
     When I left email id field blank
-    And I entered valid Password in password field #password
+    And I entered valid Password in password field
     And I clicked on sign in button
     Then I should see the log in is unsuccesful
     And I should see a validation message is displayed as 'Please fill out this field' at Email Address field
 
   Scenario: Verifying functionality of 'Sign In ' (with Invalid Email Address)
     Given I am in sign In page
-    When I entered invalid Email address in Email Address field #Invalid email id
-    And I entered password in password field #password
+    When I entered invalid Email address in Email Address field
+    And I entered password in password field
     When I clicked on sign in button
     Then I should see the log in is unsuccesful
     And I should see a validation message is displayed as 'Email Address is invalid' at Email Address field
