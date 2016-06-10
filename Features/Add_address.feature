@@ -39,6 +39,7 @@ Feature: Add address popup
     And I should be able to redirected on 'my account' and  popup window should be closed.
 
     Examples: 
+      | valid data          | respective fields         |
       | valid first         | First name text field     |
       | valid last name     | Last name text field      |
       | Valid email address | email address text fields |

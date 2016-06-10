@@ -83,8 +83,8 @@ Feature: My items page
 
     Examples: 
       | icon | change           |
-      | +    | increases(add)   |
-      | -    | decrease(reduse) |
+      | plus   | increases(add)   |
+      | minus   | decrease(reduse) |
 
   Scenario: Verifying availability of 'Order History' section  with 'back to current order' below of 'Ship my items' button in page
     Then I should be able to see 'Order History' section  with 'back to current order' below of 'Ship my items' button in page

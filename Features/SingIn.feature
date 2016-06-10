@@ -1,12 +1,11 @@
-
 Feature: Sign In page
 
   # Availability
-
   Scenario: Verify the Sign In link is displayed in header
     Given I am in home page
     Then I should see 'Sign In' link
 
+  @MyTest @firefox
   Scenario: Verify the Sign In link is displayed in About us page
     Given I am in About us page
     Then I should see 'Sign In' link
@@ -44,7 +43,6 @@ Feature: Sign In page
     Given I am in Sing in page
     Then I should see 'Remember me' check box is selected by default
 
- 
   Scenario: verify the Sign in button color
     Given I am in Sing in page
     Then I should see 'Sign In' button is displayed in orange color
