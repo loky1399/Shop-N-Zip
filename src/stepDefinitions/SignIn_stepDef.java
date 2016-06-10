@@ -12,7 +12,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class SignIn{
+public class SignIn_stepDef{
 
 	public static WebDriver driver=Hooks.driver;
 	

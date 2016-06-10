@@ -13,7 +13,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class Registration  {
+public class Registration_stepDef  {
 public WebDriver driver;
 	
 	@Then("^I should see \"(.*?)\" button in header$")

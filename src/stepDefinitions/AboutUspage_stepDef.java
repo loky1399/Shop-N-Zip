@@ -8,7 +8,7 @@ import pageObjects.AboutUs;
 import pageObjects.BaseClass;
 import pageObjects.HeaderLinks;
 
-public class AboutUspage  extends BaseClass{
+public class AboutUspage_stepDef  extends BaseClass{
 	@Given("^I am in Shop N Zip site$")
 	public void i_am_in_Shop_N_Zip_site() throws Throwable {
 	    
