@@ -8,7 +8,11 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class HomePage_stepDef {
-	public static WebDriver driver = Hooks.driver;
+	public static WebDriver driver;
+
+	public HomePage_stepDef() {
+		driver = Hooks.driver;
+	}
 
 	@Given("^I am in Home Page$")
 	public void i_am_in_Home_Page() throws Throwable {

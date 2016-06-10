@@ -9,8 +9,11 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class Add_address_stepDef {
+	public static WebDriver driver;
 
-	public static WebDriver driver = Hooks.driver;
+	public Add_address_stepDef() {
+		driver = Hooks.driver;
+	}
 
 	@When("^I logged In$")
 	public void i_logged_In() throws Throwable {

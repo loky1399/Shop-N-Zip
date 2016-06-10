@@ -8,7 +8,11 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class ChangePassword_stepDef {
-	public static WebDriver driver = Hooks.driver;
+	public static WebDriver driver;
+
+	public ChangePassword_stepDef() {
+		driver = Hooks.driver;
+	}
 
 	@When("^I click on 'my profile' under my user name drop down in header$")
 	public void i_click_on_my_profile_under_my_user_name_drop_down_in_header()

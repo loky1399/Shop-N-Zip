@@ -8,7 +8,11 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class MyAccount_stepDef {
-	public static WebDriver driver = Hooks.driver;
+	public static WebDriver driver;
+
+	public MyAccount_stepDef() {
+		driver = Hooks.driver;
+	}
 
 	@Given("^I clicked on my username drop-down$")
 	public void i_clicked_on_my_username_drop_down() throws Throwable {

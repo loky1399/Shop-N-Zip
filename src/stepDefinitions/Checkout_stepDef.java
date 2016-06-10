@@ -1,4 +1,4 @@
-package stepDefinitions;
+ package stepDefinitions;
 
 import org.openqa.selenium.WebDriver;
 
@@ -9,7 +9,11 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class Checkout_stepDef {
-public static WebDriver driver=Hooks.driver;
+	public static WebDriver driver;
+
+	public Checkout_stepDef() {
+		driver = Hooks.driver;
+	}
 @Given("^I navigated to 'My Items' page$")
 public void i_navigated_to_My_Items_page() throws Throwable {
     // Write code here that turns the phrase above into concrete actions

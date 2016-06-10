@@ -8,8 +8,11 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class Footer_stepDef {
-	public static WebDriver driver = Hooks.driver;
+	public static WebDriver driver;
 
+	public Footer_stepDef() {
+		driver = Hooks.driver;
+	}
 	@Then("^I should see the footer section in the home page\\.$")
 	public void i_should_see_the_footer_section_in_the_home_page()
 			throws Throwable {

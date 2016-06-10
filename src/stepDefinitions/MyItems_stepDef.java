@@ -9,7 +9,11 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class MyItems_stepDef {
-	public static WebDriver driver = Hooks.driver;
+	public static WebDriver driver;
+
+	public MyItems_stepDef() {
+		driver = Hooks.driver;
+	}
 
 	@When("^I selected  'My items' from drop down option$")
 	public void i_selected_My_items_from_drop_down_option() throws Throwable {

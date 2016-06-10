@@ -9,7 +9,11 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class OrderConfirmation_stepDef {
-	public static WebDriver driver = Hooks.driver;
+	public static WebDriver driver;
+
+	public OrderConfirmation_stepDef() {
+		driver = Hooks.driver;
+	}
 
 	@Given("^I have shopped some items earlier$")
 	public void i_have_shopped_some_items_earlier() throws Throwable {

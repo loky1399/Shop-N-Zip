@@ -9,7 +9,11 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class TrackPackage_stepDef {
-	public static WebDriver driver = Hooks.driver;
+	public static WebDriver driver;
+
+	public TrackPackage_stepDef() {
+		driver = Hooks.driver;
+	}
 
 	@Then("^I should see 'Track your Package' block in home page$")
 	public void i_should_see_Track_your_Package_block_in_home_page()

@@ -8,7 +8,11 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class ForgotPassword_stepDef {
-	public static WebDriver driver = Hooks.driver;
+	public static WebDriver driver;
+
+	public ForgotPassword_stepDef() {
+		driver = Hooks.driver;
+	}
 
 	@Given("^I am in Sign in page$")
 	public void i_am_in_Sign_in_page() throws Throwable {

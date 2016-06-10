@@ -7,7 +7,11 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class ShippingCostCalculator_stepDef {
-	public static WebDriver driver = Hooks.driver;
+	public static WebDriver driver;
+
+	public ShippingCostCalculator_stepDef() {
+		driver = Hooks.driver;
+	}
 
 	@Then("^I should see the 'Shipping Cost Calculator' section$")
 	public void i_should_see_the_Shipping_Cost_Calculator_section()

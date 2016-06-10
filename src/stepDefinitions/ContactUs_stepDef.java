@@ -8,7 +8,11 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class ContactUs_stepDef {
-	public static WebDriver driver = Hooks.driver;
+	public static WebDriver driver;
+
+	public ContactUs_stepDef() {
+		driver = Hooks.driver;
+	}
 
 	@Then("^I should see the 'Contact Us' link in the footer$")
 	public void i_should_see_the_Contact_Us_link_in_the_footer()

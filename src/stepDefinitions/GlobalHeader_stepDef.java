@@ -8,7 +8,11 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class GlobalHeader_stepDef {
-	public static WebDriver driver = Hooks.driver;
+	public static WebDriver driver;
+
+	public GlobalHeader_stepDef() {
+		driver = Hooks.driver;
+	}
 
 	@Given("^I entered Shop N Zip url in the borwser and click on go$")
 	public void i_entered_Shop_N_Zip_url_in_the_borwser_and_click_on_go()

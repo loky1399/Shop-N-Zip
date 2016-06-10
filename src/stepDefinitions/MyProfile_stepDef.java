@@ -9,7 +9,11 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class MyProfile_stepDef {
-	public static WebDriver driver = Hooks.driver;
+	public static WebDriver driver;
+
+	public MyProfile_stepDef() {
+		driver = Hooks.driver;
+	}
 
 	@When("^I selected  'My Profile' from drop down option$")
 	public void i_selected_My_Profile_from_drop_down_option() throws Throwable {

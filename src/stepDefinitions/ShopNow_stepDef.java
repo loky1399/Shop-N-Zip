@@ -8,7 +8,11 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class ShopNow_stepDef {
-	public static WebDriver driver = Hooks.driver;
+	public static WebDriver driver;
+
+	public ShopNow_stepDef() {
+		driver = Hooks.driver;
+	}
 
 	@Given("^I am in 'Shop Now' page$")
 	public void i_am_in_Shop_Now_page() throws Throwable {

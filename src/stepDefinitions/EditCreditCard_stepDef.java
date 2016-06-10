@@ -8,7 +8,11 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class EditCreditCard_stepDef {
-	public static WebDriver driver = Hooks.driver;
+	public static WebDriver driver;
+
+	public EditCreditCard_stepDef() {
+		driver = Hooks.driver;
+	}
 
 	@When("^I clicked on drop-down at username in header$")
 	public void i_clicked_on_drop_down_at_username_in_header() throws Throwable {

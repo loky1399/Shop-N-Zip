@@ -8,7 +8,11 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 
 public class HowItWorks_stepDef {
-	public static WebDriver driver = Hooks.driver;
+	public static WebDriver driver;
+
+	public HowItWorks_stepDef() {
+		driver = Hooks.driver;
+	}
 
 	@Given("^I am in 'How It Works' page$")
 	public void i_am_in_How_It_Works_page() throws Throwable {
