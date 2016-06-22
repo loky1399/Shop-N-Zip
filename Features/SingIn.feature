@@ -1,37 +1,30 @@
 Feature: Sign In page
 
   # Availability
-  @MyTest
   Scenario: Verify the Sign In link is displayed in header
     Given I am in home page
     Then I should see 'Sign In' link
 
-  @MyTest
   Scenario: Verify the Sign In link is displayed in About us page
     Given I am in About us page
     Then I should see 'Sign In' link
 
-  @MyTest
   Scenario: Verify the Sign In link is displayed in FAQ page
     Given I am in FAQ page
     Then I should see 'Sign In' link
 
-  @MyTest
   Scenario: Verify the Sign In link is displayed in How It Works page
     Given I am in How It Works page
     Then I should see 'Sign In' link
 
-  @MyTest
   Scenario: Verify the Sign In link is displayed in Shop Now page
     Given I am in Shop Now page
     Then I should see 'Sign In' link
 
-  @MyTest
   Scenario: Verify the Sign In link is displayed in Carousel in home page
     Given I am in home page
     Then I should see 'Sign In' link
 
-  @MyTest
   Scenario: Verify the Sign In button is displayed in Sing up page
     Given I am in Sing up page
     Then I should see 'Sign In' button
@@ -49,6 +42,7 @@ Feature: Sign In page
     Given I am in Sing in page
     Then I should see 'Remember me' check box is selected by default
 
+  @MyTest
   Scenario: verify the Sign in button color
     Given I am in Sing in page
     Then I should see 'Sign In' button is displayed in orange color

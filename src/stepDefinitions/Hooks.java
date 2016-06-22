@@ -1,6 +1,7 @@
 package stepDefinitions;
 
 import java.net.MalformedURLException;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -28,6 +29,8 @@ public class Hooks {
 		System.out.println("Called openBrowser");
 		driver = new FirefoxDriver();
 		driver.manage().deleteAllCookies();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
 
 	@After
@@ -49,7 +52,7 @@ public class Hooks {
 			}
 
 		}
-//		driver.quit();
+		// driver.quit();
 
 	}
 

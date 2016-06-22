@@ -2,20 +2,20 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="D:/BDD_Project/lib/cobertura-2.1.1.jar"/>
-	<classpathentry kind="lib" path="D:/BDD_Project/lib/cucumber-core-1.2.2.jar"/>
-	<classpathentry kind="lib" path="D:/BDD_Project/lib/cucumber-html-0.2.3.jar"/>
-	<classpathentry kind="lib" path="D:/BDD_Project/lib/cucumber-java-1.2.2.jar"/>
-	<classpathentry kind="lib" path="D:/BDD_Project/lib/cucumber-junit-1.2.4.jar"/>
-	<classpathentry kind="lib" path="D:/BDD_Project/lib/cucumber-jvm-deps-1.0.3.jar"/>
-	<classpathentry kind="lib" path="D:/BDD_Project/lib/cucumber-reporting-0.1.0.jar"/>
-	<classpathentry kind="lib" path="D:/BDD_Project/lib/gherkin-2.12.2.jar"/>
-	<classpathentry kind="lib" path="D:/BDD_Project/lib/jxl-2.6.jar"/>
-	<classpathentry kind="lib" path="D:/BDD_Project/lib/log4j.jar"/>
-	<classpathentry kind="lib" path="D:/BDD_Project/lib/mockito-all-2.0.2-beta.jar"/>
-	<classpathentry kind="lib" path="D:/BDD_Project/lib/selenium-java-2.53.0.jar"/>
-	<classpathentry kind="lib" path="D:/BDD_Project/lib/selenium-server-standalone-2.53.0.jar"/>
-	<classpathentry kind="lib" path="D:/BDD_Project/lib/dom4j-1.6.1.jar"/>
-	<classpathentry kind="lib" path="D:/BDD_Project/lib/commons-lang3-3.4.jar"/>
+	<classpathentry kind="lib" path="D:/lib_SNZ/cobertura-2.1.1.jar"/>
+	<classpathentry kind="lib" path="D:/lib_SNZ/commons-lang3-3.4.jar"/>
+	<classpathentry kind="lib" path="D:/lib_SNZ/cucumber-core-1.2.2.jar"/>
+	<classpathentry kind="lib" path="D:/lib_SNZ/cucumber-html-0.2.3.jar"/>
+	<classpathentry kind="lib" path="D:/lib_SNZ/cucumber-java-1.2.2.jar"/>
+	<classpathentry kind="lib" path="D:/lib_SNZ/cucumber-junit-1.2.4.jar"/>
+	<classpathentry kind="lib" path="D:/lib_SNZ/cucumber-jvm-deps-1.0.3.jar"/>
+	<classpathentry kind="lib" path="D:/lib_SNZ/cucumber-reporting-0.1.0.jar"/>
+	<classpathentry kind="lib" path="D:/lib_SNZ/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="D:/lib_SNZ/gherkin-2.12.2.jar"/>
+	<classpathentry kind="lib" path="D:/lib_SNZ/jxl-2.6.jar"/>
+	<classpathentry kind="lib" path="D:/lib_SNZ/log4j.jar"/>
+	<classpathentry kind="lib" path="D:/lib_SNZ/mockito-all-2.0.2-beta.jar"/>
+	<classpathentry kind="lib" path="D:/lib_SNZ/selenium-java-2.53.0.jar"/>
+	<classpathentry kind="lib" path="D:/lib_SNZ/selenium-server-standalone-2.53.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

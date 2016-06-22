@@ -1,9 +1,14 @@
 package stepDefinitions;
 
+import java.util.List;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 import pageObjects.HeaderLinks;
+import pageObjects.SignIn;
 import utils.Constant;
 import utils.Utils;
 import cucumber.api.PendingException;
@@ -24,7 +29,6 @@ public class SignIn_stepDef {
 			driver.get("http://demo24kentico8.raybiztech.com");
 			Assert.assertEquals(driver.getTitle().trim(), "Shop n Zip - Home");
 		} catch (Exception e) {
-			System.out.println(e);
 			Assert.fail("driver not in home page");
 		}
 	}
@@ -34,7 +38,6 @@ public class SignIn_stepDef {
 		try {
 			Assert.assertTrue(HeaderLinks.SignIn_Menulink(driver).isDisplayed());
 		} catch (Exception e) {
-			System.out.println(e);
 			Assert.fail("SignIn link is not visible");
 		}
 	}
@@ -56,7 +59,6 @@ public class SignIn_stepDef {
 			Assert.assertTrue(HeaderLinks.SignIn_Menulink(driver).isDisplayed()
 					&& HeaderLinks.SignIn_Menulink(driver).isEnabled());
 		} catch (Exception e) {
-			Utils.takeScreenshot("SignIn_Button_Visibilty");
 			Assert.fail("Sign in button is not displayed");
 		}
 	}
@@ -73,7 +75,6 @@ public class SignIn_stepDef {
 			Assert.assertEquals(pageObjects.SignIn.with_socialNWtitle(driver)
 					.getText(), "Sign in using your Social Network");
 		} catch (Exception e) {
-			Utils.takeScreenshot("title_SignIn_using_your_scoial_network");
 			Assert.fail("Sign in using your social network title is not correct");
 		}
 	}
@@ -86,7 +87,6 @@ public class SignIn_stepDef {
 					pageObjects.SignIn.with_TFC_credentials_title(driver)
 							.getText(), "Or use your TFC credentials!");
 		} catch (Exception e) {
-			Utils.takeScreenshot("title_SignIn_using_TFC_credetials");
 			Assert.fail("Sign in using TFC credentials title is not correct");
 		}
 	}
@@ -104,11 +104,9 @@ public class SignIn_stepDef {
 				Assert.assertTrue(pageObjects.SignIn
 						.checkBox_RememberMe(driver).isSelected());
 			} else {
-				Utils.takeScreenshot("checkBox_SignInPage");
 				Assert.fail("Check box is not in selected state by default");
 			}
 		} catch (Exception e) {
-			Utils.takeScreenshot("checkBox_SignInPage");
 			Assert.fail("Check box is not in selected state by default");
 		}
 	}
@@ -117,19 +115,25 @@ public class SignIn_stepDef {
 	public void i_should_see_Sign_In_button_is_displayed_in_orange_color()
 			throws Throwable {
 		try {
-			String buttonColor = pageObjects.SignIn
-					.with_TFC_credentials_SignInButton(driver)
-					.getAttribute("background").toString();
-			if (pageObjects.SignIn.with_TFC_credentials_SignInButton(driver)
-					.isDisplayed()) {
-				Assert.assertTrue(buttonColor
-						.endsWith("rgba(0, 0, 0, 0) linear-gradient(180deg, #f60 0px, #f30) repeat scroll 0 0"));
-			} else {
-				Utils.takeScreenshot("SignIn_Button_Color");
-				Assert.fail("sign in button color is not orange");
-			}
+			System.out
+					.println(driver
+							.findElement(
+									By.cssSelector(".signin_content .signin_main .tfc_block .btn"))
+							.getCssValue(arg0));
+			// String buttonColor = pageObjects.SignIn
+			// .with_TFC_credentials_SignInButton(driver)
+			// .getCssValue("background").toString();
+			// Utils.highlightelement(SignIn.emailId_validation(driver));
+			// String buttonColor=element.getCssValue("background").toString();
+			// System.out.println(buttonColor);
+			// if (pageObjects.SignIn.with_TFC_credentials_SignInButton(driver)
+			// .isDisplayed()) {
+			// Assert.assertTrue(buttonColor
+			// .endsWith("rgba(0, 0, 0, 0) linear-gradient(180deg, #f60 0px, #f30) repeat scroll 0 0"));
+			// } else {
+			// Assert.fail("sign in button color is not orange");
+			// }
 		} catch (Exception e) {
-			Utils.takeScreenshot("color of sign in button");
 			Assert.fail("failed to check the color of the sign in button");
 		}
 	}
@@ -140,7 +144,6 @@ public class SignIn_stepDef {
 			Assert.assertTrue(pageObjects.SignIn
 					.with_TFC_credentials_EmailIdTextbox(driver).isDisplayed());
 		} catch (Exception e) {
-			Utils.takeScreenshot("emailIDfield_signInPage");
 			Assert.fail("failed to check the email id field availability in sign in page");
 		}
 	}
@@ -151,7 +154,6 @@ public class SignIn_stepDef {
 			Assert.assertTrue(pageObjects.SignIn
 					.with_TFC_credentials_PassWordTextbox(driver).isDisplayed());
 		} catch (Exception e) {
-			Utils.takeScreenshot("passwordField_signInPage");
 			Assert.fail("failed to check the password field availability in sign in page");
 		}
 	}
@@ -162,7 +164,6 @@ public class SignIn_stepDef {
 			Assert.assertTrue(pageObjects.SignIn
 					.with_TFC_credentials_SignInButton(driver).isDisplayed());
 		} catch (Exception e) {
-			Utils.takeScreenshot("signIn_signInPage");
 			Assert.fail("failed to check the sign in button availability in sign in page");
 		}
 	}
@@ -173,7 +174,6 @@ public class SignIn_stepDef {
 			Assert.assertTrue(pageObjects.SignIn.checkBox_RememberMe(driver)
 					.isDisplayed());
 		} catch (Exception e) {
-			Utils.takeScreenshot("rememberMeCheckBox_signInPage");
 			Assert.fail("failed to check the remember me checkbox availability in sign in page");
 		}
 	}
@@ -185,7 +185,6 @@ public class SignIn_stepDef {
 					.with_TFC_credentials_ForgotpasswordLink(driver)
 					.isDisplayed());
 		} catch (Exception e) {
-			Utils.takeScreenshot("forgotPasswordLink_signInPage");
 			Assert.fail("failed to check the forgot password link availability in sign in page");
 		}
 	}
@@ -196,7 +195,6 @@ public class SignIn_stepDef {
 			Assert.assertTrue(pageObjects.SignIn.with_socialNW_FaceBook(driver)
 					.isDisplayed());
 		} catch (Exception e) {
-			Utils.takeScreenshot("facebookIcon_signInPage");
 			Assert.fail("failed to check the facebook icon availability in sign in page");
 		}
 	}
@@ -207,7 +205,6 @@ public class SignIn_stepDef {
 			Assert.assertTrue(pageObjects.SignIn.with_socialNW_Twitter(driver)
 					.isDisplayed());
 		} catch (Exception e) {
-			Utils.takeScreenshot("twitterIcon_signInPage");
 			Assert.fail("failed to check the twittor icon availability in sign in page");
 		}
 	}
@@ -218,7 +215,6 @@ public class SignIn_stepDef {
 			Assert.assertTrue(pageObjects.SignIn.with_socialNW_googlePlus(
 					driver).isDisplayed());
 		} catch (Exception e) {
-			Utils.takeScreenshot("googlePlusIcon_signInPage");
 			Assert.fail("failed to check the gooleplus icon availability in sign in page");
 		}
 	}
@@ -230,11 +226,9 @@ public class SignIn_stepDef {
 			if (HeaderLinks.userNameDropdown(driver).isDisplayed()) {
 				HeaderLinks.userNameDropdown(driver).click();
 			} else {
-				Utils.takeScreenshot("UserName_Dropdown");
 				Assert.fail("failed to click the user name drop down");
 			}
 		} catch (Exception e) {
-			Utils.takeScreenshot("UserName_Dropdown");
 			Assert.fail("failed to click the user name drop down");
 		}
 	}
@@ -248,11 +242,9 @@ public class SignIn_stepDef {
 				Assert.assertTrue(HeaderLinks.userNameDropdown_MyItems(driver)
 						.isDisplayed());
 			} else {
-				Utils.takeScreenshot("UserName_Dropdown");
 				Assert.fail("failed to click the user name drop down");
 			}
 		} catch (Exception e) {
-			Utils.takeScreenshot("UserName_Dropdown");
 			Assert.fail("failed to check the option My Items availablity in user name drop down");
 		}
 	}
@@ -266,11 +258,9 @@ public class SignIn_stepDef {
 				Assert.assertTrue(HeaderLinks
 						.userNameDropdown_MyAccount(driver).isDisplayed());
 			} else {
-				Utils.takeScreenshot("UserName_Dropdown");
 				Assert.fail("failed to click the user name drop down");
 			}
 		} catch (Exception e) {
-			Utils.takeScreenshot("UserName_Dropdown");
 			Assert.fail("failed to check the option My Account availablity in user name drop down");
 		}
 	}
@@ -284,11 +274,9 @@ public class SignIn_stepDef {
 				Assert.assertTrue(HeaderLinks.userNameDropdown_TrackMyPackage(
 						driver).isDisplayed());
 			} else {
-				Utils.takeScreenshot("UserName_Dropdown");
 				Assert.fail("failed to click the user name drop down");
 			}
 		} catch (Exception e) {
-			Utils.takeScreenshot("UserName_Dropdown");
 			Assert.fail("failed to check the option track my package availablity in user name drop down");
 		}
 	}
@@ -302,11 +290,9 @@ public class SignIn_stepDef {
 				Assert.assertTrue(HeaderLinks
 						.userNameDropdown_MyProfile(driver).isDisplayed());
 			} else {
-				Utils.takeScreenshot("UserName_Dropdown");
 				Assert.fail("failed to click the user name drop down");
 			}
 		} catch (Exception e) {
-			Utils.takeScreenshot("UserName_Dropdown");
 			Assert.fail("failed to check the option my profile availablity in user name drop down");
 		}
 	}
@@ -320,11 +306,9 @@ public class SignIn_stepDef {
 				Assert.assertTrue(HeaderLinks.userNameDropdown_Logout(driver)
 						.isDisplayed());
 			} else {
-				Utils.takeScreenshot("UserName_Dropdown");
 				Assert.fail("failed to click the user name drop down");
 			}
 		} catch (Exception e) {
-			Utils.takeScreenshot("UserName_Dropdown");
 			Assert.fail("failed to check the option logout availablity in user name drop down");
 		}
 	}
@@ -337,7 +321,6 @@ public class SignIn_stepDef {
 			String title = driver.getTitle();
 			Assert.assertEquals(title, "Facebook");
 		} catch (Exception e) {
-			Utils.takeScreenshot("Login_with_Facebook");
 			Assert.fail("failed to log in with facebook credentials");
 		}
 
@@ -356,7 +339,6 @@ public class SignIn_stepDef {
 			Assert.assertTrue(pageObjects.SignIn.welcomePopup(driver)
 					.isDisplayed());
 		} catch (Exception e) {
-			Utils.takeScreenshot("SignIn_successful");
 			Assert.fail("welcome pop up after sign in not displayed");
 		}
 	}
@@ -367,7 +349,6 @@ public class SignIn_stepDef {
 			Assert.assertTrue(HeaderLinks.userNameDropdown(driver)
 					.isDisplayed());
 		} catch (Exception e) {
-			Utils.takeScreenshot("I should see the user name in header");
 			Assert.fail("user name is either wrong or not displayed");
 		}
 	}
@@ -380,7 +361,6 @@ public class SignIn_stepDef {
 			String title = driver.getTitle();
 			Assert.assertEquals(title, "Twitter / Authorize an application");
 		} catch (Exception e) {
-			Utils.takeScreenshot("Login_with_Twitter");
 			Assert.fail("failed to log in with Twitter credentials");
 		}
 	}
@@ -400,7 +380,6 @@ public class SignIn_stepDef {
 			String title = driver.getTitle();
 			Assert.assertEquals(title, "Sign in - Google Accounts");
 		} catch (Exception e) {
-			Utils.takeScreenshot("Login_with_Google Accounts");
 			Assert.fail("failed to log in with Google Accounts credentials");
 		}
 	}
@@ -420,11 +399,9 @@ public class SignIn_stepDef {
 				pageObjects.SignIn.with_TFC_credentials_EmailIdTextbox(driver)
 						.sendKeys(Constant.userName_Hemant);
 			} else {
-				Utils.takeScreenshot("I Entered valid email address");
 				Assert.fail("email id fiels is not displayed in sign in page");
 			}
 		} catch (Exception e) {
-			Utils.takeScreenshot("I Entered valid email address");
 			Assert.fail("failed to enter email address in sign in form");
 		}
 	}
@@ -437,11 +414,9 @@ public class SignIn_stepDef {
 				pageObjects.SignIn.with_TFC_credentials_EmailIdTextbox(driver)
 						.sendKeys(Constant.password_UserHemant);
 			} else {
-				Utils.takeScreenshot("I Entered valid email address");
 				Assert.fail("email id fiels is not displayed in sign in page");
 			}
 		} catch (Exception e) {
-			Utils.takeScreenshot("I Entered valid email address");
 			Assert.fail("failed to enter email address in sign in form");
 		}
 	}
@@ -457,11 +432,9 @@ public class SignIn_stepDef {
 					Assert.assertTrue(true);
 				}
 			} else {
-				Utils.takeScreenshot("select_RemeberMe_checkBox");
 				Assert.fail("check box is not displayed");
 			}
 		} catch (Exception e) {
-			Utils.takeScreenshot("select_RemeberMe_checkBox");
 			Assert.fail("failed to select the remember me check box");
 		}
 	}
@@ -476,11 +449,9 @@ public class SignIn_stepDef {
 				pageObjects.SignIn.with_TFC_credentials_SignInButton(driver)
 						.click();
 			} else {
-				Utils.takeScreenshot("click_SignIn_button");
 				Assert.fail("sign button is either not displayed or not enabled");
 			}
 		} catch (Exception e) {
-			Utils.takeScreenshot("click_SignIn_button");
 			Assert.fail("failed to click on sign in button");
 		}
 	}
@@ -491,7 +462,6 @@ public class SignIn_stepDef {
 			Assert.assertTrue(pageObjects.SignIn.welcomePopup(driver)
 					.isDisplayed());
 		} catch (Exception e) {
-			Utils.takeScreenshot("SignIn_successful");
 			Assert.fail("welcome pop up after sign in not displayed");
 		}
 	}
@@ -511,11 +481,9 @@ public class SignIn_stepDef {
 			if (!value) {
 				Assert.assertTrue(!value);
 			} else {
-				Utils.takeScreenshot("remember_emailID");
 				Assert.fail("remember email address functionality failed");
 			}
 		} catch (Exception e) {
-			Utils.takeScreenshot("remember_emailID");
 			Assert.fail("remember me functionality failed");
 		}
 
@@ -531,11 +499,9 @@ public class SignIn_stepDef {
 			if (!value) {
 				Assert.assertTrue(!value);
 			} else {
-				Utils.takeScreenshot("remember_password");
 				Assert.fail("remember me functionality failed");
 			}
 		} catch (Exception e) {
-			Utils.takeScreenshot("remember_emailID");
 			Assert.fail("remember email address functionality failed");
 		}
 	}
@@ -548,11 +514,9 @@ public class SignIn_stepDef {
 				pageObjects.SignIn.with_TFC_credentials_ForgotpasswordLink(
 						driver).click();
 			} else {
-				Utils.takeScreenshot("click_ForgotPasswordLink");
 				Assert.fail("forgot password link is not displayed");
 			}
 		} catch (Exception e) {
-			Utils.takeScreenshot("click_ForgotPasswordLink");
 			Assert.fail("failed to click forgot password link");
 		}
 	}
@@ -564,7 +528,6 @@ public class SignIn_stepDef {
 			Assert.assertEquals(driver.getTitle(),
 					"Shop n Zip - Forgot Password");
 		} catch (Exception e) {
-			Utils.takeScreenshot("click_ForgotPasswordLink");
 			Assert.fail("forgot password link is redirected to wrong page");
 		}
 	}
@@ -581,11 +544,9 @@ public class SignIn_stepDef {
 				pageObjects.SignIn.with_TFC_credentials_SignInButton(driver)
 						.click();
 			} else {
-				Utils.takeScreenshot("SignIn");
 				Assert.fail("sign in link is not displayed in the header");
 			}
 		} catch (Exception e) {
-			Utils.takeScreenshot("SignIn");
 			Assert.fail("failed to sign in");
 		}
 	}
@@ -596,7 +557,6 @@ public class SignIn_stepDef {
 			Assert.assertTrue(pageObjects.SignIn.welcomePopup(driver)
 					.isDisplayed());
 		} catch (Exception e) {
-			Utils.takeScreenshot("SignIn");
 			Assert.fail("welcome pop up after sign in not displayed");
 		}
 	}
@@ -613,11 +573,9 @@ public class SignIn_stepDef {
 						pageObjects.SignIn.welcomePopup_UserName(driver),
 						nameOfTheUser);
 			} else {
-				Utils.takeScreenshot("SignIn");
 				Assert.fail("welcome pop up is not displayed");
 			}
 		} catch (Exception e) {
-			Utils.takeScreenshot("SignIn");
 			Assert.fail("either \"Welcome Back\" lable along with user name is not displayed or user name is wrong");
 		}
 	}
@@ -634,11 +592,9 @@ public class SignIn_stepDef {
 						pageObjects.SignIn.welcomePopup_yourShopNZipID(driver),
 						shopNzipId);
 			} else {
-				Utils.takeScreenshot("SignIn");
 				Assert.fail("welcome pop up is not displayed");
 			}
 		} catch (Exception e) {
-			Utils.takeScreenshot("SignIn");
 			Assert.fail("either \"Your shop N zip ID\" lable along with ID is not displayed or ID is wrong");
 		}
 	}
@@ -660,11 +616,9 @@ public class SignIn_stepDef {
 								+ "150 Shoreline Drive," + " "
 								+ "Redwood City,California,94065"));
 			} else {
-				Utils.takeScreenshot("SignIn");
 				Assert.fail("welcome pop up is not displayed");
 			}
 		} catch (Exception e) {
-			Utils.takeScreenshot("SignIn");
 			Assert.fail("either \"Your Shop N Zip address\" lable along with shop N zip US location address is not displayed or shop N zip US location address is wrong");
 		}
 	}
@@ -678,11 +632,9 @@ public class SignIn_stepDef {
 				Assert.assertTrue(pageObjects.SignIn
 						.welcomePopup_MyItemsButton(driver).isEnabled());
 			} else {
-				Utils.takeScreenshot("SignIn");
 				Assert.fail("welcome pop up is not displayed");
 			}
 		} catch (Exception e) {
-			Utils.takeScreenshot("SignIn");
 			Assert.fail("my items button is either not displayed or not clickable");
 		}
 	}
@@ -698,15 +650,12 @@ public class SignIn_stepDef {
 					pageObjects.SignIn.welcomePopup_MyItemsButton(driver)
 							.click();
 				} else {
-					Utils.takeScreenshot("Click_MyItemButton_signIn");
 					Assert.fail("my items button is either not displayed or not clickable");
 				}
 			} else {
-				Utils.takeScreenshot("SignIn");
 				Assert.fail("welcome pop up is not displayed");
 			}
 		} catch (Exception e) {
-			Utils.takeScreenshot("SignIn");
 			Assert.fail("my items button is either not displayed or not clickable");
 		}
 	}
@@ -717,7 +666,6 @@ public class SignIn_stepDef {
 			Assert.assertEquals(driver.getTitle().trim(),
 					"Shop n Zip - My Items");
 		} catch (Exception e) {
-			Utils.takeScreenshot("navigateTo_MyItemsPage");
 			Assert.fail("navigated to wrong page instead of my items page");
 		}
 	}
@@ -734,11 +682,9 @@ public class SignIn_stepDef {
 				pageObjects.SignIn.with_TFC_credentials_SignInButton(driver)
 						.click();
 			} else {
-				Utils.takeScreenshot("SignIn");
 				Assert.fail("sign in link is not displayed in the header");
 			}
 		} catch (Exception e) {
-			Utils.takeScreenshot("SignIn");
 			Assert.fail("failed to sign in");
 		}
 	}
@@ -749,7 +695,6 @@ public class SignIn_stepDef {
 			Assert.assertTrue(pageObjects.SignIn.welcomePopup(driver)
 					.isDisplayed());
 		} catch (Exception e) {
-			Utils.takeScreenshot("SignIn_successful");
 			Assert.fail("welcome pop up after sign in not displayed");
 		}
 	}
@@ -761,11 +706,9 @@ public class SignIn_stepDef {
 				HeaderLinks.userNameDropdown(driver).click();
 				HeaderLinks.userNameDropdown_MyItems(driver).click();
 			} else {
-				Utils.takeScreenshot("click_myItemsLink");
 				Assert.fail("user name dropdown in not displayed");
 			}
 		} catch (Exception e) {
-			Utils.takeScreenshot("click_myItemsLink");
 			Assert.fail("failed to click my items link");
 		}
 	}
@@ -777,11 +720,9 @@ public class SignIn_stepDef {
 				HeaderLinks.userNameDropdown(driver).click();
 				HeaderLinks.userNameDropdown_MyAccount(driver).click();
 			} else {
-				Utils.takeScreenshot("click_myAccountLink");
 				Assert.fail("user name dropdown in not displayed");
 			}
 		} catch (Exception e) {
-			Utils.takeScreenshot("click_myAccountsLink");
 			Assert.fail("failed to click my accounts link");
 		}
 	}
@@ -794,11 +735,9 @@ public class SignIn_stepDef {
 				HeaderLinks.userNameDropdown(driver).click();
 				HeaderLinks.userNameDropdown_TrackMyPackage(driver).click();
 			} else {
-				Utils.takeScreenshot("click_trackMyPackageLink");
 				Assert.fail("user name dropdown in not displayed");
 			}
 		} catch (Exception e) {
-			Utils.takeScreenshot("click_trackMyPackageLink");
 			Assert.fail("failed to click track my package link");
 		}
 	}
@@ -810,11 +749,9 @@ public class SignIn_stepDef {
 				HeaderLinks.userNameDropdown(driver).click();
 				HeaderLinks.userNameDropdown_MyProfile(driver).click();
 			} else {
-				Utils.takeScreenshot("click_myProfileLink");
 				Assert.fail("user name dropdown in not displayed");
 			}
 		} catch (Exception e) {
-			Utils.takeScreenshot("click_myProfileLink");
 			Assert.fail("failed to click my profile link");
 		}
 	}
@@ -826,11 +763,9 @@ public class SignIn_stepDef {
 				HeaderLinks.userNameDropdown(driver).click();
 				HeaderLinks.userNameDropdown_Logout(driver).click();
 			} else {
-				Utils.takeScreenshot("click_logout");
 				Assert.fail("user name dropdown in not displayed");
 			}
 		} catch (Exception e) {
-			Utils.takeScreenshot("click_myProfileLink");
 			Assert.fail("failed to click log out");
 		}
 	}
@@ -841,7 +776,6 @@ public class SignIn_stepDef {
 			Assert.assertTrue(!pageObjects.SignIn.welcomePopup(driver)
 					.isDisplayed());
 		} catch (Exception e) {
-			Utils.takeScreenshot("SignIn_successful");
 			Assert.fail("welcome pop up after sign in not displayed");
 		}
 	}
@@ -855,7 +789,6 @@ public class SignIn_stepDef {
 			Assert.assertTrue(pageObjects.SignIn.password_validation(driver)
 					.isDisplayed());
 		} catch (Exception e) {
-			Utils.takeScreenshot("SignIn_fieldValidations");
 			Assert.fail("failed to see the field validation messages in sign in page");
 		}
 	}
@@ -867,7 +800,6 @@ public class SignIn_stepDef {
 			pageObjects.SignIn.with_TFC_credentials_EmailIdTextbox(driver)
 					.sendKeys(Constant.userName_Hemant);
 		} catch (Exception e) {
-			Utils.takeScreenshot("enter_Valid_emailID");
 			Assert.fail("failed to check the email id field validation");
 		}
 	}
@@ -877,7 +809,6 @@ public class SignIn_stepDef {
 		try {
 			Assert.assertTrue(true, "left password field blank");
 		} catch (Exception e) {
-			Utils.takeScreenshot("leave_passwordBlank");
 			Assert.fail();
 		}
 	}
@@ -888,7 +819,6 @@ public class SignIn_stepDef {
 			pageObjects.SignIn.with_TFC_credentials_SignInButton(driver)
 					.click();
 		} catch (Exception e) {
-			Utils.takeScreenshot("click_signInButton");
 			Assert.fail("failed to click on sign in button");
 		}
 	}
@@ -900,7 +830,6 @@ public class SignIn_stepDef {
 			Assert.assertTrue(pageObjects.SignIn.password_validation(driver)
 					.isDisplayed());
 		} catch (Exception e) {
-			Utils.takeScreenshot("password_validation");
 			Assert.fail("failed to check the password field validation");
 		}
 	}
@@ -910,7 +839,6 @@ public class SignIn_stepDef {
 		try {
 			Assert.assertTrue(true, "left password field blank");
 		} catch (Exception e) {
-			Utils.takeScreenshot("leave_EmailIDfield_Blank");
 			Assert.fail();
 		}
 	}
@@ -922,7 +850,6 @@ public class SignIn_stepDef {
 			pageObjects.SignIn.with_TFC_credentials_PassWordTextbox(driver)
 					.sendKeys(Constant.password_UserHemant);
 		} catch (Exception e) {
-			Utils.takeScreenshot("enter_Valid_password");
 			Assert.fail("failed to check the password field validation");
 		}
 	}
@@ -934,7 +861,6 @@ public class SignIn_stepDef {
 			Assert.assertTrue(pageObjects.SignIn.emailId_validation(driver)
 					.isDisplayed());
 		} catch (Exception e) {
-			Utils.takeScreenshot("emailID_validation");
 			Assert.fail("failed to check the email id field validation");
 		}
 	}
@@ -946,7 +872,6 @@ public class SignIn_stepDef {
 			pageObjects.SignIn.with_TFC_credentials_EmailIdTextbox(driver)
 					.sendKeys(Utils.generateRandomEmail(25));
 		} catch (Exception e) {
-			Utils.takeScreenshot("enter_InValid_email");
 			Assert.fail("failed to check the email field validation");
 		}
 	}
@@ -958,7 +883,6 @@ public class SignIn_stepDef {
 			pageObjects.SignIn.with_TFC_credentials_PassWordTextbox(driver)
 					.sendKeys(Constant.password_UserHemant);
 		} catch (Exception e) {
-			Utils.takeScreenshot("enter_Valid_password");
 			Assert.fail("failed to check the password field validation");
 		}
 	}
@@ -970,7 +894,6 @@ public class SignIn_stepDef {
 			Assert.assertTrue(pageObjects.SignIn.emailId_validation(driver)
 					.isDisplayed());
 		} catch (Exception e) {
-			Utils.takeScreenshot("emailID_validation");
 			Assert.fail("failed to check the email id field validation");
 		}
 	}
