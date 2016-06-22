@@ -1,5 +1,7 @@
 package pageObjects;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,7 +11,7 @@ public class ShopNow extends BaseClass {
 	public static WebElement element = null;
 
 	public static WebElement shopNow_Menulink(WebDriver driver) {
-		element = driver.findElement(By.xpath(".//*[@id='navbar']/ul/li[2]/a"));
+		element = driver.findElement(By.xpath(".//*[@id='navbar']/ul/li[2]"));
 		return element;
 	}
 
@@ -34,11 +36,12 @@ public class ShopNow extends BaseClass {
 		return element;
 	}
 
-	public static WebElement tieup3rdParty_logos(WebDriver driver) {
-		element = driver
-				.findElement(By
-						.xpath(".//*[@id='form']/div[6]/section[1]/div/div/div/div[2]/div/div/ul[1]/li"));
-		return element;
+	public static List<WebElement> tieup3rdParty_logos(WebDriver driver) {
+		
+		List<WebElement> logos= driver
+		.findElements(By
+				.xpath(".//*[@class='list_unstyle']/li/img"));
+return logos;
 	}
 
 	public static WebElement tieup3rdParty_1stlogo(WebDriver driver) {
@@ -97,12 +100,16 @@ public class ShopNow extends BaseClass {
 		return element;
 	}
 
-	public static WebElement tieup3rdParty_Vertical_linkSection(WebDriver driver) {
-		element = driver.findElement(By
-				.xpath(".//*[@class='col-md-8 col-sm-8']"));
-		return element;
+	public static  List<WebElement> tieup3rdParty_Vertical_linkSectionlogos(WebDriver driver) {
+		 List<WebElement> verticle3rdpartylinks = driver.findElements(By
+				.xpath(".//*[@class='col-sm-3 col-md-2']"));
+		return verticle3rdpartylinks;
 	}
-
+	public static  List<WebElement> tieup3rdpartylinks(WebDriver driver) {
+		 List<WebElement> tieuplinks = driver.findElements(By
+				.xpath(".//*[@class='spnow_list_txt']/a"));
+		return tieuplinks ;
+	}
 	public static WebElement tieup3rdParty_Vertical_linkSection_1stlink(WebDriver driver) {
 		element = driver.findElement(By
 				.xpath(".//*[@class='col-md-8 col-sm-8']/div[1]"));
@@ -389,14 +396,14 @@ public class ShopNow extends BaseClass {
 	}
 	public static WebElement adslot_squire(WebDriver driver) {
 		element = driver.findElement(By
-				.xpath(".//*[@id='form']/div[6]/section/div/div/div[2]"));
+				.xpath(".//*[@class='targetstyle img-responsive']"));
 		return element;
 	}
 
 	public static WebElement adslot_rectangular(WebDriver driver) {
 		element = driver
 				.findElement(By
-						.xpath(".//*[@id='form']/section/div/div/div/div/div[2]/a/img"));
+						.xpath(".//*[@class='col-sm-12 text-center advertise_block']"));
 		return element;
 	}
 

@@ -5,7 +5,7 @@ Feature: Registration to Shop N Zip application
   # Missed out writing field validations
   #Availability
   Scenario: Verify the Sign Up button is displayed in header
-    Given I am in home page
+    Given I am in home page of shopNzip
     Then I should see 'Sign Up' button in header
 
   Scenario: Verify the Sign Up button is displayed in About us page
@@ -66,6 +66,7 @@ Feature: Registration to Shop N Zip application
     Examples: 
       | Field                                  |
       | Name field                             |
+      |Last name field                          |
       | Country of current residence drop down |
       | Email address field                    |
       | Phone number field                     |
@@ -85,7 +86,8 @@ Scenario Outline: Verifying the availability of mandatory fields in Sign Up form
 
     Examples: 
       | Field                                  |
-      | Name field                             |
+      | Name field |
+      |Last name field                         |  
       | Country of current residence drop down |
       | Email address field                    |
       | Phone number field                     |
@@ -93,21 +95,22 @@ Scenario Outline: Verifying the availability of mandatory fields in Sign Up form
       | Re-type password field    |
       
   #Possitive
+ @myTest
   Scenario Outline: Verify functionality of Sign Up using social network icons.
     Given I am in Sign Up page
-    When I clicked on <socila network icon > icon in signup page.
-    Then I should see a pop for <socila network icon > login is appeared
-    When I loged in with my <signin with socila network> credintials
+    When I clicked on <social network icon> icon in signup page.
+    Then I should see a pop for <respective social network icon> login is appeared
+    When I loged in with my <signin with social network> credintials
     Then I should see Name field in the sign up from is auto filled
     And I should see Country of current resident field in the sign up from is auto filled
     And I should see Email Address field in the sign up from is auto filled
     And I should see Phone Number field in the sign up from is auto filled
 
     Examples: 
-      | socila network icon | signin with socila network |
-      | Facebook            | Signin with facebook       |
-      | Twitter             | Signin with twitter        |
-      | Google+             | Signin with google+        |
+      | social network icon| respective social network icon| signin with social network |
+      | Facebook           |Facebook pop up| Signin with facebook       |
+      | Twitter           |Twitter poup  | Signin with twitter        |
+      | Google+             |Google+| Signin with google+        |
 
   Scenario: Verifying the functionality of Sign Up(with valid details)
     Given I am in Sign Up page
