@@ -5,6 +5,7 @@ Feature: Verifying 'FAQs' page.
     Then I should see FAQ link is highlited in header
 
   #Availability
+
   Scenario Outline: Verify categories availabile in FAQs page
     Then I should see <Category>category below of 'Shop N Zip FAQs' title.
 
@@ -23,6 +24,7 @@ Feature: Verifying 'FAQs' page.
     And I should see there are three ad slots displayed in the page
 
   #Possitive
+  
   Scenario Outline: Verify functionality of categories links
     When I clicked on <Each Link> category
     Then I should be moved to the <Each Link> area within the FAQ page
@@ -34,7 +36,7 @@ Feature: Verifying 'FAQs' page.
       | My Items                     |
       | General Shipping Information |
       | Returns                      |
-
+  @MyTest
   Scenario: Verifying functionality of 'Contact Us' link
     When I clicked on 'Contact Us' link
     Then I should be navigated to 'Contact Us' page where I can ask FAQs

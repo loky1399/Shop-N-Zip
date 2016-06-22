@@ -28,6 +28,7 @@ public class SignIn_stepDef {
 		try {
 			driver.get("http://demo24kentico8.raybiztech.com");
 			Assert.assertEquals(driver.getTitle().trim(), "Shop n Zip - Home");
+		
 		} catch (Exception e) {
 			Assert.fail("driver not in home page");
 		}

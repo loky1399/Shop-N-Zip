@@ -9,7 +9,7 @@ public class HowItworks extends BaseClass {
 	public static WebElement element = null;
 
 	public static WebElement howItWorks_Menulink(WebDriver driver) {
-		element = driver.findElement(By.xpath(".//*[@id='navbar']/ul/li[1]/a"));
+		element = driver.findElement(By.xpath(".//*[@id='navbar']/ul/li[1]"));
 		return element;
 	}
 

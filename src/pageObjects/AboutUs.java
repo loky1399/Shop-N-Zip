@@ -9,7 +9,7 @@ public class AboutUs extends BaseClass {
 	public static WebElement element = null;
 
 	public static WebElement aboutus_Menulink(WebDriver driver) {
-		element = driver.findElement(By.xpath(".//*[@id='navbar']/ul/li[3]/a"));
+		element = driver.findElement(By.xpath(".//*[@id='navbar']/ul/li[3]"));
 		return element;
 	}
 

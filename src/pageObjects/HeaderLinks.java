@@ -23,12 +23,12 @@ public class HeaderLinks {
 	}
 
 	public static WebElement AboutUs_Menulink(WebDriver driver) {
-		element = driver.findElement(By.xpath(".//*[@id='navbar']/ul/li[3]/a"));
+		element = driver.findElement(By.xpath(".//*[@id='navbar']/ul/li[3]"));
 		return element;
 	}
 
 	public static WebElement FAQ_Menulink(WebDriver driver) {
-		element = driver.findElement(By.xpath(".//*[@id='navbar']/ul/li[4]/a"));
+		element = driver.findElement(By.xpath(".//*[@id='navbar']/ul/li[4]"));
 		return element;
 	}
 

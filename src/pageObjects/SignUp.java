@@ -82,6 +82,14 @@ public class SignUp extends BaseClass {
 		element = driver.findElement(By.xpath(".//*[@id='txtFirstName']"));
 		return element;
 	}
+	public static WebElement LastNameTextBox(WebDriver driver) {
+		element = driver.findElement(By.xpath(".//*[@class='form-group'][2]"));
+		return element;
+	}
+	public static WebElement LastNameTextBoxmandatory(WebDriver driver) {
+		element = driver.findElement(By.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[2]/sup"));
+		return element;
+	}
 
 	public static WebElement NameTextBoxRequiredSymbol(WebDriver driver) {
 		element = driver
@@ -295,6 +303,62 @@ public class SignUp extends BaseClass {
 	public static WebElement errorMessageForloginwithSocilaSharing(
 			WebDriver driver) {
 		element = driver.findElement(By.xpath(".//*[@id='lblError']"));
+		return element;
+	}
+	public static WebElement faceBookEmailId(
+			WebDriver driver) {
+		element = driver.findElement(By.xpath(".//*[@id='email']"));
+		return element;
+	}
+
+	public static WebElement faceBookPassword(
+			WebDriver driver) {
+		element = driver.findElement(By.xpath(".//*[@id='pass']"));
+		return element;
+	}
+
+	public static WebElement faceBookLoginButton(
+			WebDriver driver) {
+		element = driver.findElement(By.xpath(".//*[@id='u_0_2']"));
+		return element;
+	}
+	public static WebElement faceBookGigiyamessage(
+			WebDriver driver) {
+		element = driver.findElement(By.xpath(".//*[@id='dvMain']/center/table/tbody/tr/td/b[2]"));
+		return element;
+	}
+	public static WebElement faceBookCloseWindowOption(
+			WebDriver driver) {
+		element = driver.findElement(By.xpath(".//*[@id='btnClose']"));
+		return element;
+	}
+	public static WebElement twitterUserNameTextBox(
+			WebDriver driver) {
+		element = driver.findElement(By.xpath(".//*[@class='text']"));
+		return element;
+	}
+
+	public static WebElement twitterPassWordTextField(
+			WebDriver driver) {
+		element = driver.findElement(By.xpath(".//*[@class='password text']"));
+		return element;
+	}
+
+	public static WebElement twitterLoginButton(
+			WebDriver driver) {
+		element = driver.findElement(By.xpath(".//*[@id='allow']"));
+		return element;
+	}
+
+	public static WebElement twitterGigiaMessage(
+			WebDriver driver) {
+		element = driver.findElement(By.xpath(".//*[@id='dvMain']/center/table/tbody/tr/td/b[2]"));
+		return element;
+	}
+
+	public static WebElement twitterGigiyaCloseWindoOption(
+			WebDriver driver) {
+		element = driver.findElement(By.xpath(".//*[@id='btnClose']"));
 		return element;
 	}
 
