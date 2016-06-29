@@ -23,6 +23,9 @@ public class SignIn_stepDef {
 		driver = Hooks.driver;
 	}
 
+	void testMethod(){
+		System.out.println("test method");
+	}
 	@Given("^I am in home page$")
 	public void i_am_in_home_page() throws Throwable {
 		try {
