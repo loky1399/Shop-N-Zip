@@ -25,7 +25,11 @@ public class SignIn_stepDef {
 
 	void testMethod(){
 		System.out.println("test method");
+<<<<<<< HEAD
 		String lok="lok";
+=======
+			System.out.println("test method");
+>>>>>>> a9e21c5f1367743d6af42dccd58e2a072de11b4d
 	}
 	@Given("^I am in home page$")
 	public void i_am_in_home_page() throws Throwable {
