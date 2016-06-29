@@ -52,16 +52,23 @@ public class AboutUspage_stepDef {
 		try {
 			Assert.assertTrue(AboutUs.carousel_bannerimage(driver)
 					.isDisplayed());
-
+			String bannerSrc = AboutUs.carousel_bannerimage(driver)
+					.getAttribute("src");
+			if (bannerSrc == null) {
+				Assert.fail("banner image is not displaying in about us page");
+			}
 		} catch (Exception e) {
-			Assert.fail("banner image is not displaying in about us page");
+			Assert.fail("failed to check the avialability of display of banner image");
 		}
 	}
 
 	@Then("^I should be able to see 'About Us' title with contents below of banner in the page$")
-	public void i_should_be_able_to_see_About_Us_title_with_contents_below_of_banner_in_the_page() throws Throwable {
+	public void i_should_be_able_to_see_About_Us_title_with_contents_below_of_banner_in_the_page()
+			throws Throwable {
 		try {
 			Assert.assertTrue(AboutUs.aboutUs_Title(driver).isDisplayed()
+					&& AboutUs.aboutUs_Title(driver).getText()
+							.equals("ABOUT US")
 					&& AboutUs.aboutUs_description(driver).isDisplayed());
 
 		} catch (Exception e) {
@@ -70,10 +77,11 @@ public class AboutUspage_stepDef {
 	}
 
 	@Then("^I should see the rectangular 'Ad Block' above the footer$")
-	public void i_should_see_the_rectangular_Ad_Block_above_the_footer() throws Throwable {
+	public void i_should_see_the_rectangular_Ad_Block_above_the_footer()
+			throws Throwable {
 		try {
 
-			Assert.assertTrue(AboutUs.adslot_rectangular(driver).isDisplayed());
+			Assert.assertTrue(AboutUs.adslot_rectangular(driver).isDisplayed()&& !(AboutUs.adslot_rectangular(driver).getAttribute("src") == null));
 
 		} catch (Exception e) {
 			Assert.fail("rectangular ad slot is not displaying");
@@ -85,8 +93,8 @@ public class AboutUspage_stepDef {
 	public void i_should_see_the_square_Ad_Block_above_the_footer()
 			throws Throwable {
 		try {
-
-			Assert.assertTrue(AboutUs.adslot_squire(driver).isDisplayed());
+			Assert.assertTrue(AboutUs.adslot_squire(driver).isDisplayed()
+					&& !(AboutUs.adslot_squire(driver).getAttribute("src") == null));
 		} catch (Exception e) {
 			Assert.fail("ad slot in footer parti is not displaying");
 		}

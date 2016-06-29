@@ -48,7 +48,7 @@ public class AboutUs extends BaseClass {
 
 	public static WebElement adslot_squire(WebDriver driver) {
 		element = driver.findElement(By
-				.xpath(".//*[@id='form']/div[6]/section/div/div/div[2]"));
+				.xpath(".//*[@id='form']/div[6]/section/div/div/div[2]/img"));
 		return element;
 	}
 

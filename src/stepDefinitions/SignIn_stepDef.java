@@ -26,7 +26,7 @@ public class SignIn_stepDef {
 	@Given("^I am in home page$")
 	public void i_am_in_home_page() throws Throwable {
 		try {
-			driver.get("http://demo24kentico8.raybiztech.com");
+			driver.get("http://dev.shopnzip.com");
 			Assert.assertEquals(driver.getTitle().trim(), "Shop n Zip - Home");
 		
 		} catch (Exception e) {

@@ -21,33 +21,31 @@ public class FAQs extends BaseClass {
 		return element;
 	}
 
-	public static WebElement FAQsGeneralQuwstions(WebDriver driver) {
-		element = driver.findElement(By
-				.xpath(".//*[@class='faq_cont']/div/p[2]"));
+	public static WebElement FAQsMyAccountLink(WebDriver driver) {
+		element = driver
+				.findElement(By
+						.xpath(".//*[@id='form']/div[6]/section/div[1]/div/div/div[1]/div/div[1]/p[4]/a"));
 		return element;
 	}
 
-	public static WebElement FAQsMyAccounts(WebDriver driver) {
-		element = driver.findElement(By
-				.xpath(".//*[@class='faq_cont']/div/p[3]"));
+	public static WebElement FAQsMyItemsLink(WebDriver driver) {
+		element = driver
+				.findElement(By
+						.xpath(".//*[@id='form']/div[6]/section/div[1]/div/div/div[1]/div/div[1]/p[5]/a"));
 		return element;
 	}
 
-	public static WebElement FAQsMyItems(WebDriver driver) {
-		element = driver.findElement(By
-				.xpath(".//*[@class='faq_cont']/div/p[4]"));
+	public static WebElement FAQsGeneralShippngInfoLink(WebDriver driver) {
+		element = driver
+				.findElement(By
+						.xpath(".//*[@id='form']/div[6]/section/div[1]/div/div/div[1]/div/div[1]/p[3]/a"));
 		return element;
 	}
 
-	public static WebElement FAQsGeneralShippngInfo(WebDriver driver) {
-		element = driver.findElement(By
-				.xpath(".//*[@class='faq_cont']/div/p[5]"));
-		return element;
-	}
-
-	public static WebElement FAQsReturns(WebDriver driver) {
-		element = driver.findElement(By
-				.xpath(".//*[@class='faq_cont']/div/p[6]"));
+	public static WebElement FAQsReturnsLinks(WebDriver driver) {
+		element = driver
+				.findElement(By
+						.xpath(".//*[@id='form']/div[6]/section/div[1]/div/div/div[1]/div/div[1]/p[6]/a"));
 		return element;
 	}
 
@@ -58,10 +56,10 @@ public class FAQs extends BaseClass {
 		return element;
 	}
 
-	public static WebElement FAQsGeneralQuestionSection(WebDriver driver) {
+	public static WebElement FAQsGeneralQuestionLink(WebDriver driver) {
 		element = driver
 				.findElement(By
-						.xpath(".//*[@id='form']/div[6]/section/div[1]/div/div/div[1]/div/div[2]"));
+						.xpath(".//*[@id='form']/div[6]/section/div[1]/div/div/div[1]/div/div[1]/p[2]/a"));
 		return element;
 	}
 
