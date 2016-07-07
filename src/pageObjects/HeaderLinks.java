@@ -89,20 +89,20 @@ public class HeaderLinks {
 	}
 
 	public static WebElement userNameDropdown_MyAccount(WebDriver driver) {
-		element = driver.findElement(By.xpath("//a[text()='My Account']"));
+		element = driver.findElement(By.xpath("//a[text()='My Account']/ancestor::li[1]"));
 		return element;
 
 	}
 
 	public static WebElement userNameDropdown_TrackMyPackage(WebDriver driver) {
 		element = driver.findElement(By
-				.xpath("//a[text()='Track My Packages']"));
+				.xpath("//a[text()='Track My Packages']/ancestor::li[1]"));
 		return element;
 
 	}
 
 	public static WebElement userNameDropdown_MyProfile(WebDriver driver) {
-		element = driver.findElement(By.xpath("//a[text()='My Profile']"));
+		element = driver.findElement(By.xpath("//a[text()='My Profile']/ancestor::li[1]"));
 		return element;
 
 	}
