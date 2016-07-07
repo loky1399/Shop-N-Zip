@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class ShopNow extends BaseClass {
+public class ShopNow {
 
 	public static WebElement element = null;
 

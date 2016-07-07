@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class SignIn extends BaseClass {
+public class SignIn {
 
 	public static WebElement element = null;
 
