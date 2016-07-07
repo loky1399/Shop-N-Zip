@@ -66,36 +66,35 @@ Feature: Registration to Shop N Zip application
     Examples: 
       | Field                                  |
       | Name field                             |
-      |Last name field                          |
+      | Last name field                        |
       | Country of current residence drop down |
       | Email address field                    |
       | Phone number field                     |
       | Password field                         |
-      | Re-type password field    |
-      |Address text field|
-      |City text field|
-      |State selection drop down|
+      | Re-type password field                 |
+      | Address text field                     |
+      | City text field                        |
+      | State selection drop down              |
       | Register Now button                    |
-      |Agree check box|
+      | Agree check box                        |
       | Terms and condition link               |
       | Privacy Policy link                    |
 
-Scenario Outline: Verifying the availability of mandatory fields in Sign Up form
+  Scenario Outline: Verifying the availability of mandatory fields in Sign Up form
     Given I am in Sign Up page
     Then I should see <Field> as mendatory
 
     Examples: 
       | Field                                  |
-      | Name field |
-      |Last name field                         |  
+      | Name field                             |
+      | Last name field                        |
       | Country of current residence drop down |
       | Email address field                    |
       | Phone number field                     |
       | Password field                         |
-      | Re-type password field    |
-      
+      | Re-type password field                 |
+
   #Possitive
- @myTest
   Scenario Outline: Verify functionality of Sign Up using social network icons.
     Given I am in Sign Up page
     When I clicked on <social network icon> icon in signup page.
@@ -107,10 +106,10 @@ Scenario Outline: Verifying the availability of mandatory fields in Sign Up form
     And I should see Phone Number field in the sign up from is auto filled
 
     Examples: 
-      | social network icon| respective social network icon| signin with social network |
-      | Facebook           |Facebook pop up| Signin with facebook       |
-      | Twitter           |Twitter poup  | Signin with twitter        |
-      | Google+             |Google+| Signin with google+        |
+      | social network icon | respective social network icon | signin with social network |
+      | Facebook            | Facebook pop up                | Signin with facebook       |
+      | Twitter             | Twitter poup                   | Signin with twitter        |
+      | Google+             | Google+                        | Signin with google+        |
 
   Scenario: Verifying the functionality of Sign Up(with valid details)
     Given I am in Sign Up page
@@ -125,41 +124,41 @@ Scenario Outline: Verifying the availability of mandatory fields in Sign Up form
     And I should see 'Your shop N zip ID' text along with ID
     And I should see 'Your Shop N Zip address' text along with shop N zip US location address
     And I should see 'Start shopping' button
-    
-        Scenario: Verify the Sign In verification link exipre time
-      Given I am in sign up page
+
+  Scenario: Verify the Sign In verification link exipre time
+    Given I am in sign up page
     And I completed sign up
     Then I should get verification link to the specified email address
     And It should be valid upto one year
-    
-    Scenario: verify the Sign in verification link functionality
-   Given I am in sign up page
+
+  Scenario: verify the Sign in verification link functionality
+    Given I am in sign up page
     And I completed sign up
     Then I should get verification link to the specified email address
     When I click on the verifiction link
-    Then I should be navigated to shop N zip application 
-    And I should see verification is successful 
-    
-    Scenario: verify the Sign in verification link functionality(of verified link)
-   Given I am in sign up page
+    Then I should be navigated to shop N zip application
+    And I should see verification is successful
+
+  Scenario: verify the Sign in verification link functionality(of verified link)
+    Given I am in sign up page
     And I completed sign up
     Then I should get verification link to the specified email address
     When I click on the verifiction link
-    Then I should be navigated to shop N zip application 
+    Then I should be navigated to shop N zip application
     And I should see verification is successful
     When I logged out
-    And click on same verficatoin link again in email 
+    And click on same verficatoin link again in email
     Then I should be redirected to shop n zip application
     And I should see a message saying 'Your email is already been verified'
-    
-    
-     Scenario: verify the Sign in verification link functionality(of not a verified link after one year)
-   Given I am in sign up page
+
+  Scenario: verify the Sign in verification link functionality(of not a verified link after one year)
+    Given I am in sign up page
     And I completed sign up
     Then I should get verification link to the specified email address
     When I click on verficatoin link in email after one year
     Then I should be redirected to shop n zip application
-    And I should see a message saying 'Your link is either incorrect or expired' 
+    And I should see a message saying 'Your link is either incorrect or expired'
+
   #Negative
   Scenario: Verifying the functionality of Sign Up (without Entering any of the fields)
     Given I am in Sign Up page
@@ -196,11 +195,9 @@ Scenario Outline: Verifying the availability of mandatory fields in Sign Up form
     Given I am in Sign Up page
     And I tried to Registered without giving details to re-type Password field
     Then I should see registration is unsuccessful
-    
-     Scenario: Verifying the functionality of Sign Up (Click on sign up button without user details)
+
+  Scenario: Verifying the functionality of Sign Up (Click on sign up button without user details)
     Given I am in Sign Up page
     And I Click on sign up button
-    Then I should see registration is unsuccessful 
+    Then I should see registration is unsuccessful
     And I should see the validation messages are displayed
-    
-    

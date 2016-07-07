@@ -97,7 +97,6 @@ Feature: Sign In page
       | Twitter             |
       | Google+             |
 
-
   Scenario: Verifying the functionality of 'remember me' check box
     # check the feasibility of automation to this scenario as there will not be any cookies saved in web browser instantiated by the webdriver
     Given I am in sign In page
@@ -110,12 +109,12 @@ Feature: Sign In page
     And I navigated to sign in page again
     Then I should see the Email Address is auto filled with remembered email address
     And I should see the Password field is auto filled with remembered password
- 
+
   Scenario: verifying the functionality of 'Forgot Password' link
     Given I am in sign In page
     When I clicked on forgot password link
     Then I should be be navigated to Forgot Password page
- @MyTest
+
   Scenario: Verifying 'Welcomeback' popup after success logg in
     Given I am in sign In page
     When I logged in
@@ -139,6 +138,7 @@ Feature: Sign In page
     And I should see the user name in header
 
   Scenario Outline: Verify the functionality of items displayed in the drop down at user name
+    Given I am in sign In page
     When I logged in
     And I click on the drop dwon at user name in header
     Then I click on the item <items in the drop list> in drop list
