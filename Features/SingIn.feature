@@ -42,7 +42,6 @@ Feature: Sign In page
     Given I am in Sing in page
     Then I should see 'Remember me' check box is selected by default
 
-  @MyTest
   Scenario: verify the Sign in button color
     Given I am in Sing in page
     Then I should see 'Sign In' button is displayed in orange color
@@ -70,6 +69,7 @@ Feature: Sign In page
       | 'Google plus' icon   |
 
   Scenario Outline: Verify the items displayed in the drop down list at user name
+    Given I am in home page
     When I logged in
     And I click on the drop dwon at user name in header
     Then I should see the option <items in the drop list> is displayed in the drop list
@@ -97,6 +97,7 @@ Feature: Sign In page
       | Twitter             |
       | Google+             |
 
+
   Scenario: Verifying the functionality of 'remember me' check box
     # check the feasibility of automation to this scenario as there will not be any cookies saved in web browser instantiated by the webdriver
     Given I am in sign In page
@@ -109,12 +110,12 @@ Feature: Sign In page
     And I navigated to sign in page again
     Then I should see the Email Address is auto filled with remembered email address
     And I should see the Password field is auto filled with remembered password
-
+ 
   Scenario: verifying the functionality of 'Forgot Password' link
     Given I am in sign In page
     When I clicked on forgot password link
     Then I should be be navigated to Forgot Password page
-
+ @MyTest
   Scenario: Verifying 'Welcomeback' popup after success logg in
     Given I am in sign In page
     When I logged in

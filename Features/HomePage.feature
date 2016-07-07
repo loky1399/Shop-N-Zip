@@ -8,8 +8,9 @@ Feature: Verifying the section displayed in the home page
   Scenario: Verify the availability of auto slide 'Carousel'
     Then I should see a auto slide carousel below the header with five slides
 
+  @MyTest
   Scenario: Verify the availability of 'Get Started' block
-    Then I should see 'Get Started' block with 3 stpes
+    Then I should see 'Get Started' block with three stpes
 
   Scenario: Verify the availability of 'Track your package' block
     Then I should see 'Track your packag' block with text are to enter package tracking ID
@@ -43,6 +44,7 @@ Feature: Verifying the section displayed in the home page
       | Below the Real stories         |
 
   Scenario Outline: Verify the availability of 'Sign Up' button (when user is singed in)
+    Given Signed In with shop site
     Then I should not see 'Sign Up' button at <Sign up blocks>
 
     Examples: 

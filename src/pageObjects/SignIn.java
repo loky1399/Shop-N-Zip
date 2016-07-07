@@ -125,6 +125,12 @@ public class SignIn extends BaseClass {
 		return element;
 
 	}
+	
+	public static WebElement welcomePopup_closeButton(WebDriver driver) {
+		element = driver.findElement(By.xpath("//button[@class='close close-sign']"));
+		return element;
+
+	}
 
 	public static WebElement welcomePopup_MyItemsButton(WebDriver driver) {
 		element = driver

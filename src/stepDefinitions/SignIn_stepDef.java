@@ -1,13 +1,12 @@
 package stepDefinitions;
 
-import java.util.List;
-
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 import pageObjects.HeaderLinks;
+import pageObjects.HomePage;
 import pageObjects.SignIn;
 import utils.Constant;
 import utils.Utils;
@@ -23,18 +22,39 @@ public class SignIn_stepDef {
 		driver = Hooks.driver;
 	}
 
-	void testMethod(){
-		System.out.println("test method");
-		String lok="lok";
-			System.out.println("test method");
+	public static void sigIn(WebDriver driver) {
+		try {
+			if (HeaderLinks.SignIn_Menulink(driver).isDisplayed()) {
+				HeaderLinks.SignIn_Menulink(driver).click();
+				pageObjects.SignIn.with_TFC_credentials_EmailIdTextbox(driver)
+						.sendKeys(Constant.userName_Hemant);
+				pageObjects.SignIn.with_TFC_credentials_PassWordTextbox(driver)
+						.sendKeys(Constant.password_UserHemant);
+				pageObjects.SignIn.with_TFC_credentials_SignInButton(driver)
+						.click();
+			} else {
+				Assert.fail("sign in link is not displayed in the header");
+			}
+		} catch (Exception e) {
+			Assert.fail("failed to sign in");
+		}
 
 	}
+
+	public static void closeWelcomPopUp(WebDriver driver) {
+		try {
+			SignIn.welcomePopup_closeButton(driver).click();
+		} catch (Exception e) {
+			Assert.fail("failed to click on close button of welcome popup");
+		}
+	}
+
 	@Given("^I am in home page$")
 	public void i_am_in_home_page() throws Throwable {
 		try {
 			driver.get("http://dev.shopnzip.com");
 			Assert.assertEquals(driver.getTitle().trim(), "Shop n Zip - Home");
-		
+
 		} catch (Exception e) {
 			Assert.fail("driver not in home page");
 		}
@@ -122,24 +142,17 @@ public class SignIn_stepDef {
 	public void i_should_see_Sign_In_button_is_displayed_in_orange_color()
 			throws Throwable {
 		try {
-			System.out
-					.println(driver
-							.findElement(
-									By.cssSelector(".signin_content .signin_main .tfc_block .btn"))
-							.getCssValue(arg0));
-			// String buttonColor = pageObjects.SignIn
-			// .with_TFC_credentials_SignInButton(driver)
-			// .getCssValue("background").toString();
-			// Utils.highlightelement(SignIn.emailId_validation(driver));
-			// String buttonColor=element.getCssValue("background").toString();
-			// System.out.println(buttonColor);
-			// if (pageObjects.SignIn.with_TFC_credentials_SignInButton(driver)
-			// .isDisplayed()) {
-			// Assert.assertTrue(buttonColor
-			// .endsWith("rgba(0, 0, 0, 0) linear-gradient(180deg, #f60 0px, #f30) repeat scroll 0 0"));
-			// } else {
-			// Assert.fail("sign in button color is not orange");
-			// }
+
+			String buttonColor = pageObjects.SignIn
+					.with_TFC_credentials_SignInButton(driver)
+					.getCssValue("background-image").toString();
+			if (pageObjects.SignIn.with_TFC_credentials_SignInButton(driver)
+					.isDisplayed()) {
+				Assert.assertTrue(buttonColor
+						.endsWith("linear-gradient(180deg, rgb(255, 102, 0) 0px, rgb(255, 51, 0))"));
+			} else {
+				Assert.fail("sign in button color is not orange");
+			}
 		} catch (Exception e) {
 			Assert.fail("failed to check the color of the sign in button");
 		}
@@ -148,6 +161,8 @@ public class SignIn_stepDef {
 	@Then("^I should see 'Email Id' text field$")
 	public void i_should_see_Email_Id_text_field() throws Throwable {
 		try {
+			utils.Utils.highlightelement(driver,
+					SignIn.with_TFC_credentials_EmailIdTextbox(driver));
 			Assert.assertTrue(pageObjects.SignIn
 					.with_TFC_credentials_EmailIdTextbox(driver).isDisplayed());
 		} catch (Exception e) {
@@ -199,6 +214,8 @@ public class SignIn_stepDef {
 	@Then("^I should see 'Facebook' icon$")
 	public void i_should_see_Facebook_icon() throws Throwable {
 		try {
+			utils.Utils.highlightelement(driver,
+					SignIn.with_socialNW_FaceBook(driver));
 			Assert.assertTrue(pageObjects.SignIn.with_socialNW_FaceBook(driver)
 					.isDisplayed());
 		} catch (Exception e) {
@@ -209,6 +226,8 @@ public class SignIn_stepDef {
 	@Then("^I should see 'Twitter' icon$")
 	public void i_should_see_Twitter_icon() throws Throwable {
 		try {
+			utils.Utils.highlightelement(driver,
+					SignIn.with_socialNW_Twitter(driver));
 			Assert.assertTrue(pageObjects.SignIn.with_socialNW_Twitter(driver)
 					.isDisplayed());
 		} catch (Exception e) {
@@ -219,6 +238,8 @@ public class SignIn_stepDef {
 	@Then("^I should see 'Google plus' icon$")
 	public void i_should_see_Google_plus_icon() throws Throwable {
 		try {
+			utils.Utils.highlightelement(driver,
+					SignIn.with_socialNW_googlePlus(driver));
 			Assert.assertTrue(pageObjects.SignIn.with_socialNW_googlePlus(
 					driver).isDisplayed());
 		} catch (Exception e) {
@@ -230,8 +251,10 @@ public class SignIn_stepDef {
 	public void i_click_on_the_drop_dwon_at_user_name_in_header()
 			throws Throwable {
 		try {
+			closeWelcomPopUp(driver);
 			if (HeaderLinks.userNameDropdown(driver).isDisplayed()) {
 				HeaderLinks.userNameDropdown(driver).click();
+				Thread.sleep(1000);
 			} else {
 				Assert.fail("failed to click the user name drop down");
 			}
@@ -246,8 +269,11 @@ public class SignIn_stepDef {
 		try {
 			if (HeaderLinks.userNameDropdown(driver).isDisplayed()) {
 				HeaderLinks.userNameDropdown(driver).click();
-				Assert.assertTrue(HeaderLinks.userNameDropdown_MyItems(driver)
-						.isDisplayed());
+				utils.Utils.highlightelement(driver,
+						HeaderLinks.userNameDropdown_MyItems(driver));
+				Assert.assertEquals(HeaderLinks
+						.userNameDropdown_MyItems(driver).getAttribute("href"),
+						"http://dev.shopnzip.com/user/My-Items");
 			} else {
 				Assert.fail("failed to click the user name drop down");
 			}
@@ -262,8 +288,10 @@ public class SignIn_stepDef {
 		try {
 			if (HeaderLinks.userNameDropdown(driver).isDisplayed()) {
 				HeaderLinks.userNameDropdown(driver).click();
-				Assert.assertTrue(HeaderLinks
-						.userNameDropdown_MyAccount(driver).isDisplayed());
+				Assert.assertEquals(
+						HeaderLinks.userNameDropdown_MyAccount(driver)
+								.getAttribute("href"),
+						"http://dev.shopnzip.com/user/My-Account");
 			} else {
 				Assert.fail("failed to click the user name drop down");
 			}
@@ -278,8 +306,10 @@ public class SignIn_stepDef {
 		try {
 			if (HeaderLinks.userNameDropdown(driver).isDisplayed()) {
 				HeaderLinks.userNameDropdown(driver).click();
-				Assert.assertTrue(HeaderLinks.userNameDropdown_TrackMyPackage(
-						driver).isDisplayed());
+				Assert.assertEquals(
+						HeaderLinks.userNameDropdown_TrackMyPackage(driver)
+								.getAttribute("href"),
+						"http://dev.shopnzip.com/user/Track-My-Packages");
 			} else {
 				Assert.fail("failed to click the user name drop down");
 			}
@@ -294,8 +324,10 @@ public class SignIn_stepDef {
 		try {
 			if (HeaderLinks.userNameDropdown(driver).isDisplayed()) {
 				HeaderLinks.userNameDropdown(driver).click();
-				Assert.assertTrue(HeaderLinks
-						.userNameDropdown_MyProfile(driver).isDisplayed());
+				Assert.assertEquals(
+						HeaderLinks.userNameDropdown_MyProfile(driver)
+								.getAttribute("href"),
+						"http://dev.shopnzip.com/user/My-Profile");
 			} else {
 				Assert.fail("failed to click the user name drop down");
 			}
@@ -310,8 +342,8 @@ public class SignIn_stepDef {
 		try {
 			if (HeaderLinks.userNameDropdown(driver).isDisplayed()) {
 				HeaderLinks.userNameDropdown(driver).click();
-				Assert.assertTrue(HeaderLinks.userNameDropdown_Logout(driver)
-						.isDisplayed());
+				Assert.assertEquals(HeaderLinks.userNameDropdown_Logout(driver)
+						.getAttribute("value"), "Logout");
 			} else {
 				Assert.fail("failed to click the user name drop down");
 			}
@@ -416,9 +448,9 @@ public class SignIn_stepDef {
 	@When("^I entered correct password$")
 	public void i_entered_correct_password() throws Throwable {
 		try {
-			if (pageObjects.SignIn.with_TFC_credentials_EmailIdTextbox(driver)
+			if (pageObjects.SignIn.with_TFC_credentials_PassWordTextbox(driver)
 					.isDisplayed()) {
-				pageObjects.SignIn.with_TFC_credentials_EmailIdTextbox(driver)
+				pageObjects.SignIn.with_TFC_credentials_PassWordTextbox(driver)
 						.sendKeys(Constant.password_UserHemant);
 			} else {
 				Assert.fail("email id fiels is not displayed in sign in page");
@@ -468,8 +500,22 @@ public class SignIn_stepDef {
 		try {
 			Assert.assertTrue(pageObjects.SignIn.welcomePopup(driver)
 					.isDisplayed());
+			closeWelcomPopUp(driver);
+			Thread.sleep(1000);
 		} catch (Exception e) {
 			Assert.fail("welcome pop up after sign in not displayed");
+		}
+	}
+
+	@When("^I logged out$")
+	public void i_logged_out() throws Throwable {
+		try {
+			HeaderLinks.userNameDropdown(driver).click();
+			Thread.sleep(1000);
+			// HeaderLinks.userNameDropdown_Logout(driver).click();
+		} catch (Exception e) {
+			System.out.println(e);
+			Assert.fail("Failed to click logout link");
 		}
 	}
 
@@ -483,7 +529,8 @@ public class SignIn_stepDef {
 			throws Throwable {
 		try {
 			String EmailFieldValue = pageObjects.SignIn
-					.with_TFC_credentials_EmailIdTextbox(driver).getText();
+					.with_TFC_credentials_EmailIdTextbox(driver).getAttribute(
+							"value");
 			boolean value = EmailFieldValue.isEmpty();
 			if (!value) {
 				Assert.assertTrue(!value);
@@ -501,7 +548,8 @@ public class SignIn_stepDef {
 			throws Throwable {
 		try {
 			String PasswordFieldValue = pageObjects.SignIn
-					.with_TFC_credentials_ForgotpasswordLink(driver).getText();
+					.with_TFC_credentials_PassWordTextbox(driver).getAttribute(
+							"value");
 			boolean value = PasswordFieldValue.isEmpty();
 			if (!value) {
 				Assert.assertTrue(!value);
@@ -509,6 +557,7 @@ public class SignIn_stepDef {
 				Assert.fail("remember me functionality failed");
 			}
 		} catch (Exception e) {
+			System.out.println();
 			Assert.fail("remember email address functionality failed");
 		}
 	}
@@ -541,21 +590,7 @@ public class SignIn_stepDef {
 
 	@When("^I logged in$")
 	public void i_logged_in() throws Throwable {
-		try {
-			if (HeaderLinks.SignIn_Menulink(driver).isDisplayed()) {
-				HeaderLinks.SignIn_Menulink(driver).click();
-				pageObjects.SignIn.with_TFC_credentials_EmailIdTextbox(driver)
-						.sendKeys(Constant.userName_Hemant);
-				pageObjects.SignIn.with_TFC_credentials_PassWordTextbox(driver)
-						.sendKeys(Constant.password_UserHemant);
-				pageObjects.SignIn.with_TFC_credentials_SignInButton(driver)
-						.click();
-			} else {
-				Assert.fail("sign in link is not displayed in the header");
-			}
-		} catch (Exception e) {
-			Assert.fail("failed to sign in");
-		}
+		sigIn(driver);
 	}
 
 	@Then("^I should see 'Welcome Back' popup$")
@@ -569,15 +604,18 @@ public class SignIn_stepDef {
 	}
 
 	@Then("^I should see 'Welcome back' text along with User name$")
-	public void i_should_see_Welcome_back_text_along_with_User_name(
-			String nameOfTheUser) throws Throwable {
+	public void i_should_see_Welcome_back_text_along_with_User_name()
+			throws Throwable {
 		try {
+			String nameOfTheUser = "LokeshQA";
 			if (pageObjects.SignIn.welcomePopup(driver).isDisplayed()) {
-				Assert.assertEquals(pageObjects.SignIn
-						.welcomePopup_welcomeBackLableTitle(driver).getText()
-						.trim(), "THANKYOU FOR REGISTERING WITH US");
+//				Assert.assertEquals(pageObjects.SignIn
+//						.welcomePopup_welcomeBackLableTitle(driver).getText()
+//						.trim(), "Welcome back,"+
+//"LokeshQA");
+				Assert.assertTrue(SignIn.welcomePopup_welcomeBackLableTitle(driver).getText().contains("Welcome back"));
 				Assert.assertEquals(
-						pageObjects.SignIn.welcomePopup_UserName(driver),
+						pageObjects.SignIn.welcomePopup_UserName(driver).getText(),
 						nameOfTheUser);
 			} else {
 				Assert.fail("welcome pop up is not displayed");
@@ -588,15 +626,14 @@ public class SignIn_stepDef {
 	}
 
 	@Then("^I should see 'Your shop N zip ID' text along with ID$")
-	public void i_should_see_Your_shop_N_zip_ID_text_along_with_ID(
-			String shopNzipId) throws Throwable {
+	public void i_should_see_Your_shop_N_zip_ID_text_along_with_ID()
+			throws Throwable {
 		try {
+			String shopNzipId = "SZBT1LGW6";
 			if (pageObjects.SignIn.welcomePopup(driver).isDisplayed()) {
-				Assert.assertEquals(pageObjects.SignIn
-						.welcomePopup_yourShopNZipIDlableTitle(driver)
-						.getText().trim(), "YOUR SHOP N ZIP ID: ");
+Assert.assertTrue(SignIn.welcomePopup_yourShopNZipIDlableTitle(driver).getText().contains("YOUR SHOP N ZIP ID"));
 				Assert.assertEquals(
-						pageObjects.SignIn.welcomePopup_yourShopNZipID(driver),
+						pageObjects.SignIn.welcomePopup_yourShopNZipID(driver).getText(),
 						shopNzipId);
 			} else {
 				Assert.fail("welcome pop up is not displayed");
@@ -611,17 +648,33 @@ public class SignIn_stepDef {
 			throws Throwable {
 		try {
 			if (pageObjects.SignIn.welcomePopup(driver).isDisplayed()) {
-				Assert.assertEquals(pageObjects.SignIn
-						.welcomePopup_yourShopNZipAddressLableTitle(driver)
-						.getText().trim(), "YOUR SHOP N ZIP ADDRESS:");
+				Assert.assertTrue(SignIn
+						.welcomePopup_yourShopNZipAddressLableTitle(driver).getText().contains("YOUR SHOP N ZIP ADDRESS:"));
 				Assert.assertTrue(pageObjects.SignIn
 						.welcomePopup_yourShopNZipAddress(driver)
 						.getText()
 						.trim()
-						.equals(Constant.userName_Hemant
-								+ "c/o Shop n Zip SZ0W23S4" + " "
-								+ "150 Shoreline Drive," + " "
-								+ "Redwood City,California,94065"));
+						.contains(Constant.userName_Hemant));
+				Assert.assertTrue(pageObjects.SignIn
+						.welcomePopup_yourShopNZipAddress(driver)
+						.getText()
+						.trim()
+						.contains("Redwood City,California,94065"));
+				Assert.assertTrue(pageObjects.SignIn
+						.welcomePopup_yourShopNZipAddress(driver)
+						.getText()
+						.trim()
+						.contains("SZBT1LGW6"));
+				Assert.assertTrue(pageObjects.SignIn
+						.welcomePopup_yourShopNZipAddress(driver)
+						.getText()
+						.trim()
+						.contains("c/o Shop n Zip"));
+				Assert.assertTrue(pageObjects.SignIn
+						.welcomePopup_yourShopNZipAddress(driver)
+						.getText()
+						.trim()
+						.contains("150 Shoreline Drive,"));
 			} else {
 				Assert.fail("welcome pop up is not displayed");
 			}
@@ -903,6 +956,7 @@ public class SignIn_stepDef {
 		} catch (Exception e) {
 			Assert.fail("failed to check the email id field validation");
 		}
+
 	}
 
 }

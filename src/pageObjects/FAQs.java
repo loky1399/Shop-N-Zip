@@ -21,45 +21,47 @@ public class FAQs extends BaseClass {
 		return element;
 	}
 
-	public static WebElement FAQsMyAccountLink(WebDriver driver) {
-		element = driver
-				.findElement(By
-						.xpath(".//*[@id='form']/div[6]/section/div[1]/div/div/div[1]/div/div[1]/p[4]/a"));
+	public static WebElement FAQsGeneralQuwstions(WebDriver driver) {
+		element = driver.findElement(By
+				.xpath(".//*[@class='faq_cont']/div/p[2]"));
 		return element;
 	}
 
-	public static WebElement FAQsMyItemsLink(WebDriver driver) {
-		element = driver
-				.findElement(By
-						.xpath(".//*[@id='form']/div[6]/section/div[1]/div/div/div[1]/div/div[1]/p[5]/a"));
+	public static WebElement FAQsMyAccounts(WebDriver driver) {
+		element = driver.findElement(By
+				.xpath(".//*[@class='faq_cont']/div/p[3]"));
 		return element;
 	}
 
-	public static WebElement FAQsGeneralShippngInfoLink(WebDriver driver) {
-		element = driver
-				.findElement(By
-						.xpath(".//*[@id='form']/div[6]/section/div[1]/div/div/div[1]/div/div[1]/p[3]/a"));
+	public static WebElement FAQsMyItems(WebDriver driver) {
+		element = driver.findElement(By
+				.xpath(".//*[@class='faq_cont']/div/p[4]"));
 		return element;
 	}
 
-	public static WebElement FAQsReturnsLinks(WebDriver driver) {
-		element = driver
-				.findElement(By
-						.xpath(".//*[@id='form']/div[6]/section/div[1]/div/div/div[1]/div/div[1]/p[6]/a"));
+	public static WebElement FAQsGeneralShippngInfo(WebDriver driver) {
+		element = driver.findElement(By
+				.xpath(".//*[@class='faq_cont']/div/p[5]"));
+		return element;
+	}
+
+	public static WebElement FAQsReturns(WebDriver driver) {
+		element = driver.findElement(By
+				.xpath(".//*[@class='faq_cont']/div/p[6]"));
 		return element;
 	}
 
 	public static WebElement FAQsContactUsLink(WebDriver driver) {
 		element = driver
 				.findElement(By
-						.xpath(".//*[@id='form']/div[6]/section/div[1]/div/div/div[1]/div/div[1]/p[7]/a"));
+						.xpath(".//*[@class='findanswr']/a"));
 		return element;
 	}
 
-	public static WebElement FAQsGeneralQuestionLink(WebDriver driver) {
+	public static WebElement FAQsGeneralQuestionSection(WebDriver driver) {
 		element = driver
 				.findElement(By
-						.xpath(".//*[@id='form']/div[6]/section/div[1]/div/div/div[1]/div/div[1]/p[2]/a"));
+						.xpath(".//*[@id='form']/div[6]/section/div[1]/div/div/div[1]/div/div[2]"));
 		return element;
 	}
 

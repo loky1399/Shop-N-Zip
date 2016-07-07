@@ -7,10 +7,18 @@ Feature: Contact us
   Scenario: Verify the availability of 'Contact Us' link in the footer
     Then I should see the 'Contact Us' link in the footer
 
+  #Scenario Outline: Verifying available sections in contact us page
+  #  When I clicked on 'contact us' option in page
+  # Then I should see the following sections<sections> in page
+  # Examples:
+  #   | sections                            |
+  #  | Live chat with us                   |
+  # | Send us your feedback bout the site |
+  @MyTest
   Scenario: Verifying available sections in contact us page
     When I clicked on 'contact us' option in page
-    Then I should see the following sections in page
-      | Live chat with us                    |
+    Then I should see the following sectionsin page
+      | Live chat with us                   |
       | Send us your feedback about the site |
 
   #Functionality

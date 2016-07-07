@@ -20,7 +20,7 @@ public class ContactUs_stepDef {
 		driver = Hooks.driver;
 	}
 
-	List<String> sections;
+	List<String> sectionsInthePage;
 
 	@Then("^I should see the 'Contact Us' link in the footer$")
 	public void i_should_see_the_Contact_Us_link_in_the_footer()
@@ -45,18 +45,18 @@ public class ContactUs_stepDef {
 		}
 	}
 
-	@Then("^I should see the following sections in page$")
-	public void i_should_see_the_following_sections(List<String> sections)
+	@Then("^I should see the following sectionsin page$")
+	public void i_should_see_the_following_sectionsin_page(List<String> sections)
 			throws Throwable {
-		this.sections = sections;
+		this.sectionsInthePage = sections;
 		List<String> sectionName = new ArrayList<String>();
 		sectionName.add(ContactUs.contactUs_liveChatWithUsTitle(driver)
 				.getText());
 		sectionName.add(ContactUs.contactUs_sendYourFeedbackTitle(driver)
 				.getText());
 
-		for (int i = 0; i < sections.size(); i++) {
-			Assert.assertEquals(sections.get(i), sectionName.get(i));
+		for (int i = 0; i < sectionsInthePage.size(); i++) {
+			Assert.assertEquals(sectionsInthePage.get(i), sectionName.get(i));
 		}
 
 	}

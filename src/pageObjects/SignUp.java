@@ -1,364 +1,409 @@
 package pageObjects;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class SignUp extends BaseClass {
+public class ShopNow extends BaseClass {
 
 	public static WebElement element = null;
 
-	public static WebElement creatNewTFCaccountTitle(WebDriver driver) {
+	public static WebElement shopNow_Menulink(WebDriver driver) {
+		element = driver.findElement(By.xpath(".//*[@id='navbar']/ul/li[2]"));
+		return element;
+	}
+
+	public static WebElement shopNow_Heading(WebDriver driver) {
+		element = driver
+				.findElement(By
+						.xpath(".//*[@id='form']/div[6]/section[1]/div/div/div/div[1]/h2"));
+		return element;
+	}
+
+	public static WebElement shopNow_caption(WebDriver driver) {
+		element = driver
+				.findElement(By
+						.xpath(".//*[@id='form']/div[6]/section[1]/div/div/div/div[1]/p"));
+		return element;
+	}
+
+	public static WebElement tieup3rdParty_logoSection(WebDriver driver) {
+		element = driver
+				.findElement(By
+						.xpath(".//*[@id='form']/div[6]/section[1]/div/div/div/div[2]/div/div/ul"));
+		return element;
+	}
+
+	public static List<WebElement> tieup3rdParty_logos(WebDriver driver) {
+		
+		List<WebElement> logos= driver
+		.findElements(By
+				.xpath(".//*[@class='list_unstyle']/li/img"));
+return logos;
+	}
+
+	public static WebElement tieup3rdParty_1stlogo(WebDriver driver) {
+		element = driver
+				.findElement(By
+						.xpath(".//*[@id='form']/div[6]/section[1]/div/div/div/div[2]/div/div/ul[1]/li[1]"));
+		return element;
+	}
+
+	public static WebElement tieup3rdParty_2ndlogo(WebDriver driver) {
+		element = driver
+				.findElement(By
+						.xpath(".//*[@id='form']/div[6]/section[1]/div/div/div/div[2]/div/div/ul[1]/li[2]"));
+		return element;
+	}
+
+	public static WebElement tieup3rdParty_3rdlogo(WebDriver driver) {
+		element = driver
+				.findElement(By
+						.xpath(".//*[@id='form']/div[6]/section[1]/div/div/div/div[2]/div/div/ul[1]/li[3]"));
+		return element;
+	}
+
+	public static WebElement tieup3rdParty_4thlogo(WebDriver driver) {
+		element = driver
+				.findElement(By
+						.xpath(".//*[@id='form']/div[6]/section[1]/div/div/div/div[2]/div/div/ul[1]/li[4]"));
+		return element;
+	}
+
+	public static WebElement tieup3rdParty_5thlogos(WebDriver driver) {
+		element = driver
+				.findElement(By
+						.xpath(".//*[@id='form']/div[6]/section[1]/div/div/div/div[2]/div/div/ul[1]/li[5]"));
+		return element;
+	}
+
+	public static WebElement tieup3rdParty_6thlogos(WebDriver driver) {
+		element = driver
+				.findElement(By
+						.xpath(".//*[@id='form']/div[6]/section[1]/div/div/div/div[2]/div/div/ul[1]/li[6]"));
+		return element;
+	}
+
+	public static WebElement tieup3rdParty_7thlogos(WebDriver driver) {
+		element = driver
+				.findElement(By
+						.xpath(".//*[@id='form']/div[6]/section[1]/div/div/div/div[2]/div/div/ul[1]/li[7]"));
+		return element;
+	}
+
+	public static WebElement tieup3rdParty_8thlogos(WebDriver driver) {
+		element = driver
+				.findElement(By
+						.xpath(".//*[@id='form']/div[6]/section[1]/div/div/div/div[2]/div/div/ul[1]/li[8]"));
+		return element;
+	}
+
+	public static  List<WebElement> tieup3rdParty_Vertical_linkSectionlogos(WebDriver driver) {
+		 List<WebElement> verticle3rdpartylinks = driver.findElements(By
+				.xpath(".//*[@class='col-sm-3 col-md-2']"));
+		return verticle3rdpartylinks;
+	}
+	public static  List<WebElement> tieup3rdpartylinks(WebDriver driver) {
+		 List<WebElement> tieuplinks = driver.findElements(By
+				.xpath(".//*[@class='spnow_list_txt']/a"));
+		return tieuplinks ;
+	}
+	public static WebElement tieup3rdParty_Vertical_linkSection_1stlink(WebDriver driver) {
 		element = driver.findElement(By
-				.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[1]/h2"));
+				.xpath(".//*[@class='col-md-8 col-sm-8']/div[1]"));
 		return element;
-
 	}
 
-	public static WebElement creatNewTFCaccount_Description(WebDriver driver) {
+	public static WebElement tieup3rdParty_Vertical_linkSection_1stlink_image(WebDriver driver) {
+		element = driver
+				.findElement(By
+						.xpath(".//*[@id='form']/div[6]/section[2]/div[1]/div/div/div[1]/div[1]/div/div[1]/img"));
+		return element;
+	}
+
+	public static WebElement tieup3rdParty_Vertical_linkSection_1stlink_title(WebDriver driver) {
+		element = driver
+				.findElement(By
+						.xpath(".//*[@id='form']/div[6]/section[2]/div[1]/div/div/div[1]/div[1]/div/div[2]/p/a"));
+		return element;
+	}
+
+	public static WebElement tieup3rdParty_Vertical_linkSection_1stlink_publishedDate(WebDriver driver) {
+		element = driver
+				.findElement(By
+						.xpath(".//*[@id='form']/div[6]/section[2]/div[1]/div/div/div[1]/div[1]/div/div[2]/ul/li[1]"));
+		return element;
+	}
+
+	public static WebElement tieup3rdParty_Vertical_linkSection_1stlink_category(WebDriver driver) {
+		element = driver
+				.findElement(By
+						.xpath(".//*[@id='form']/div[6]/section[2]/div[1]/div/div/div[1]/div[1]/div/div[2]/ul/li[3]/a"));
+		return element;
+	}
+
+	public static WebElement tieup3rdParty_Vertical_linkSection_2ndlink(WebDriver driver) {
 		element = driver.findElement(By
-				.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[1]/p[1]"));
+				.xpath(".//*[@class='col-md-8 col-sm-8']/div[2]"));
 		return element;
-
 	}
 
-	public static WebElement allreadyhaveAccount_Description(WebDriver driver) {
+	public static WebElement tieup3rdParty_Vertical_linkSection_2ndlink_image(WebDriver driver) {
+		element = driver
+				.findElement(By
+						.xpath(".//*[@id='form']/div[6]/section[2]/div[1]/div/div/div[1]/div[2]/div/div[1]/img"));
+		return element;
+	}
+
+	public static WebElement tieup3rdParty_Vertical_linkSection_2ndlink_title(WebDriver driver) {
+		element = driver
+				.findElement(By
+						.xpath(".//*[@id='form']/div[6]/section[2]/div[1]/div/div/div[1]/div[2]/div/div[2]/p/a"));
+		return element;
+	}
+
+	public static WebElement tieup3rdParty_Vertical_linkSection_2ndtlink_publishedDate(WebDriver driver) {
+		element = driver
+				.findElement(By
+						.xpath(".//*[@id='form']/div[6]/section[2]/div[1]/div/div/div[1]/div[2]/div/div[2]/ul/li[1]"));
+		return element;
+	}
+
+	public static WebElement tieup3rdParty_Vertical_linkSection_2ndlink_category(WebDriver driver) {
+		element = driver
+				.findElement(By
+						.xpath(".//*[@id='form']/div[6]/section[2]/div[1]/div/div/div[1]/div[2]/div/div[2]/ul/li[3]/a"));
+		return element;
+	}
+
+	public static WebElement tieup3rdParty_Vertical_linkSection_3rdlink(WebDriver driver) {
 		element = driver.findElement(By
-				.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[1]/p[2]"));
+				.xpath(".//*[@class='col-md-8 col-sm-8']/div[3]"));
 		return element;
-
 	}
 
-	public static WebElement signInButton_for_existAccount(WebDriver driver) {
+	public static WebElement tieup3rdParty_Vertical_linkSection_3rdlink_image(WebDriver driver) {
 		element = driver
 				.findElement(By
-						.xpath("..//*[@id='form']/div[6]/div/div/div/div/div[1]/div/p/a"));
+						.xpath(".//*[@id='form']/div[6]/section[2]/div[1]/div/div/div[1]/div[2]/div/div[1]/img"));
 		return element;
-
 	}
 
-	public static WebElement signupForm(WebDriver driver) {
+	public static WebElement tieup3rdParty_Vertical_linkSection_3rdlink_title(WebDriver driver) {
+		element = driver
+				.findElement(By
+						.xpath(".//*[@id='form']/div[6]/section[2]/div[1]/div/div/div[1]/div[2]/div/div[2]/p/a"));
+		return element;
+	}
+
+	public static WebElement tieup3rdParty_Vertical_linkSection_3rdlink_publishedDate(WebDriver driver) {
+		element = driver
+				.findElement(By
+						.xpath(".//*[@id='form']/div[6]/section[2]/div[1]/div/div/div[1]/div[2]/div/div[2]/ul/li[1]"));
+		return element;
+	}
+
+	public static WebElement tieup3rdParty_Vertical_linkSection_3rdlink_category(WebDriver driver) {
+		element = driver
+				.findElement(By
+						.xpath(".//*[@id='form']/div[6]/section[2]/div[1]/div/div/div[1]/div[2]/div/div[2]/ul/li[3]/a"));
+		return element;
+	}
+	public static WebElement tieup3rdParty_Vertical_linkSection_4thlink(WebDriver driver) {
 		element = driver.findElement(By
-				.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]"));
+				.xpath(".//*[@class='col-md-8 col-sm-8']/div[4]"));
 		return element;
 	}
 
-	public static WebElement sigUp_with_socialNWtitle(WebDriver driver) {
+	public static WebElement tieup3rdParty_Vertical_linkSection_4thlink_image(WebDriver driver) {
+		element = driver
+				.findElement(By
+						.xpath(".//*[@id='form']/div[6]/section[2]/div[1]/div/div/div[1]/div[4]/div/div[1]/img"));
+		return element;
+	}
+
+	public static WebElement tieup3rdParty_Vertical_linkSection_4thlink_title(WebDriver driver) {
+		element = driver
+				.findElement(By
+						.xpath(".//*[@id='form']/div[6]/section[2]/div[1]/div/div/div[1]/div[4]/div/div[2]/p/a"));
+		return element;
+	}
+
+	public static WebElement tieup3rdParty_Vertical_linkSection_4thlink_publishedDate(WebDriver driver) {
+		element = driver
+				.findElement(By
+						.xpath(".//*[@id='form']/div[6]/section[2]/div[1]/div/div/div[1]/div[4]/div/div[2]/ul/li[1]"));
+		return element;
+	}
+
+	public static WebElement tieup3rdParty_Vertical_linkSection_4thlink_category(WebDriver driver) {
+		element = driver
+				.findElement(By
+						.xpath(".//*[@id='form']/div[6]/section[2]/div[1]/div/div/div[1]/div[4]/div/div[2]/ul/li[3]/a"));
+		return element;
+	}
+	public static WebElement tieup3rdParty_Vertical_linkSection_5thlink(WebDriver driver) {
 		element = driver.findElement(By
-				.xpath(".//*[@id='form']/div[6]/div/div/div/div/h3"));
+				.xpath(".//*[@class='col-md-8 col-sm-8']/div[5]"));
 		return element;
 	}
 
-	public static WebElement signUp_with_socialNW_FaceBooklink(WebDriver driver) {
+	public static WebElement tieup3rdParty_Vertical_linkSection_5thlink_image(WebDriver driver) {
 		element = driver
 				.findElement(By
-						.xpath(".//*[@id='loginpanel_p0']/tbody/tr[1]/td/table/tbody/tr/td[1]/center/div/div/div"));
+						.xpath(".//*[@id='form']/div[6]/section[2]/div[1]/div/div/div[1]/div[5]/div/div[1]/img"));
 		return element;
 	}
 
-	public static WebElement signUp_with_socialNW_Twitterlink(WebDriver driver) {
+	public static WebElement tieup3rdParty_Vertical_linkSection_5thlink_title(WebDriver driver) {
 		element = driver
 				.findElement(By
-						.xpath(".//*[@id='loginpanel_p0']/tbody/tr[1]/td/table/tbody/tr/td[2]/center/div/div/div"));
+						.xpath(".//*[@id='form']/div[6]/section[2]/div[1]/div/div/div[1]/div[5]/div/div[2]/p/a"));
 		return element;
 	}
 
-	public static WebElement signUp_with_socialNW_googlePluslink(
-			WebDriver driver) {
+	public static WebElement tieup3rdParty_Vertical_linkSection_5thlink_publishedDate(WebDriver driver) {
 		element = driver
 				.findElement(By
-						.xpath(".//*[@id='loginpanel_p0']/tbody/tr[1]/td/table/tbody/tr/td[3]/center/div/div/div"));
+						.xpath(".//*[@id='form']/div[6]/section[2]/div[1]/div/div/div[1]/div[5]/div/div[2]/ul/li[1]"));
 		return element;
 	}
 
-	public static WebElement orCreatNewTFCaccunt_title(WebDriver driver) {
+	public static WebElement tieup3rdParty_Vertical_linkSection_5thlink_category(WebDriver driver) {
 		element = driver
 				.findElement(By
-						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/h4"));
+						.xpath(".//*[@id='form']/div[6]/section[2]/div[1]/div/div/div[1]/div[5]/div/div[2]/ul/li[3]/a"));
+		return element;
+	}
+	public static WebElement tieup3rdParty_Vertical_linkSection_6thlink(WebDriver driver) {
+		element = driver.findElement(By
+				.xpath(".//*[@class='col-md-8 col-sm-8']/div[6]"));
 		return element;
 	}
 
-	public static WebElement NameTextBox(WebDriver driver) {
-		element = driver.findElement(By.xpath(".//*[@id='txtFirstName']"));
-		return element;
-	}
-	public static WebElement LastNameTextBox(WebDriver driver) {
-		element = driver.findElement(By.xpath(".//*[@class='form-group'][2]"));
-		return element;
-	}
-	public static WebElement LastNameTextBoxmandatory(WebDriver driver) {
-		element = driver.findElement(By.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[2]/sup"));
-		return element;
-	}
-
-	public static WebElement NameTextBoxRequiredSymbol(WebDriver driver) {
+	public static WebElement tieup3rdParty_Vertical_linkSection_6thlink_image(WebDriver driver) {
 		element = driver
 				.findElement(By
-						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[1]/sup"));
+						.xpath(".//*[@id='form']/div[6]/section[2]/div[1]/div/div/div[1]/div[6]/div/div[1]/img"));
 		return element;
 	}
 
-	public static WebElement currentCountryDropDown(WebDriver driver) {
-		element = driver.findElement(By.xpath(".//*[@id='ddlCountry']"));
-		return element;
-	}
-
-	public static WebElement currentCountryDropDownRequiredSymbol(
-			WebDriver driver) {
+	public static WebElement tieup3rdParty_Vertical_linkSection_6thlink_title(WebDriver driver) {
 		element = driver
 				.findElement(By
-						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[2]/sup"));
+						.xpath(".//*[@id='form']/div[6]/section[2]/div[1]/div/div/div[1]/div[6]/div/div[2]/p/a"));
 		return element;
 	}
 
-	public static WebElement emailAddressTextBox(WebDriver driver) {
-		element = driver.findElement(By.xpath(".//*[@id='txtEmail']"));
-		return element;
-	}
-
-	public static WebElement emailAddressTextBoxRequiredSymbol(WebDriver driver) {
+	public static WebElement tieup3rdParty_Vertical_linkSection_6thlink_publishedDate(WebDriver driver) {
 		element = driver
 				.findElement(By
-						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[3]/sup"));
+						.xpath(".//*[@id='form']/div[6]/section[2]/div[1]/div/div/div[1]/div[6]/div/div[2]/ul/li[1]"));
 		return element;
 	}
 
-	public static WebElement phoneNumberTextBox(WebDriver driver) {
-		element = driver.findElement(By.xpath(".//*[@id='txtPhone']"));
-		return element;
-	}
-
-	public static WebElement phoneNumberTextBoxRequiredSymbol(WebDriver driver) {
+	public static WebElement tieup3rdParty_Vertical_linkSection_6thlink_category(WebDriver driver) {
 		element = driver
 				.findElement(By
-						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[4]/sup"));
+						.xpath(".//*[@id='form']/div[6]/section[2]/div[1]/div/div/div[1]/div[6]/div/div[2]/ul/li[3]/a"));
+		return element;
+	}
+	public static WebElement tieup3rdParty_Vertical_linkSection_7thlink(WebDriver driver) {
+		element = driver.findElement(By
+				.xpath(".//*[@class='col-md-8 col-sm-8']/div[7]"));
 		return element;
 	}
 
-	public static WebElement passWordTextBox(WebDriver driver) {
-		element = driver.findElement(By.xpath(".//*[@id='passStrength']"));
-		return element;
-	}
-
-	public static WebElement passWordTextBoxRequiredSymbol(WebDriver driver) {
+	public static WebElement tieup3rdParty_Vertical_linkSection_7thlink_image(WebDriver driver) {
 		element = driver
 				.findElement(By
-						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[5]/sup"));
+						.xpath(".//*[@id='form']/div[6]/section[2]/div[1]/div/div/div[1]/div[7]/div/div[1]/img"));
 		return element;
 	}
 
-	public static WebElement reTypePasswordTextBox(WebDriver driver) {
-		element = driver.findElement(By.xpath(".//*[@id='RetypePassword']"));
-		return element;
-	}
-
-	public static WebElement reTypePasswordRequiredSymbol(WebDriver driver) {
+	public static WebElement tieup3rdParty_Vertical_linkSection_7thlink_title(WebDriver driver) {
 		element = driver
 				.findElement(By
-						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[6]/sup"));
+						.xpath(".//*[@id='form']/div[6]/section[2]/div[1]/div/div/div[1]/div[7]/div/div[2]/p"));
 		return element;
 	}
 
-	public static WebElement zipcodeTextBox(WebDriver driver) {
-		element = driver.findElement(By.xpath(".//*[@id='TxtZipCode']"));
-		return element;
-	}
-
-	public static WebElement addressTextBox(WebDriver driver) {
-		element = driver.findElement(By.xpath(".//*[@id='txtAddress']"));
-		return element;
-	}
-
-	public static WebElement cityTextBox(WebDriver driver) {
-		element = driver.findElement(By.xpath(".//*[@id='txtcity']"));
-		return element;
-	}
-
-	public static WebElement stateDropDown(WebDriver driver) {
-		element = driver.findElement(By.xpath(".//*[@id='txtState']"));
-		return element;
-	}
-
-	public static WebElement registerNowButton(WebDriver driver) {
-		element = driver.findElement(By.xpath(".//*[@id='btnOk']"));
-		return element;
-	}
-
-	public static WebElement termsAndConditionLink(WebDriver driver) {
+	public static WebElement tieup3rdParty_Vertical_linkSection_7thlink_publishedDate(WebDriver driver) {
 		element = driver
 				.findElement(By
-						.xpath("html/body/div[3]/div/div/div/div/div[2]/div[2]/div[11]/label/a[1]/text()"));
+						.xpath(".//*[@id='form']/div[6]/section[2]/div[1]/div/div/div[1]/div[7]/div/div[2]/ul/li[1]"));
 		return element;
 	}
 
-	public static WebElement privacypolicyLink(WebDriver driver) {
+	public static WebElement tieup3rdParty_Vertical_linkSection_7thlink_category(WebDriver driver) {
 		element = driver
 				.findElement(By
-						.xpath("html/body/div[3]/div/div/div/div/div[2]/div[2]/div[11]/label/a[2]/text()"));
+						.xpath(".//*[@id='form']/div[6]/section[2]/div[1]/div/div/div[1]/div[7]/div/div[2]/ul/li[3]/a"));
+		return element;
+	}
+	public static WebElement tieup3rdParty_Vertical_linkSection_8thlink(WebDriver driver) {
+		element = driver.findElement(By
+				.xpath(".//*[@class='col-md-8 col-sm-8']/div[8]"));
 		return element;
 	}
 
-	public static WebElement tearmNconditionCheckBox(WebDriver driver) {
+	public static WebElement tieup3rdParty_Vertical_linkSection_8thlink_image(WebDriver driver) {
 		element = driver
 				.findElement(By
-						.xpath("html/body/div[3]/div/div/div/div/div[2]/div[2]/div[11]/label/div"));
+						.xpath(".//*[@id='form']/div[6]/section[2]/div[1]/div/div/div[1]/div[8]/div/div[1]/img"));
 		return element;
 	}
 
-	public static WebElement requiredsymbol(WebDriver driver) {
+	public static WebElement tieup3rdParty_Vertical_linkSection_8thlink_title(WebDriver driver) {
 		element = driver
 				.findElement(By
-						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/span"));
+						.xpath(".//*[@id='form']/div[6]/section[2]/div[1]/div/div/div[1]/div[8]/div/div[2]/p/a"));
 		return element;
 	}
 
-	public static WebElement alertMessageForNameTextfield(WebDriver driver) {
+	public static WebElement tieup3rdParty_Vertical_linkSection_8thlink_publishedDate(WebDriver driver) {
 		element = driver
 				.findElement(By
-						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[1]/div/div[1]"));
+						.xpath(".//*[@id='form']/div[6]/section[2]/div[1]/div/div/div[1]/div[8]/div/div[2]/ul/li[1]"));
 		return element;
 	}
 
-	public static WebElement alertMessageForCountryDropDown(WebDriver driver) {
+	public static WebElement tieup3rdParty_Vertical_linkSection_8thlink_category(WebDriver driver) {
 		element = driver
 				.findElement(By
-						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[2]/div/div[1]"));
+						.xpath(".//*[@id='form']/div[6]/section[2]/div[1]/div/div/div[1]/div[8]/div/div[2]/ul/li[3]/a"));
 		return element;
 	}
-
-	public static WebElement alertMessageForEmailAddresstextField(
-			WebDriver driver) {
+	public static WebElement note(WebDriver driver) {
 		element = driver
 				.findElement(By
-						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[3]/div/div[1]"));
+						.xpath(".//*[@id='form']/section/div[1]/div/div/div[1]/div[4]/p"));
+		return element;
+	}
+	public static WebElement signUpOption(WebDriver driver) {
+		element = driver.findElement(By
+				.xpath(".//*[@id='form']/section/div[2]/div/div/div/div[1]/a"));
 		return element;
 	}
 
-	public static WebElement alertMessageForPhoneNumbertextField(
-			WebDriver driver) {
+	public static WebElement signInOption(WebDriver driver) {
 		element = driver
 				.findElement(By
-						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[4]/div/div[1]"));
+						.xpath(".//*[@id='form']/section/div[2]/div/div/div/div[1]/p/a"));
+		return element;
+	}
+	public static WebElement adslot_squire(WebDriver driver) {
+		element = driver.findElement(By
+				.xpath(".//*[@class='targetstyle img-responsive']"));
 		return element;
 	}
 
-	public static WebElement alertMessageForPasswordtextField(WebDriver driver) {
+	public static WebElement adslot_rectangular(WebDriver driver) {
 		element = driver
 				.findElement(By
-						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[5]/div/div[1]"));
-		return element;
-	}
-
-	public static WebElement alertMessageForReTypePasswordtextField(
-			WebDriver driver) {
-		element = driver
-				.findElement(By
-						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[6]/div/div[1]"));
-		return element;
-	}
-
-	public static WebElement alertMessageForZipCodetextBox(WebDriver driver) {
-		element = driver
-				.findElement(By
-						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[9]/div/div/div[1]"));
-		return element;
-	}
-
-	public static WebElement errorMessageForInvalidEmail(WebDriver driver) {
-		element = driver
-				.findElement(By
-						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[3]/div/div[1]"));
-		return element;
-	}
-
-	public static WebElement errorMessageForInvalidPhoneNumber(WebDriver driver) {
-		element = driver
-				.findElement(By
-						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[4]/div/div[1]"));
-		return element;
-	}
-
-	public static WebElement errorMessageForInvalidPassword(WebDriver driver) {
-		element = driver
-				.findElement(By
-						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[5]/div/div[1]"));
-		return element;
-	}
-
-	public static WebElement errorMessageForInvalidRetypePassword(
-			WebDriver driver) {
-		element = driver
-				.findElement(By
-						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[6]/div/div[1]"));
-		return element;
-	}
-
-	public static WebElement errorMessageForInvalidZipcode(WebDriver driver) {
-		element = driver
-				.findElement(By
-						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[9]/div/div/div[1]"));
-		return element;
-	}
-
-	public static WebElement errorMessageForloginwithSocilaSharing(
-			WebDriver driver) {
-		element = driver.findElement(By.xpath(".//*[@id='lblError']"));
-		return element;
-	}
-	public static WebElement faceBookEmailId(
-			WebDriver driver) {
-		element = driver.findElement(By.xpath(".//*[@id='email']"));
-		return element;
-	}
-
-	public static WebElement faceBookPassword(
-			WebDriver driver) {
-		element = driver.findElement(By.xpath(".//*[@id='pass']"));
-		return element;
-	}
-
-	public static WebElement faceBookLoginButton(
-			WebDriver driver) {
-		element = driver.findElement(By.xpath(".//*[@id='u_0_2']"));
-		return element;
-	}
-	public static WebElement faceBookGigiyamessage(
-			WebDriver driver) {
-		element = driver.findElement(By.xpath(".//*[@id='dvMain']/center/table/tbody/tr/td/b[2]"));
-		return element;
-	}
-	public static WebElement faceBookCloseWindowOption(
-			WebDriver driver) {
-		element = driver.findElement(By.xpath(".//*[@id='btnClose']"));
-		return element;
-	}
-	public static WebElement twitterUserNameTextBox(
-			WebDriver driver) {
-		element = driver.findElement(By.xpath(".//*[@class='text']"));
-		return element;
-	}
-
-	public static WebElement twitterPassWordTextField(
-			WebDriver driver) {
-		element = driver.findElement(By.xpath(".//*[@class='password text']"));
-		return element;
-	}
-
-	public static WebElement twitterLoginButton(
-			WebDriver driver) {
-		element = driver.findElement(By.xpath(".//*[@id='allow']"));
-		return element;
-	}
-
-	public static WebElement twitterGigiaMessage(
-			WebDriver driver) {
-		element = driver.findElement(By.xpath(".//*[@id='dvMain']/center/table/tbody/tr/td/b[2]"));
-		return element;
-	}
-
-	public static WebElement twitterGigiyaCloseWindoOption(
-			WebDriver driver) {
-		element = driver.findElement(By.xpath(".//*[@id='btnClose']"));
+						.xpath(".//*[@class='col-sm-12 text-center advertise_block']"));
 		return element;
 	}
 

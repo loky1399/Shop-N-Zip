@@ -1,5 +1,7 @@
 package pageObjects;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,11 +16,28 @@ public class HomePage {
 		return element;
 	}
 
-	public static WebElement homePageCarousel(WebDriver driver) {
+	public static List<WebElement> homePageCarousel(WebDriver driver) {
+		List<WebElement> carousels = driver.findElements(By
+				.xpath(".//*[@class='slide-1']"));
+		return carousels;
+	}
+	public static WebElement homePageCarousel1(WebDriver driver) {
 		element = driver.findElement(By
-				.xpath("html/body/form/div[6]/div/div[2]/span"));
+				.xpath("(.//*[@class='slide-1'])[1]"));
 		return element;
 	}
+	public static WebElement homePageCarousel2(WebDriver driver) {
+		element = driver.findElement(By
+				.xpath("(.//*[@class='slide-1'])[2]"));
+		return element;
+	}
+
+	public static WebElement homePageCarousel3(WebDriver driver) {
+		element = driver.findElement(By
+				.xpath("(.//*[@class='slide-1'])[3]"));
+		return element;
+	}
+
 
 	public static WebElement homePageCarousel_title(WebDriver driver) {
 		element = driver.findElement(By
@@ -44,10 +63,23 @@ public class HomePage {
 		return element;
 	}
 
-	public static WebElement homePageCarousel_pageindicator(WebDriver driver) {
-		element = driver.findElement(By.xpath(".//*[@id='myCarousel']/ol/li"));
+	public static List<WebElement> homePageCarousel_pageindicators(WebDriver driver) {
+		List<WebElement>  pageIndicators= driver.findElements(By.xpath(".//*[@id='myCarousel']/ol/li"));
+		return pageIndicators;
+	}
+	public static WebElement homePageCarousel_pageindicator1(WebDriver driver) {
+		element = driver.findElement(By.xpath("(.//*[@id='myCarousel']/ol/li)[1]"));
 		return element;
 	}
+	public static WebElement homePageCarousel_pageindicator2(WebDriver driver) {
+		element = driver.findElement(By.xpath("(.//*[@id='myCarousel']/ol/li)[2]"));
+		return element;
+	}
+	public static WebElement homePageCarousel_pageindicator3(WebDriver driver) {
+		element = driver.findElement(By.xpath("(.//*[@id='myCarousel']/ol/li)[3]"));
+		return element;
+	}
+	
 
 	public static WebElement homePageGetStartedtitle(WebDriver driver) {
 		element = driver.findElement(By
@@ -62,67 +94,72 @@ public class HomePage {
 		return element;
 	}
 
-	public static WebElement homePageGetStartedtitleSteps(WebDriver driver) {
+	public static WebElement homePageGetStartedtitleStepsall(WebDriver driver) {
 		element = driver.findElement(By
 				.xpath(".//*[@id='form']/section[1]/div/div/div/div"));
 		return element;
 	}
+	public static List<WebElement> homePageGetStartedtitleSteps(WebDriver driver) {
+		List<WebElement>  steps= driver.findElements(By
+				.xpath(".//*[@class='col-sm-4 col-md-3 pdlr']/div"));
+		return steps;
+	}
 
 	public static WebElement homePageGetStartedtitleSteps_1st(WebDriver driver) {
 		element = driver.findElement(By
-				.xpath("(.//*[@id='form']/section[1]/div/div/div/div)[1]"));
+				.xpath(".//*[@id='form']/section[1]/div/div/div/div)[1]"));
 		return element;
 	}
 
 	public static WebElement homePageGetStartedtitleSteps_1stTitle(
 			WebDriver driver) {
 		element = driver.findElement(By
-				.xpath("(.//*[@id='form']/section[1]/div/div/div[2]/div/h2"));
+				.xpath(".//*[@id='form']/section[1]/div/div/div[2]/div/h2"));
 		return element;
 	}
 
 	public static WebElement homePageGetStartedtitleSteps_2nd(WebDriver driver) {
 		element = driver.findElement(By
-				.xpath("(.//*[@id='form']/section[1]/div/div/div[3]/div"));
+				.xpath(".//*[@id='form']/section[1]/div/div/div[3]/div"));
 		return element;
 	}
 
 	public static WebElement homePageGetStartedtitleSteps_2ndTitle(
 			WebDriver driver) {
 		element = driver.findElement(By
-				.xpath("(.//*[@id='form']/section[1]/div/div/div[3]/div/h2"));
+				.xpath(".//*[@id='form']/section[1]/div/div/div[3]/div/h2"));
 		return element;
 	}
 
 	public static WebElement homePageGetStartedtitleSteps_3rd(WebDriver driver) {
 		element = driver.findElement(By
-				.xpath("(.//*[@id='form']/section[1]/div/div/div[4]"));
+				.xpath(".//*[@id='form']/section[1]/div/div/div[4]"));
 		return element;
 	}
 
 	public static WebElement homePageGetStartedtitleSteps_3rdTitle(
 			WebDriver driver) {
 		element = driver.findElement(By
-				.xpath("(.//*[@id='form']/section[1]/div/div/div[4]/div/h2"));
+				.xpath(".//*[@id='form']/section[1]/div/div/div[4]/div/h2"));
 		return element;
 	}
 
 	public static WebElement homePageAdslot1(WebDriver driver) {
 		element = driver.findElement(By
-				.xpath("(.//*[@id='form']/section[2]/div/div[1]/a"));
+				.xpath(".//*[@id='form']/section[2]/div/div/div[1]/a/img"));
 		return element;
 	}
 
 	public static WebElement homePageAdslot2(WebDriver driver) {
 		element = driver
 				.findElement(By
-						.xpath("(.//*[@id='form']/section[6]/div/div/div/div[3]/div[2]/a/img"));
+						.xpath(".//*[@id='form']/section[6]/div/div/div/div[3]/div[2]/a/img"));
 		return element;
 	}
 
 	public static WebElement homePageAdslot3Squire(WebDriver driver) {
 		element = driver.findElement(By
-				.xpath("(.//*[@id='form']/section[4]/div/div/div/div[3]/img"));
+				.xpath(".//*[@id='form']/section[4]/div/div/div/div[3]/img"));
 		return element;
 	}
 
@@ -137,7 +174,7 @@ public class HomePage {
 			WebDriver driver) {
 		element = driver
 				.findElement(By
-						.xpath("(.//*[@id='form']/section[2]/div/div[2]/div[1]/div/div[1]/div/h2"));
+						.xpath(".//*[@class='pro-col-con']/h2"));
 		return element;
 	}
 
@@ -145,7 +182,7 @@ public class HomePage {
 			WebDriver driver) {
 		element = driver
 				.findElement(By
-						.xpath("(.//*[@id='p_lt_WebPartZone5_ZonePlaceHolder_pageplaceholder_p_lt_WebPartZone4_ZoneTrackPackege_ShopNZipHomeTrackPackage_txttrackingNumber']"));
+						.xpath(".//*[@class='Track']"));
 		return element;
 	}
 
@@ -153,7 +190,7 @@ public class HomePage {
 			WebDriver driver) {
 		element = driver
 				.findElement(By
-						.xpath("(.//*[@id='p_lt_WebPartZone5_ZonePlaceHolder_pageplaceholder_p_lt_WebPartZone4_ZoneTrackPackege_ShopNZipHomeTrackPackage_btnTrack']"));
+						.xpath(".//*[@id='p_lt_WebPartZone5_ZonePlaceHolder_pageplaceholder_p_lt_WebPartZone4_ZoneTrackPackege_ShopNZipHomeTrackPackage_btnTrack']"));
 		return element;
 	}
 
@@ -255,7 +292,7 @@ public class HomePage {
 	public static WebElement homePageCalculatorCalculateButton(WebDriver driver) {
 		element = driver
 				.findElement(By
-						.xpath(".//*[@id='form']/section[2]/div/div[2]/div[1]/div/div[2]/div/div[1]/div[5]/div/div[2]/a"));
+						.xpath(".//*[@class='col-sm-7 col-md-6 ship']/div"));
 		return element;
 	}
 
@@ -375,9 +412,16 @@ public class HomePage {
 
 	public static WebElement homePageReadyToStartText(WebDriver driver) {
 		element = driver.findElement(By
-				.xpath(".//*[@id='form']/section[5]/div/div/a/div/div[1]"));
+				.xpath(".//*[@class='sec-title col-sm-11 col-xs-12']"));
 		return element;
 	}
+
+	public static WebElement homePageReadyToStartsection(WebDriver driver) {
+		element = driver.findElement(By
+				.xpath(".//*[@id='form']/section[5]"));
+		return element;
+	}
+
 
 	public static WebElement homePagehomeArrowOfReadyToStart(WebDriver driver) {
 		element = driver
@@ -397,6 +441,12 @@ public class HomePage {
 				.xpath(".//*[@id='form']/section[6]/div/div/div"));
 		return element;
 	}
+	public static List<WebElement> homePageRealStorySectionElements(WebDriver driver) {
+		List<WebElement> stries = driver.findElements(By
+				.xpath(".//*[@id='form']/section[6]/div/div/div/div[2]/div/div"));
+		return stries;
+	}
+
 
 	public static WebElement homePageRealStoryHeadingText(WebDriver driver) {
 		element = driver.findElement(By

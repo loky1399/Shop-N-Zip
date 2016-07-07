@@ -22,29 +22,27 @@ Feature: Forgot password (Including reset password)
     When I clicked on 'Forgot Password'
     Then I should see Reset password description under the title as 'Recover your password by entering the email address associated with your account. Check your email for the instructions on how to reset your password'
 
-  Scenario: Verifying the availability of 'Save New Password' button
+  Scenario: Verifying the displaying alert message with entering not registered email  id.
     Given I am in Sign in page
     When I clicked on 'Forgot Password'
-    And I entered valid email id
+    And I entered not registered  email id
     When I click on 'Reset Password' button
-    Then I should be redirected to Reset Password page
-    And I should see 'Save New Password' button
+    Then I should see 'Please enter a registered e-mail address' alert message on my screen.
 
-  Scenario: Verify the availability of 'Reset Password' title
+  Scenario: Verify the error message for with invalid email id
     Given I am in Sign in page
     When I clicked on 'Forgot Password'
-    And I entered valid email id
+    And I entered invalid email id
     When I click on 'Reset Password' button
-    Then I should be redirected to Reset Password page
-    Then I should see Reset password title as 'Enter your new Password'
+    Then I should see 'Invalid email address' error message on my screen.
 
-  Scenario: Verifying the availability of field in reset password page
+  Scenario: Verifying the confirmation message after entering registered email id.
     Given I am in Sign in page
     When I clicked on 'Forgot Password'
     And I entered valid email id
     When I click on 'Reset Password' button
-    Then I should be redirected to Reset Password page
-    Then I should see password field with water mark text as 'Password'
+    Then I should see confirmation message 'We have sent a link to reset your password to your registered e-mail address.' on my screen.
+    And I should see 'Reset password' button is as not enabled.
 
   Scenario: Verifying availability of 'Save New Password' button
     Given I am in sign in page
@@ -67,9 +65,16 @@ Feature: Forgot password (Including reset password)
     Then I should get reset password link to the specified email address
     And I clicked on the link
     And I should be redirected to Reset Password page
+    And I should see 'Enter Your New Password' heading
+    And I should see 'Password' text field in reset paswword page.
+    And I should see 'Retypepassword' text fields
     When I enter new password
+    And I enter same text in 'Retypepassword' text field.
     And Click on save New Password button
-    Then I should see success message of reset password
+    Then I should see success message of reset password 'Your password has been reset.'
+    And I should see 'To sign in with your new password, click here.' for sigin with shop n zip site.
+    When I click on 'To sign in with your new password, click here.' link .
+    Then I should be redirected to the sigin page of shop n zip site.
 
   Scenario: Verify the forgot password link exipre time(click on link after 24 hours)
     Given I am in Sign in page
