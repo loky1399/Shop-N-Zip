@@ -90,6 +90,12 @@ public class ForgotPassword {
 				.xpath(".//*[@class='thank_sec col-md-5 col-sm-6 col-xs-11']/p/a"));
 		return element;
 	}
+	public static WebElement forgotPasswordErrormessage_ThisFiledIsrequired(WebDriver driver) {
+		element = driver.findElement(By
+				.xpath(".//*[text()=' This field is required']"));
+		return element;
+	}
+	
 	
 
 }

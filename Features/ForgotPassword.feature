@@ -2,6 +2,7 @@ Feature: Forgot password (Including reset password)
 
   #Field validations are missed out (password)
   #Availablity
+  @test
   Scenario: Verify the availability of Forgot Password title
     Given I am in Sign in page
     When I clicked on 'Forgot Password'
