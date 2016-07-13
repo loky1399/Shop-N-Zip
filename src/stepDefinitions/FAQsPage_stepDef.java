@@ -21,7 +21,6 @@ public class FAQsPage_stepDef {
 
 	@Given("^I am in FAQ page$")
 	public void i_am_in_FAQ_page() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
 	    driver.get(Constant.FAQ_URL);
 	    try {
 			String pageTitle = driver.getTitle();
@@ -36,7 +35,6 @@ public class FAQsPage_stepDef {
 
 	@Then("^I should see FAQ link is highlited in header$")
 	public void i_should_see_FAQ_link_is_highlited_in_header() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
 		try {
 			String menuSelectionLine = HeaderLinks.FAQ_Menulink(driver)
 					.getAttribute("class").toString();
