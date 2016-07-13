@@ -29,7 +29,7 @@ public class AboutUs{
 
 	public static WebElement signUpOption(WebDriver driver) {
 		element = driver.findElement(By
-				.xpath(".//*[@id='form']/section/div/div/div/div/div[1]/a"));
+				.xpath(".//a[text()='SIGN UP TODAY!']"));
 		return element;
 	}
 

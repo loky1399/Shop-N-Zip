@@ -5,6 +5,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class SignUp {
 
@@ -80,29 +81,34 @@ public class SignUp {
 		return element;
 	}
 
-	public static WebElement NameTextBox(WebDriver driver) {
+	public static WebElement FirstNameTextBox(WebDriver driver) {
 		element = driver.findElement(By.xpath(".//*[@id='txtFirstName']"));
 		return element;
 	}
+
 	public static WebElement LastNameTextBox(WebDriver driver) {
-		element = driver.findElement(By.xpath(".//*[@class='form-group'][2]"));
-		return element;
-	}
-	public static WebElement LastNameTextBoxmandatory(WebDriver driver) {
-		element = driver.findElement(By.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[2]/sup"));
+		element = driver.findElement(By.xpath(".//*[@class='form-group'][2]/input"));
 		return element;
 	}
 
-	public static WebElement NameTextBoxRequiredSymbol(WebDriver driver) {
+	public static WebElement LastNameTextBoxmandatory(WebDriver driver) {
+		element = driver
+				.findElement(By
+						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[2]/sup"));
+		return element;
+	}
+
+	public static WebElement FirstNameTextBoxRequiredSymbol(WebDriver driver) {
 		element = driver
 				.findElement(By
 						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[1]/sup"));
 		return element;
 	}
 
-	public static WebElement currentCountryDropDown(WebDriver driver) {
-		element = driver.findElement(By.xpath(".//*[@id='ddlCountry']"));
-		return element;
+	public static void currentCountryDropDown(WebDriver driver,int index) {
+		List<WebElement>element = driver.findElements(By.xpath(".//*[@id='ddlCountry']"));
+	Select sele=new Select(driver.findElement(By.xpath(".//*[@id='ddlCountry']")));
+	sele.selectByIndex(index);
 	}
 
 	public static WebElement currentCountryDropDownRequiredSymbol(
@@ -165,6 +171,11 @@ public class SignUp {
 		element = driver.findElement(By.xpath(".//*[@id='TxtZipCode']"));
 		return element;
 	}
+	
+	public static WebElement signUpSuccessMsg(WebDriver driver) {
+		element = driver.findElement(By.xpath("//div[@class='verify_block col-sm-4']"));
+		return element;
+	}
 
 	public static WebElement addressTextBox(WebDriver driver) {
 		element = driver.findElement(By.xpath(".//*[@id='txtAddress']"));
@@ -176,9 +187,9 @@ public class SignUp {
 		return element;
 	}
 
-	public static WebElement stateDropDown(WebDriver driver) {
-		element = driver.findElement(By.xpath(".//*[@id='txtState']"));
-		return element;
+	public static void stateDropDown(WebDriver driver,int index) {
+		element = driver.findElement(By.xpath(".//*[@id='ddlStates']"));
+		new Select(element).selectByIndex(index);
 	}
 
 	public static WebElement registerNowButton(WebDriver driver) {
@@ -187,23 +198,19 @@ public class SignUp {
 	}
 
 	public static WebElement termsAndConditionLink(WebDriver driver) {
-		element = driver
-				.findElement(By
-						.xpath("html/body/div[3]/div/div/div/div/div[2]/div[2]/div[11]/label/a[1]/text()"));
+		element = driver.findElement(By
+				.xpath("//a[text()='Terms and Conditions']"));
 		return element;
 	}
 
 	public static WebElement privacypolicyLink(WebDriver driver) {
-		element = driver
-				.findElement(By
-						.xpath("html/body/div[3]/div/div/div/div/div[2]/div[2]/div[11]/label/a[2]/text()"));
+		element = driver.findElement(By.xpath("//a[text()='Privacy Policy']"));
 		return element;
 	}
 
-	public static WebElement tearmNconditionCheckBox(WebDriver driver) {
-		element = driver
-				.findElement(By
-						.xpath("html/body/div[3]/div/div/div/div/div[2]/div[2]/div[11]/label/div"));
+	public static WebElement CheckBox(WebDriver driver) {
+		element = driver.findElement(By
+				.xpath(".//div[@class='control__indicator']"));
 		return element;
 	}
 
@@ -221,6 +228,13 @@ public class SignUp {
 		return element;
 	}
 
+	public static WebElement alertMessageForLastNameTextField(WebDriver driver) {
+		element = driver
+				.findElement(By
+						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[2]/div/div[1]"));
+		return element;
+	}
+	
 	public static WebElement alertMessageForCountryDropDown(WebDriver driver) {
 		element = driver
 				.findElement(By
@@ -258,11 +272,41 @@ public class SignUp {
 						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[6]/div/div[1]"));
 		return element;
 	}
+	
+	public static WebElement alertMessageForAddressTextField(
+			WebDriver driver) {
+		element = driver
+				.findElement(By
+						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[8]/div/div[1]"));
+		return element;
+	}
 
+	public static WebElement alertMessageForCityTextField(
+			WebDriver driver) {
+		element = driver
+				.findElement(By
+						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[9]/div/div[1]"));
+		return element;
+	}
+	
+	public static WebElement alertMessageForSelectStateDropField(
+			WebDriver driver) {
+		element = driver
+				.findElement(By
+						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[10]/div/div[1]"));
+		return element;
+	}
 	public static WebElement alertMessageForZipCodetextBox(WebDriver driver) {
 		element = driver
 				.findElement(By
 						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[9]/div/div/div[1]"));
+		return element;
+	}
+	
+	public static WebElement alertMessageForCheckBox(WebDriver driver) {
+		element = driver
+				.findElement(By
+						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[13]/label/div[1]/div[1]"));
 		return element;
 	}
 
@@ -307,59 +351,80 @@ public class SignUp {
 		element = driver.findElement(By.xpath(".//*[@id='lblError']"));
 		return element;
 	}
-	public static WebElement faceBookEmailId(
-			WebDriver driver) {
+
+	public static WebElement faceBookEmailId(WebDriver driver) {
 		element = driver.findElement(By.xpath(".//*[@id='email']"));
 		return element;
 	}
 
-	public static WebElement faceBookPassword(
-			WebDriver driver) {
+	public static WebElement faceBookPassword(WebDriver driver) {
 		element = driver.findElement(By.xpath(".//*[@id='pass']"));
 		return element;
 	}
 
-	public static WebElement faceBookLoginButton(
-			WebDriver driver) {
+	public static WebElement faceBookLoginButton(WebDriver driver) {
 		element = driver.findElement(By.xpath(".//*[@id='u_0_2']"));
 		return element;
 	}
-	public static WebElement faceBookGigiyamessage(
-			WebDriver driver) {
-		element = driver.findElement(By.xpath(".//*[@id='dvMain']/center/table/tbody/tr/td/b[2]"));
+
+	public static WebElement faceBookGigiyamessage(WebDriver driver) {
+		element = driver.findElement(By
+				.xpath(".//*[@id='dvMain']/center/table/tbody/tr/td/b[2]"));
 		return element;
 	}
-	public static WebElement faceBookCloseWindowOption(
-			WebDriver driver) {
+
+	public static WebElement faceBookCloseWindowOption(WebDriver driver) {
 		element = driver.findElement(By.xpath(".//*[@id='btnClose']"));
 		return element;
 	}
-	public static WebElement twitterUserNameTextBox(
-			WebDriver driver) {
+
+	public static WebElement twitterUserNameTextBox(WebDriver driver) {
 		element = driver.findElement(By.xpath(".//*[@class='text']"));
 		return element;
 	}
 
-	public static WebElement twitterPassWordTextField(
-			WebDriver driver) {
+	public static WebElement twitterPassWordTextField(WebDriver driver) {
 		element = driver.findElement(By.xpath(".//*[@class='password text']"));
 		return element;
 	}
 
-	public static WebElement twitterLoginButton(
-			WebDriver driver) {
+	public static WebElement googleUserNameTextBox(WebDriver driver) {
+		element = driver.findElement(By.xpath(".//*[@id='Email']"));
+		return element;
+	}
+
+	public static WebElement googleNextButton(WebDriver driver) {
+		element = driver.findElement(By.xpath(".//*[@id='next']"));
+		return element;
+	}
+
+	public static WebElement googlePassWordTextField(WebDriver driver) {
+		element = driver.findElement(By.xpath(".//*[@id='Passwd']"));
+		return element;
+	}
+
+	public static WebElement googleSignInButton(WebDriver driver) {
+		element = driver.findElement(By.xpath(".//*[@id='signIn']"));
+		return element;
+	}
+
+	public static WebElement googleAllowAccessButton(WebDriver driver) {
+		element = driver.findElement(By.xpath(".//*[@id='submit_approve_access']"));
+		return element;
+	}
+	public static WebElement twitterLoginButton(WebDriver driver) {
 		element = driver.findElement(By.xpath(".//*[@id='allow']"));
 		return element;
 	}
 
-	public static WebElement twitterGigiaMessage(
-			WebDriver driver) {
-		element = driver.findElement(By.xpath(".//*[@id='dvMain']/center/table/tbody/tr/td/b[2]"));
+	public static WebElement twitterGigiaMessage(WebDriver driver) {
+		element = driver.findElement(By
+				.xpath(".//*[@id='dvMain']/center/table/tbody/tr/td/b[2]"));
 		return element;
 	}
 
-	public static WebElement twitterGigiyaCloseWindoOption(
-			WebDriver driver) {
+	public static WebElement twitterGigiyaCloseWindoOption(WebDriver driver) {
 		element = driver.findElement(By.xpath(".//*[@id='btnClose']"));
 		return element;
-	}}
+	}
+}
