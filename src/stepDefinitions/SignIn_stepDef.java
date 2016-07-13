@@ -5,7 +5,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-import pageObjects.Dashboard;
 import pageObjects.HeaderLinks;
 import pageObjects.SignIn;
 import utils.Constant;

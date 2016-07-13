@@ -23,13 +23,13 @@ public class ForgotPassword {
 	public static WebElement forgotPasswordDescription(WebDriver driver) {
 		element = driver
 				.findElement(By
-						.xpath(".//*[@id='p_lt_WebPartZone5_ZonePlaceHolder_pageplaceholder_p_lt_WebPartZone1_ZoneForgotPassword_ShopNZipForgotPassword_pnlPasswdRetrieval']/div[1]/div/div/div/div/div/p"));
+						.xpath(".//*[@class='forgot-pwd-main']/p"));
 		return element;
 	}
 
 	public static WebElement forgotPasswordEmailAddressTextBox(WebDriver driver) {
 		element = driver.findElement(By
-				.xpath(".//*[@class='forgot-pwd-main']/div/div[1]"));
+				.xpath(".//*[@class='forgot-pwd-main']/div/div[1]/input"));
 		return element;
 	}
 	public static WebElement forgotPasswod_EnterARegisteredEmaildErrorMessage(WebDriver driver) {
@@ -52,7 +52,7 @@ public class ForgotPassword {
 
 	public static WebElement forgotPassResetPasswordButton(WebDriver driver) {
 		element = driver.findElement(By
-				.xpath(".//*[@class='forgot-pwd-main']/div/div[2]"));
+				.xpath(".//*[@class='field']/input"));
 		return element;
 	}
 	public static WebElement forgotPassword_enteryournewpasswordheading(WebDriver driver) {

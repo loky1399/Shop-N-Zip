@@ -2,7 +2,7 @@ Feature: Forgot password (Including reset password)
 
   #Field validations are missed out (password)
   #Availablity
-  @test
+
   Scenario: Verify the availability of Forgot Password title
     Given I am in Sign in page
     When I clicked on 'Forgot Password'
@@ -12,7 +12,7 @@ Feature: Forgot password (Including reset password)
     Given I am in Sign in page
     When I clicked on 'Forgot Password'
     Then I should see Email address field with water mark text as 'Email Address'
-
+ 
   Scenario: Verifying the availability of Reset Password button
     Given I am in Sign in page
     When I clicked on 'Forgot Password'
@@ -58,6 +58,7 @@ Feature: Forgot password (Including reset password)
     Then I should be able to see 'Save New Password' button
 
   #Possitive
+  
   Scenario: verifying the fucntionality of 'forgot password' (with valid email address)
     Given I am in Sign in page
     When I clicked on 'Forgot Password'
@@ -76,7 +77,7 @@ Feature: Forgot password (Including reset password)
     And I should see 'To sign in with your new password, click here.' for sigin with shop n zip site.
     When I click on 'To sign in with your new password, click here.' link .
     Then I should be redirected to the sigin page of shop n zip site.
-
+@test
   Scenario: Verify the forgot password link exipre time(click on link after 24 hours)
     Given I am in Sign in page
     When I clicked on 'Forgot Password'
@@ -86,7 +87,7 @@ Feature: Forgot password (Including reset password)
     When I click on the link after 24 hours
     Then I should be redirected to shop n zip application
     And I should see the message saying link is expired
-
+ 
   Scenario: Verifying functionality of 'Reset password' with empty 'Password' text field
     Given I am in sign in page
     And I am a registered user
@@ -114,12 +115,13 @@ Feature: Forgot password (Including reset password)
     Then I should not be able to enter more than specified character length data in 'Password' text field
 
   #Negative
+ 
   Scenario: Verifying the functionality of forgot password (without providing any email address)
     Given I am in Sign in page
     When I clicked on 'Forgot Password'
     And I Clicked on Reset Password button
     Then I should see a validation message saying email address field is required
-
+ 
   Scenario: Verifying the functionality of forgot password (with invalid/Unregistered email address)
     Given I am in Sign in page
     When I clicked on 'Forgot Password'
