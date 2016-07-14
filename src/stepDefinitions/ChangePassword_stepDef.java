@@ -3,6 +3,7 @@ package stepDefinitions;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
+import utils.Constant;
 import cucumber.api.DataTable;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Then;
@@ -57,24 +58,36 @@ public class ChangePassword_stepDef {
 
 	@Then("^I should see 'change password' section$")
 	public void i_should_see_change_password_section() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
+		try{
+			Assert.assertTrue(pageObjects.ChangePassword.ChangePasswordSection(driver).isDisplayed());
+		}catch(Exception e){
+			System.out.println(e);
+			Assert.fail("Change password section is not displaying in change password page");
+		}
 		
 	}
 
 	@Then("^I should see 'Change Password' as title$")
 	public void i_should_see_Change_Password_as_title() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try{
+			String actual=pageObjects.ChangePassword.CahngePasswordHeading(driver).getText();
+			Assert.assertEquals(actual,"Change Password");
+		}catch(Exception e){
+			System.out.println(e);
+			Assert.fail("'Change Password' as title is not displaying");
+		}
 	}
 
 	@Then("^I should be able to see these fields in page\\.$")
-	public void i_should_be_able_to_see_these_fields_in_page(DataTable arg1)
+	public void i_should_be_able_to_see_these_fields_in_page()
 			throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		// For automatic transformation, change DataTable to one of
-		// List<YourType>, List<List<E>>, List<Map<K,V>> or Map<K,V>.
-		// E,K,V must be a scalar (String, Integer, Date, enum etc)
-		throw new PendingException();
+		try{
+			Assert.assertTrue(pageObjects.ChangePassword.CurrentPasswordTextBox(driver).isDisplayed()&& pageObjects.ChangePassword.EnterANewPasswordtextBox(driver).isDisplayed()&& pageObjects.ChangePassword.RetypePasswordtextfield(driver).isDisplayed()&& pageObjects.ChangePassword.ChangePaaswordSubmiteButton(driver).isDisplayed() && pageObjects.ChangePassword.ChangePassWordBackButton(driver).isDisplayed());
+		}catch(Exception e){
+			System.out.println(e);
+			Assert.fail("Fields are not displaying");
+		}
+		
 	}
 
 	
@@ -82,22 +95,35 @@ public class ChangePassword_stepDef {
 	@When("^I entered my current password in current password filed\\.$")
 	public void i_entered_my_current_password_in_current_password_filed()
 			throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try{
+			pageObjects.ChangePassword.CurrentPasswordTextBox(driver).sendKeys(Constant.CurrentPassword);
+		}catch(Exception e){
+			System.out.println(e);
+			Assert.fail("current password is not entering");
+		}
 	}
 
 	@When("^I entered a valid format password in new password filed\\.$")
 	public void i_entered_a_valid_format_password_in_new_password_filed()
 			throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+	try{
+		pageObjects.ChangePassword.EnterANewPasswordtextBox(driver).sendKeys(Constant.NewPassword);
+	}catch(Exception e){
+		System.out.println(e);
+		Assert.fail("new password is not enrering in change password page");
+	}
+		
 	}
 
 	@When("^I entered same text in 're-type new password' field\\.$")
 	public void i_entered_same_text_in_re_type_new_password_field()
 			throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try{
+			pageObjects.ChangePassword.RetypePasswordtextfield(driver).sendKeys(Constant.ChangePasswordInvalid1);
+		}catch(Exception e){
+			System.out.println(e);
+			Assert.fail("Inavaild data is not entered in change password:retype");
+		}
 	}
 
 	
@@ -107,28 +133,51 @@ public class ChangePassword_stepDef {
 	@When("^I entered incorrect current password$")
 	public void i_entered_incorrect_current_password() throws Throwable {
 		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try{
+			Assert.assertTrue(pageObjects.ChangePassword.CurrentPasswordTextBox(driver).isDisplayed());
+			pageObjects.ChangePassword.CurrentPasswordTextBox(driver).sendKeys(Constant.ChangePasswordInvalid12);
+		}catch(Exception e){
+			System.out.println(e);
+			Assert.fail("current password field is not displaying for entering data");
+		}
 	}
 
 	@When("^given valid new password$")
 	public void given_valid_new_password() throws Throwable {
 		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+	try{
+		Assert.assertTrue(pageObjects.ChangePassword.EnterANewPasswordtextBox(driver).isDisplayed());
+		pageObjects.ChangePassword.EnterANewPasswordtextBox(driver).sendKeys(Constant.NewPassword);
+	}catch(Exception e){
+		System.out.println(2);
+		Assert.fail("new password field is not displaying");
+	}
 	}
 
 	@When("^entered password same as new password in re-type password field$")
 	public void entered_password_same_as_new_password_in_re_type_password_field()
 			throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+	try{
+		Assert.assertTrue(pageObjects.ChangePassword.RetypePasswordtextfield(driver).isDisplayed());
+		pageObjects.ChangePassword.RetypePasswordtextfield(driver).sendKeys(Constant.NewPassword);
+	}catch(Exception e){
+		System.out.println(e);
+		Assert.fail("Retype password field is not displaying");
+	}
 	}
 
 
 	@When("^I entered current password$")
 	public void i_entered_current_password() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+			try{
+			Assert.assertTrue(pageObjects.ChangePassword.CurrentPasswordTextBox(driver).isDisplayed());
+			pageObjects.ChangePassword.CurrentPasswordTextBox(driver).sendKeys(Constant.CurrentPassword);
+		}catch(Exception e){
+			System.out.println(e);
+			Assert.fail("current password field is not displaying for entering  valid data");
+		}
 	}
+	
 
 	
 
@@ -136,8 +185,16 @@ public class ChangePassword_stepDef {
 	@When("^I entered same in 're-type new password' field\\.$")
 	public void i_entered_same_in_re_type_new_password_field() throws Throwable {
 		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
-	}
+		try{
+			Assert.assertTrue(pageObjects.ChangePassword.RetypePasswordtextfield(driver).isDisplayed());
+			pageObjects.ChangePassword.RetypePasswordtextfield(driver).sendKeys(Constant.NewPassword);
+		}catch(Exception e){
+			System.out.println(e);
+			Assert.fail("Retype password field is not displaying");
+		}
+		}
+
+	
 
 	@When("^I clicked on submit button without filling current password field\\.$")
 	public void i_clicked_on_submit_button_without_filling_current_password_field()
@@ -210,20 +267,40 @@ public class ChangePassword_stepDef {
 	}
 	@When("^I click on 'submit' button$")
 	public void i_click_on_submit_button() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+	  try{
+		  Assert.assertTrue(pageObjects.ChangePassword.ChangePaaswordSubmiteButton(driver).isDisplayed());
+		  pageObjects.ChangePassword.ChangePaaswordSubmiteButton(driver).click();
+	  }catch(Exception e){
+		  System.out.println(2);
+		  Assert.fail("Submot button is not clicking");
+	  }
 	}
 
 	@Then("^I should see 'This field is required' error text for available all fields\\.$")
 	public void i_should_see_This_field_is_required_error_text_for_available_all_fields() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+	try{
+		Assert.assertTrue(pageObjects.ChangePassword.ThisFieldIsRewuiredError(driver).isDisplayed());
+	}catch(Exception e){
+		System.out.println(e);
+		Assert.fail("Error message is not displaying ");
 	}
-
+	  
+	}
+	@When("^I clicked on 'Submit' button in change password form\\.$")
+	public void i_clicked_on_Submit_button_in_change_password_form() throws Throwable {
+		// Write code here that turns the phrase above into concrete actions
+		throw new PendingException();
+	}
 	@Then("^I should be able to change my password with confirmation message'The changes were saved\\.' on my screen\\.$")
 	public void i_should_be_able_to_change_my_password_with_confirmation_message_The_changes_were_saved_on_my_screen() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+	  try{
+		  String actual=pageObjects.ChangePassword.ConfirmationMessageForChangePassword(driver).getText();
+		  Assert.assertEquals(actual.equalsIgnoreCase("The changes were saved"), false);
+		  
+	  }catch(Exception e){
+		  System.out.println(e);
+		  Assert.fail("");
+	  }
 	}
 
 	@Then("^I should see error message 'Your current password is incorrect\\. '$")

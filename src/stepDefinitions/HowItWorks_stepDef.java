@@ -28,7 +28,7 @@ public class HowItWorks_stepDef {
 		try {
 			driver.get(Constant.HowItWorks_URL);
 			Assert.assertEquals(driver.getTitle().trim(),
-					"Shop n Zip - How it works");
+					"Shop n Zip - How It Works");
 		} catch (Exception e) {
 			Assert.fail("Failed to navigate to how it works page");
 		}
@@ -150,6 +150,22 @@ public class HowItWorks_stepDef {
 			Assert.fail("Shop online short description is not available");
 		}
 
+	}
+	@Then("^I should be able to see steps link with short definition Sign up to the Shop n Zip website\\. Shop at any U\\.S\\. online store or any online merchant that delivers to the U\\.S\\. and have your items delivered to our California warehouse\\. We'll send you an e-mail when we receive your item/s\\. vertically in page\\.$")
+	public void i_should_be_able_to_see_steps_link_with_short_definition_Sign_up_to_the_Shop_n_Zip_website_Shop_at_any_U_S_online_store_or_any_online_merchant_that_delivers_to_the_U_S_and_have_your_items_delivered_to_our_California_warehouse_We_ll_send_you_an_e_mail_when_we_receive_your_item_s_vertically_in_page() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		try {
+			Assert.assertTrue(pageObjects.HowItworks
+					.Horizontal_3steps_step1st_shortdescription(driver)
+					.isDisplayed());
+			System.out
+					.println(pageObjects.HowItworks
+							.Horizontal_3steps_step1st_shortdescription(driver)
+							.getText());
+
+		} catch (Exception e) {
+			Assert.fail("Shop online short description is not available");
+		}
 	}
 
 	@Then("^I should be able to see steps link with short definition (\\d+)\\.Ship to Us vertically in page\\.$")

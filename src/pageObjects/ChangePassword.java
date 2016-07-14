@@ -48,7 +48,7 @@ public class ChangePassword {
 		return element;
 	}
 	public static WebElement ConfirmationMessageForChangePassword(WebDriver driver) {
-		element = driver.findElement(By.xpath(".//*[text()='Change Password']"));
+		element = driver.findElement(By.xpath(".//*[text()='The changes were saved.']"));
 		return element;
 	}
 	public static WebElement ChangePasswordSection(WebDriver driver) {

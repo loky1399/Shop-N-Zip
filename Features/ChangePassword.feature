@@ -29,7 +29,7 @@ Feature: Change password
     When I entered my current password in current password filed.
     And I entered a valid format password in new password filed.
     And I entered same text in 're-type new password' field.
-    And I clicked on 'Submit' button.
+    And I clicked on 'Submit' button in change password form.
     Then I should be able to change my password with confirmation message'The changes were saved.' on my screen.
 
   # Negative

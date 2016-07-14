@@ -56,21 +56,21 @@ public class HowItworks {
 	public static WebElement horizontal_3steps_steps1st_name(WebDriver driver) {
 		element = driver
 				.findElement(By
-						.xpath(".//*[@id='form']/div[6]/section/div/section/div/div[1]/div/h2"));
+						.xpath(".//*[text()='Shop online']"));
 		return element;
 	}
 
 	public static WebElement horizontal_3steps_steps2nd_name(WebDriver driver) {
 		element = driver
 				.findElement(By
-						.xpath(".//*[@id='form']/div[6]/section/div/section/div/div[2]/div/h2"));
+						.xpath(".//*[text()='Ship to us']"));
 		return element;
 	}
 
 	public static WebElement horizontal_3steps_steps3rd_name(WebDriver driver) {
 		element = driver
 				.findElement(By
-						.xpath(".//*[@id='form']/div[6]/section/div/section/div/div[3]/div/h2"));
+						.xpath(".//*[text()='Get your goods']"));
 		return element;
 	}
 
@@ -121,12 +121,19 @@ public class HowItworks {
 		return element;
 	}
 
-	public static WebElement vertical_3steps_step1st_shortdescription(WebDriver driver) {
+	public static WebElement Horizontal_3steps_step1st_shortdescription(WebDriver driver) {
 		element = driver
 				.findElement(By
 						.xpath(".//*[@id='form']/section/div[1]/div/div/div[1]/div[1]/p"));
 		return element;
 	}
+	public static WebElement vertical_3steps_step1st_shortdescription(WebDriver driver) {
+		element = driver
+				.findElement(By
+						.xpath(".//*[@class='get-started-widget cadetblue size']/p"));
+		return element;
+	}
+
 
 	public static WebElement vertical_3steps_step2nd_shortdescription(WebDriver driver) {
 		element = driver
