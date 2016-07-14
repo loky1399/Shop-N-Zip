@@ -26,7 +26,7 @@ public class Hooks {
 	 * shared state between tests
 	 */
 	public void openBrowser() throws MalformedURLException {
-		System.out.println("Called openBrowser");
+        System.out.println("Called openBrowser");
 		driver = new FirefoxDriver();
 //		System.setProperty("webdriver.chrome.driver", "C:\\Users\\babykumari\\Downloads\\chromedriver.exe");
 //		driver=new ChromeDriver();
@@ -55,8 +55,6 @@ public class Hooks {
 			}
 
 		}
-//		 driver.quit();
+		 driver.quit();
 
-	}
-
-}
+	}}

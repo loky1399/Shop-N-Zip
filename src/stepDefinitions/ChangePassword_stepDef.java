@@ -288,14 +288,21 @@ public class ChangePassword_stepDef {
 	}
 	@When("^I clicked on 'Submit' button in change password form\\.$")
 	public void i_clicked_on_Submit_button_in_change_password_form() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
-	}
+		try{
+			  Assert.assertTrue(pageObjects.ChangePassword.ChangePaaswordSubmiteButton(driver).isDisplayed());
+			  pageObjects.ChangePassword.ChangePaaswordSubmiteButton(driver).click();
+		  }catch(Exception e){
+			  System.out.println(2);
+			  Assert.fail("Submot button is not clicking");
+		  }
+		}
+		
+	
 	@Then("^I should be able to change my password with confirmation message'The changes were saved\\.' on my screen\\.$")
 	public void i_should_be_able_to_change_my_password_with_confirmation_message_The_changes_were_saved_on_my_screen() throws Throwable {
 	  try{
 		  String actual=pageObjects.ChangePassword.ConfirmationMessageForChangePassword(driver).getText();
-		  Assert.assertEquals(actual.equalsIgnoreCase("The changes were saved"), false);
+		 Assert.assertEquals(actual, "The changes were saved.");
 		  
 	  }catch(Exception e){
 		  System.out.println(e);
