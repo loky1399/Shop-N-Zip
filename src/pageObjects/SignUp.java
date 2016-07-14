@@ -238,7 +238,7 @@ public class SignUp {
 	public static WebElement alertMessageForCountryDropDown(WebDriver driver) {
 		element = driver
 				.findElement(By
-						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[2]/div/div[1]"));
+						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[3]/div/div[1]"));
 		return element;
 	}
 
@@ -246,7 +246,7 @@ public class SignUp {
 			WebDriver driver) {
 		element = driver
 				.findElement(By
-						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[3]/div/div[1]"));
+						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[4]/div/div[1]"));
 		return element;
 	}
 
@@ -254,14 +254,14 @@ public class SignUp {
 			WebDriver driver) {
 		element = driver
 				.findElement(By
-						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[4]/div/div[1]"));
+						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[5]/div/div[1]"));
 		return element;
 	}
 
 	public static WebElement alertMessageForPasswordtextField(WebDriver driver) {
 		element = driver
 				.findElement(By
-						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[5]/div/div[1]"));
+						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[6]/div/div[1]"));
 		return element;
 	}
 
@@ -269,7 +269,7 @@ public class SignUp {
 			WebDriver driver) {
 		element = driver
 				.findElement(By
-						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[6]/div/div[1]"));
+						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[7]/div/div[1]"));
 		return element;
 	}
 	
@@ -299,7 +299,7 @@ public class SignUp {
 	public static WebElement alertMessageForZipCodetextBox(WebDriver driver) {
 		element = driver
 				.findElement(By
-						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[9]/div/div/div[1]"));
+						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[11]/div/div/div[1]"));
 		return element;
 	}
 	
@@ -313,21 +313,21 @@ public class SignUp {
 	public static WebElement errorMessageForInvalidEmail(WebDriver driver) {
 		element = driver
 				.findElement(By
-						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[3]/div/div[1]"));
+						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[4]/div/div[1]"));
 		return element;
 	}
 
 	public static WebElement errorMessageForInvalidPhoneNumber(WebDriver driver) {
 		element = driver
 				.findElement(By
-						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[4]/div/div[1]"));
+						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[5]/div/div[1]"));
 		return element;
 	}
 
 	public static WebElement errorMessageForInvalidPassword(WebDriver driver) {
 		element = driver
 				.findElement(By
-						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[5]/div/div[1]"));
+						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[6]/div/div[1]"));
 		return element;
 	}
 
@@ -335,7 +335,7 @@ public class SignUp {
 			WebDriver driver) {
 		element = driver
 				.findElement(By
-						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[6]/div/div[1]"));
+						.xpath(".//*[@id='form']/div[6]/div/div/div/div/div[2]/div[3]/div/div[7]/div/div[1]"));
 		return element;
 	}
 

@@ -168,37 +168,37 @@ Feature: Registration to Shop N Zip application
     Given I am in Sign Up page
     And I clicked on 'Register now' button
     Then it should see registration is unsuccessful
- @test
+ 
   Scenario: Verifying the functionality of Sign Up (without Entering details to Name field)
     Given I am in Sign Up page
     And I tried to Registered without giving details to Name field
     Then I should see registration is unsuccessful
- @test
+ 
   Scenario: Verifying the functionality of Sign Up (without selecting anything in Country of current residence field)
     Given I am in Sign Up page
     And I tried to Registered without selecting anything in Country of current residence field
     Then I should see registration is unsuccessful
- @test
+ 
   Scenario: Verifying the functionality of Sign Up (without Entering details to Email Address field)
     Given I am in Sign Up page
     And I tried to Registered without giving details to Email Address field
     Then I should see registration is unsuccessful
- @test
+ 
   Scenario: Verifying the functionality of Sign Up (without Entering details to Phone Number field)
     Given I am in Sign Up page
     And I tried to Registered without giving details to Phone Number field
     Then I should see registration is unsuccessful
- @test
+ 
   Scenario: Verifying the functionality of Sign Up (without Entering details to Password field)
     Given I am in Sign Up page
     And I tried to Registered without giving details to Password field
     Then I should see registration is unsuccessful
- @test
+ 
   Scenario: Verifying the functionality of Sign Up (without Entering details to re-type Password field)
     Given I am in Sign Up page
     And I tried to Registered without giving details to re-type Password field
     Then I should see registration is unsuccessful
- @test
+ 
   Scenario: Verifying the functionality of Sign Up (Click on sign up button without user details)
     Given I am in Sign Up page
     And I Click on sign up button
