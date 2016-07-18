@@ -1,3 +1,4 @@
+@dailyRun
 Feature: Verifying 'FAQs' page.
 
   Background: This is common for all scenarios.

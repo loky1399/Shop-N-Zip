@@ -1,3 +1,4 @@
+@dailyRun
 Feature: How It Works
 
   Background: 

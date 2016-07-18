@@ -1,3 +1,4 @@
+@dailyRun
 Feature: Shop Now page
 
   Background: 
