@@ -1,3 +1,4 @@
+@dailyRun
 Feature: Sign In page
 
   # Availability

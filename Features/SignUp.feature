@@ -1,3 +1,4 @@
+@dailyRun
 Feature: Registration to Shop N Zip application
   
   As a user I should be able to regiter to Shop N Zip application from wherever it is possible accross all the pages

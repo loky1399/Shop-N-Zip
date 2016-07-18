@@ -1,3 +1,4 @@
+@dailyRun
 Feature: About Us
   
   As a user I should be able to navigate to 'About Us' page and check the details there

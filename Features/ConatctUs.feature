@@ -1,3 +1,4 @@
+@dailyRun
 Feature: Contact us
 
   Background: 
