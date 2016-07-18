@@ -1,6 +1,7 @@
 package stepDefinitions;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 import cucumber.api.DataTable;
 import cucumber.api.PendingException;
@@ -191,10 +192,16 @@ public class Add_address_stepDef {
 
 	@When("^I clicked on 'submit' button\\.$")
 	public void i_clicked_on_submit_button() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
-	}
-
+		try{
+			  Assert.assertTrue(pageObjects.ChangePassword.ChangePaaswordSubmiteButton(driver).isDisplayed());
+			  pageObjects.ChangePassword.ChangePaaswordSubmiteButton(driver).click();
+		  }catch(Exception e){
+			  System.out.println(e);
+			  Assert.fail("Submot button is not clicking");
+			
+		  }
+		}
+		
 	@Then("^I should be able to see  on my screen\\.$")
 	public void i_should_be_able_to_see_on_my_screen() throws Throwable {
 		// Write code here that turns the phrase above into concrete actions

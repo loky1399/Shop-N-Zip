@@ -96,6 +96,52 @@ public class ForgotPassword {
 		return element;
 	}
 	
+	public static WebElement saveNewPasswordbutton(WebDriver driver) {
+		element = driver.findElement(By
+				.xpath(".//*[@class='btn btn-default col-xs-12 btn-primary']"));
+		return element;
+	}
+	public static WebElement saveNewPasswordHeading(WebDriver driver) {
+		element = driver.findElement(By
+				.xpath(".//*[@class='pull-left']"));
+		return element;
+	}
+	public static WebElement gmailusername(WebDriver driver) {
+		element = driver.findElement(By
+				.xpath(".//*[@id='Email']"));
+		return element;
+	}
+	public static WebElement gmailNextButton(WebDriver driver) {
+		element = driver.findElement(By
+				.xpath(".//*[@id='next']"));
+		return element;
+	}
+	public static WebElement gmailPassword(WebDriver driver) {
+		element = driver.findElement(By
+				.xpath(".//*[@id='Passwd']"));
+		return element;
+	}
+	public static WebElement gmailsignin(WebDriver driver) {
+		element = driver.findElement(By
+				.xpath(".//*[@id='signIn']"));
+		return element;
+	}
+	public static WebElement gmailInbox(WebDriver driver) {
+		element = driver.findElement(By
+				.xpath("(.//*[@class='aio UKr6le'])[1]"));
+		return element;
+	}
+	public static WebElement AdminMail(WebDriver driver) {
+		element = driver.findElement(By
+				.xpath("(.//*[@class='yP'])[1]"));
+		return element;
+	}
+	public static WebElement ThisLinkOption(WebDriver driver) {
+		element = driver.findElement(By
+				.xpath(".//*[@id=':lw']/div[2]/p[1]/a"));
+		return element;
+	}
+	
 	
 
 }

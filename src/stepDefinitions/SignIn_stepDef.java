@@ -27,11 +27,12 @@ public class SignIn_stepDef {
 			if (HeaderLinks.SignIn_Menulink(driver).isDisplayed()) {
 				HeaderLinks.SignIn_Menulink(driver).click();
 				pageObjects.SignIn.with_TFC_credentials_EmailIdTextbox(driver)
-						.sendKeys(Constant.userName);
+						.sendKeys(Constant.RegistredEmailId);
 				pageObjects.SignIn.with_TFC_credentials_PassWordTextbox(driver)
-						.sendKeys(Constant.password);
+						.sendKeys(Constant.CurrentPassword);
 				pageObjects.SignIn.with_TFC_credentials_SignInButton(driver)
 						.click();
+				pageObjects.ChangePassword.popupClosebutton(driver).click();
 			} else {
 				Assert.fail("sign in link is not displayed in the header");
 			}
@@ -46,9 +47,9 @@ public class SignIn_stepDef {
 			if (HeaderLinks.SignIn_Menulink(driver).isDisplayed()) {
 				HeaderLinks.SignIn_Menulink(driver).click();
 				pageObjects.SignIn.with_TFC_credentials_EmailIdTextbox(driver)
-						.sendKeys(Constant.userName_TFC);
+						.sendKeys(Constant.RegistredEmailId);
 				pageObjects.SignIn.with_TFC_credentials_PassWordTextbox(driver)
-						.sendKeys(Constant.password_TFC);
+						.sendKeys(Constant.CurrentPassword);
 				pageObjects.SignIn.with_TFC_credentials_SignInButton(driver)
 						.click();
 			} else {
@@ -308,6 +309,8 @@ public class SignIn_stepDef {
 		try {
 			if (HeaderLinks.userNameDropdown(driver).isDisplayed()) {
 				HeaderLinks.userNameDropdown(driver).click();
+				utils.Utils.highlightelement(driver,
+						HeaderLinks.userNameDropdown_MyAccount(driver));
 				Assert.assertEquals(
 						HeaderLinks.userNameDropdown_MyAccount(driver)
 								.getAttribute("href"),
@@ -326,6 +329,8 @@ public class SignIn_stepDef {
 		try {
 			if (HeaderLinks.userNameDropdown(driver).isDisplayed()) {
 				HeaderLinks.userNameDropdown(driver).click();
+				utils.Utils.highlightelement(driver,
+						HeaderLinks.userNameDropdown_TrackMyPackage(driver));
 				Assert.assertEquals(
 						HeaderLinks.userNameDropdown_TrackMyPackage(driver)
 								.getAttribute("href"),
@@ -344,6 +349,8 @@ public class SignIn_stepDef {
 		try {
 			if (HeaderLinks.userNameDropdown(driver).isDisplayed()) {
 				HeaderLinks.userNameDropdown(driver).click();
+				utils.Utils.highlightelement(driver,
+						HeaderLinks.userNameDropdown_MyProfile(driver));
 				Assert.assertEquals(
 						HeaderLinks.userNameDropdown_MyProfile(driver)
 								.getAttribute("href"),
@@ -362,6 +369,8 @@ public class SignIn_stepDef {
 		try {
 			if (HeaderLinks.userNameDropdown(driver).isDisplayed()) {
 				HeaderLinks.userNameDropdown(driver).click();
+				utils.Utils.highlightelement(driver,
+						HeaderLinks.userNameDropdown_Logout(driver));
 				Assert.assertEquals(HeaderLinks.userNameDropdown_Logout(driver)
 						.getAttribute("value"), "Logout");
 			} else {
@@ -456,7 +465,7 @@ public class SignIn_stepDef {
 			if (pageObjects.SignIn.with_TFC_credentials_EmailIdTextbox(driver)
 					.isDisplayed()) {
 				pageObjects.SignIn.with_TFC_credentials_EmailIdTextbox(driver)
-						.sendKeys(Constant.userName);
+						.sendKeys(Constant.RegistredEmailId);
 			} else {
 				Assert.fail("email id fiels is not displayed in sign in page");
 			}
@@ -629,7 +638,7 @@ public class SignIn_stepDef {
 	public void i_should_see_Welcome_back_text_along_with_User_name()
 			throws Throwable {
 		try {
-			String nameOfTheUser = "LokeshQA";
+			String nameOfTheUser = "baby123new!";
 			if (pageObjects.SignIn.welcomePopup(driver).isDisplayed()) {
 				// Assert.assertEquals(pageObjects.SignIn
 				// .welcomePopup_welcomeBackLableTitle(driver).getText()
@@ -679,7 +688,7 @@ public class SignIn_stepDef {
 						.getText().contains("YOUR SHOP N ZIP ADDRESS:"));
 				Assert.assertTrue(pageObjects.SignIn
 						.welcomePopup_yourShopNZipAddress(driver).getText()
-						.trim().contains(Constant.userName));
+						.trim().contains(Constant.RegistredEmailId));
 				Assert.assertTrue(pageObjects.SignIn
 						.welcomePopup_yourShopNZipAddress(driver).getText()
 						.trim().contains("Redwood City,California,94065"));
@@ -824,7 +833,13 @@ public class SignIn_stepDef {
 	@Then("^I click on the item Logout in drop list$")
 	public void i_click_on_the_item_Logout_in_drop_list() throws Throwable {
 		try {
-
+			if (HeaderLinks.userNameDropdown(driver).isDisplayed()) {
+				HeaderLinks.userNameDropdown(driver).click();
+				utils.Utils.highlightelement(driver,
+						HeaderLinks.userNameDropdown_Logout(driver));
+				Assert.assertEquals(HeaderLinks.userNameDropdown_Logout(driver)
+						.getAttribute("value"), "Logout");
+			}
 			HeaderLinks.userNameDropdown_Logout(driver).click();
 		} catch (Exception e) {
 			Assert.fail("failed to click log out");
@@ -862,7 +877,7 @@ public class SignIn_stepDef {
 			throws Throwable {
 		try {
 			pageObjects.SignIn.with_TFC_credentials_EmailIdTextbox(driver)
-					.sendKeys(Constant.userName);
+					.sendKeys(Constant.RegistredEmailId);
 		} catch (Exception e) {
 			Assert.fail("failed to check the email id field validation");
 		}

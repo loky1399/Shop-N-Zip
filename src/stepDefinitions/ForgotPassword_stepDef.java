@@ -2,6 +2,7 @@ package stepDefinitions;
 
 import org.junit.Assert;
 import org.openqa.jetty.http.SSORealm;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import pageObjects.HeaderLinks;
@@ -318,14 +319,25 @@ public void i_should_be_redirected_to_shop_n_zip_application() throws Throwable 
 	@Then("^I should see 'Save New Password' button$")
 	public void i_should_see_Save_New_Password_button() throws Throwable {
 		// Write code here that turns the phrase above into concrete actions
+		try{
+		driver.get("http://dev.shopnzip.com/special-pages/reset-password?hash=1a05b32f0d4ed5056e9c6832c0c86fc1fea26574a787eb10608dcedd537b9220&datetime=15072016060257&returnurl=%2fspecial-pages%2fforgot-password%3fusername%3dmytest1460%40gmail.com");
+		Assert.assertTrue(pageObjects.ForgotPassword.saveNewPasswordbutton(driver).isDisplayed());
 		
-	}
+		
+	}catch(Exception e){
+		System.out.println(e);
+		Assert.fail(" save new password button is not displaying");
+	}}
 
 	@Then("^I should see Reset password title as 'Enter your new Password'$")
 	public void i_should_see_Reset_password_title_as_Enter_your_new_Password()
 			throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try{
+			Assert.assertTrue(pageObjects.ForgotPassword.saveNewPasswordHeading(driver).isDisplayed());
+		}catch(Exception e){
+			System.out.println(e);
+			Assert.fail("Reset new password heading is not displaying");
+		}
 	}
 
 	@Then("^I should see password field with water mark text as 'Password'$")
@@ -349,8 +361,23 @@ public void i_should_be_redirected_to_shop_n_zip_application() throws Throwable 
 		}
 	@Given("^I am a registered user$")
 	public void i_am_a_registered_user() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try{
+			driver.get("https://accounts.google.com/ServiceLogin?service=mail&passive=true&rm=false&continue=https://mail.google.com/mail/&ss=1&scc=1&ltmpl=default&ltmplcache=2&emr=1&osid=1");
+			pageObjects.ForgotPassword.gmailusername(driver).sendKeys(Constant.RegistredEmailId);
+			pageObjects.ForgotPassword.gmailNextButton(driver).click();
+			pageObjects.ForgotPassword.gmailPassword(driver).sendKeys(Constant.GmailPassword);
+			pageObjects.ForgotPassword.gmailsignin(driver).click();
+			Assert.assertTrue(pageObjects.ForgotPassword.gmailInbox(driver).isDisplayed());
+			pageObjects.ForgotPassword.gmailInbox(driver).click();
+			pageObjects.ForgotPassword.AdminMail(driver).click();
+			Thread.sleep(1000);
+			pageObjects.ForgotPassword.ThisLinkOption(driver).click();
+			
+		}catch(Exception e)
+		{
+			System.out.println(e);
+			Assert.fail("I am not able to signin with gmail");
+		}
 	}
 
 	@Given("^I clicked on 'Forgot Password' link in 'Sign In' page$")
@@ -466,14 +493,35 @@ public void i_should_be_redirected_to_shop_n_zip_application() throws Throwable 
 	@Then("^I should get reset password link to the specified email address$")
 	public void i_should_get_reset_password_link_to_the_specified_email_address()
 			throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try{
+			driver.get("https://accounts.google.com/ServiceLogin?service=mail&passive=true&rm=false&continue=https://mail.google.com/mail/&ss=1&scc=1&ltmpl=default&ltmplcache=2&emr=1&osid=1");
+			pageObjects.ForgotPassword.gmailusername(driver).sendKeys(Constant.RegistredEmailId);
+			pageObjects.ForgotPassword.gmailNextButton(driver).click();
+			pageObjects.ForgotPassword.gmailPassword(driver).sendKeys(Constant.GmailPassword);
+			pageObjects.ForgotPassword.gmailsignin(driver).click();
+			Assert.assertTrue(pageObjects.ForgotPassword.gmailInbox(driver).isDisplayed());
+			pageObjects.ForgotPassword.gmailInbox(driver).click();
+			pageObjects.ForgotPassword.AdminMail(driver).click();
+			Thread.sleep(1000);
+		Assert.assertTrue(pageObjects.ForgotPassword.ThisLinkOption(driver).isDisplayed());
+			
+		}catch(Exception e)
+		{
+			System.out.println(e);
+			Assert.fail("link is displaying for reset password");
+		}
 	}
 
 	@Then("^I clicked on the link$")
 	public void i_clicked_on_the_link() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try{
+			Assert.assertTrue(pageObjects.ForgotPassword.ThisLinkOption(driver).isDisplayed());
+			pageObjects.ForgotPassword.ThisLinkOption(driver).click();
+		}catch(Exception e){
+			System.out.println(e);
+			Assert.fail("This link is not displaying in mail");
+			
+		}
 	}
 
 	@When("^I enter new password$")
@@ -503,8 +551,12 @@ public void i_should_be_redirected_to_shop_n_zip_application() throws Throwable 
 	@Then("^I should see success message of reset password$")
 	public void i_should_see_success_message_of_reset_password()
 			throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try{
+			Assert.assertTrue(pageObjects.ForgotPassword.forgotPasswod_ConfirmationMessage(driver).getText().equalsIgnoreCase("To sign in with your new password."));
+		}catch(Exception e){
+			System.out.println(e);
+			Assert.fail("Confirmation message for forgot password is not displaying");
+		}
 	}
 
 	@When("^I click on the link after (\\d+) hours$")

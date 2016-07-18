@@ -177,10 +177,11 @@ public class SignUp_stepDef {
 			String w1 = (String) itr.next();
 			String w2 = (String) itr.next();
 			driver.switchTo().window(w2);
-			SignUp.faceBookEmailId(driver).sendKeys(Constant.userName_facebook);
+			SignUp.faceBookEmailId(driver).sendKeys(Constant.SignUpFBuserName);
 			SignUp.faceBookPassword(driver)
-					.sendKeys(Constant.password_facebook);
+					.sendKeys(Constant.SignUpFBpassWord);
 			SignUp.faceBookLoginButton(driver).click();
+			Thread.sleep(1000);
 			SignUp.googleAllowAccessButton(driver).click();
 
 			driver.switchTo().window(w1);
@@ -235,7 +236,7 @@ public class SignUp_stepDef {
 	@Then("^I should see Phone Number field in the sign up from is auto filled$")
 	public void i_should_see_Phone_Number_field_in_the_sign_up_from_is_auto_filled()
 			throws Throwable {
-		Assert.assertTrue(true);
+		Assert.assertTrue(false);
 	}
 
 	@When("^I clicked on Twitter icon in signup page\\.$")
@@ -267,10 +268,12 @@ public class SignUp_stepDef {
 			String w2 = (String) itr.next();
 			driver.switchTo().window(w2);
 			SignUp.twitterUserNameTextBox(driver).sendKeys(
-					Constant.userName_twitter);
+					Constant.SignTwitUserName);
 			SignUp.twitterPassWordTextField(driver).sendKeys(
-					Constant.password_twitter);
+					Constant.SignTwitPass);
 			SignUp.twitterLoginButton(driver).click();
+			Thread.sleep(1000);
+			SignUp.googleAllowAccessButton(driver).click();
 			driver.switchTo().window(w1);
 		} catch (Exception e) {
 			Assert.fail("failed to enter twitter login credentials");
@@ -310,11 +313,13 @@ public class SignUp_stepDef {
 			String w2 = (String) itr.next();
 			driver.switchTo().window(w2);
 			SignUp.googleUserNameTextBox(driver).sendKeys(
-					Constant.userName_google);
+					Constant.SignUpGmailUserName);
 			SignUp.googleNextButton(driver).click();
 			SignUp.googlePassWordTextField(driver).sendKeys(
-					Constant.password_google);
+					Constant.SignUpGmailPass);
 			SignUp.googleSignInButton(driver).click();
+			Thread.sleep(1000);
+			SignUp.googleAllowAccessButton(driver).click();
 			driver.switchTo().window(w1);
 		} catch (Exception e) {
 			System.out.println(e);
@@ -339,7 +344,7 @@ public class SignUp_stepDef {
 					Utils.generateRandomEmail(20));
 			Thread.sleep(1000);
 			SignUp.phoneNumberTextBox(driver).sendKeys(
-					Utils.generateRandomPhoneNumber(12));
+					Utils.generateRandomPhoneNumber());
 			Thread.sleep(1000);
 			SignUp.passWordTextBox(driver).sendKeys(password);
 			Thread.sleep(1000);
@@ -501,7 +506,7 @@ public class SignUp_stepDef {
 						Utils.generateRandomEmail(20));
 				Thread.sleep(1000);
 				SignUp.phoneNumberTextBox(driver).sendKeys(
-						Utils.generateRandomPhoneNumber(12));
+						Utils.generateRandomPhoneNumber());
 				Thread.sleep(1000);
 				SignUp.passWordTextBox(driver).sendKeys(password);
 				Thread.sleep(1000);
@@ -555,7 +560,7 @@ public class SignUp_stepDef {
 					Utils.generateRandomEmail(20));
 			Thread.sleep(1000);
 			SignUp.phoneNumberTextBox(driver).sendKeys(
-					Utils.generateRandomPhoneNumber(12));
+					Utils.generateRandomPhoneNumber());
 			Thread.sleep(1000);
 			SignUp.passWordTextBox(driver).sendKeys(password);
 			Thread.sleep(1000);
@@ -598,7 +603,7 @@ public class SignUp_stepDef {
 				Thread.sleep(1000);
 				
 				SignUp.phoneNumberTextBox(driver).sendKeys(
-						Utils.generateRandomPhoneNumber(12));
+						Utils.generateRandomPhoneNumber());
 				Thread.sleep(1000);
 				SignUp.passWordTextBox(driver).sendKeys(password);
 				Thread.sleep(1000);
@@ -685,7 +690,7 @@ public class SignUp_stepDef {
 					Utils.generateRandomEmail(20));
 			Thread.sleep(1000);
 			SignUp.phoneNumberTextBox(driver).sendKeys(
-					Utils.generateRandomPhoneNumber(12));
+					Utils.generateRandomPhoneNumber());
 			Thread.sleep(1000);
 			
 			SignUp.reTypePasswordTextBox(driver).sendKeys(password);
@@ -730,7 +735,7 @@ public class SignUp_stepDef {
 					Utils.generateRandomEmail(20));
 			Thread.sleep(1000);
 			SignUp.phoneNumberTextBox(driver).sendKeys(
-					Utils.generateRandomPhoneNumber(12));
+					Utils.generateRandomPhoneNumber());
 			Thread.sleep(1000);
 			SignUp.passWordTextBox(driver).sendKeys(password);
 			Thread.sleep(1000);

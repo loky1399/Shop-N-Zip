@@ -31,7 +31,7 @@ Feature: Footer  Header
       | Contact Us                                    | Orange color |
 
   Scenario Outline: Verify the links available in footer
-    Then I should see the <links in footer > link is displayed in the footer.
+    Then I should see the <links in footer> link is displayed in the footer.
 
     Examples: 
       | links in footer       |
@@ -41,7 +41,7 @@ Feature: Footer  Header
   Scenario: Verifying functionality of 'Terms and Conditions ' link in footer.
     When I clicked on 'Terms and Conditions ' link in footer.
     Then I should be redirected on 'Terms and Conditions' page of Shop N Zip.
-
+@test
   Scenario: Verifying functionality of 'Contact Us' link in footer.
     When I clicked on 'Contact Us ' link in footer.
     Then I should be redirected on 'Contact Us' page of Shop N Zip.

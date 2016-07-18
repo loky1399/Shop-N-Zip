@@ -24,7 +24,7 @@ public class Footer{
 
 }
 	public static WebElement footerSectionPoweredbyABS_CBNInternationalLink(WebDriver driver) {
-		element = driver.findElement(By.xpath(".//*[@id='form']/footer/div/div/p[2]/a"));
+		element = driver.findElement(By.xpath(".//*[@id='form']/footer/div/div/p[2]"));
 		return element;
 
 }

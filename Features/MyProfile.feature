@@ -9,9 +9,9 @@ Feature: My profile page
 
 
 #Availablity
-  Scenario Outline: Verifying available details in page
+  Scenario: Verifying available details in page
     Then  I should be able to see these available details in page <Fields>.
-    Examples:
+
        |Fields|
       | Profile heading with Name    |
       | Email                        |
@@ -20,7 +20,7 @@ Feature: My profile page
       | Socila sharing icons         |
       | Edit profile option          |
       
-   Scenario Outline: Verifying available fields in 'Edit profile page'
+   Scenario: Verifying available fields in 'Edit profile page'
     When I clicked on 'Edit profile' link
 
     Then I should be able to see these fields in 'Edit profile' page<fields>

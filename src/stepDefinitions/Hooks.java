@@ -27,10 +27,10 @@ public class Hooks {
 	 */
 	public void openBrowser() throws MalformedURLException {
 		System.out.println("Called openBrowser");
-		driver = new FirefoxDriver();
-		// System.setProperty("webdriver.chrome.driver",
-		// "C:\\Users\\babykumari\\Downloads\\chromedriver.exe");
-		// driver=new ChromeDriver();
+		//driver = new FirefoxDriver();
+		 System.setProperty("webdriver.chrome.driver",
+		 "C:\\Users\\babykumari\\Downloads\\chromedriver.exe");
+		 driver=new ChromeDriver();
 
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
@@ -56,7 +56,7 @@ public class Hooks {
 			}
 
 		}
-		driver.quit();
+		//driver.quit();
 
 	}
 }

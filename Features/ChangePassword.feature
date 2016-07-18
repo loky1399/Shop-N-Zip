@@ -9,6 +9,7 @@ Feature: Change password
     Then I should see 'change password' section
 
   # Availability
+
   Scenario: Verifying title
     Then I should see 'Change Password' as title
 
@@ -25,6 +26,7 @@ Feature: Change password
     Then I should see 'This field is required' error text for available all fields.
 
   # Possitive
+  
   Scenario: Verifying 'Change Password' functionality(with valid data)
     When I entered my current password in current password filed.
     And I entered a valid format password in new password filed.
@@ -33,13 +35,14 @@ Feature: Change password
     Then I should be able to change my password with confirmation message'The changes were saved.' on my screen.
 
   # Negative
+
   Scenario: verifying 'Change Password' functionality with wrong 'Current password'
     When I entered incorrect current password
     And given valid new password
     And entered password same as new password in re-type password field
     And I clicked on 'submit' button.
     Then I should see error message 'Your current password is incorrect. '
-
+   
   Scenario: verifying 'Change Password' functionality with filling only 'Current password field'
     When I entered current password
     And I clicked on 'submit' button.
@@ -47,11 +50,11 @@ Feature: Change password
     And I should see error message 'This field is required' for 'retype password' text field.
 
   Scenario: verifying 'Change Password' functionality with filling  new password field but without filling current password field.
-    When I entered new password
+    When I entered new passwordd
     And I entered same in 're-type new password' field.
     And I clicked on submit button without filling current password field.
     Then I should see  message 'This field is required' with current password field.
-
+ @test
   Scenario Outline: Verifying  validation message for 'Enter new password' text field with invalid format texts.
     When I enter data <Invalid format data> under 'Enter new password' text field
     Then I should see validation message <Result> for the 'Enter new password' text field.

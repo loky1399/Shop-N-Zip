@@ -22,7 +22,7 @@ public class MyProfile {
 	}
 
 	public static WebElement ProfilwHeading(WebDriver driver) {
-		element = driver.findElement(By.xpath(".//*[@class='profile_main col-sm-3']/h2"));
+		element = driver.findElement(By.xpath("html/body/form/div[7]/div/div/div[1]/div[2]/div/div/div/h2"));
 		return element;
 	}
 
@@ -70,6 +70,12 @@ public class MyProfile {
 		element = driver.findElement(By.xpath(".//*[text()='Edit Profile']"));
 		return element;
 	}
+
+	public static WebElement phonNumebrError(WebDriver driver) {
+		element = driver.findElement(By.xpath(".//*[text() =' Invalid phone number']"));
+		return element;
+	}
+
 
 	public static WebElement EditProfileheadingInEditprofilePage(WebDriver driver) {
 		element = driver.findElement(By.xpath(".//*[@class='edit_profile clearfix']/div/p[1]"));
@@ -162,6 +168,10 @@ public class MyProfile {
 
 	public static WebElement ZipCodetextField(WebDriver driver) {
 		element = driver.findElement(By.xpath("(.//*[@class='col-md-10 col-sm-9'])[7]"));
+		return element;
+	}
+	public static WebElement ZipCodeError(WebDriver driver) {
+		element = driver.findElement(By.xpath(".//*[text()='Not a valid zip code']"));
 		return element;
 	}
 
