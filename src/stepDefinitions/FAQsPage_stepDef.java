@@ -21,8 +21,8 @@ public class FAQsPage_stepDef {
 
 	@Given("^I am in FAQ page$")
 	public void i_am_in_FAQ_page() throws Throwable {
-	    driver.get(Constant.FAQ_URL);
-	    try {
+		driver.get(Constant.FAQ_URL);
+		try {
 			String pageTitle = driver.getTitle();
 
 			Assert.assertEquals("Shop n Zip - General Questions", pageTitle);
@@ -38,93 +38,102 @@ public class FAQsPage_stepDef {
 		try {
 			String menuSelectionLine = HeaderLinks.FAQ_Menulink(driver)
 					.getAttribute("class").toString();
-			System.out.println("menu attribute"+menuSelectionLine);
+			System.out.println("menu attribute" + menuSelectionLine);
 			Assert.assertTrue(menuSelectionLine.equalsIgnoreCase("active"));
 
 		} catch (Exception e) {
 			Assert.fail("Menu selection line is not displaying");
 		}
-	
+
 	}
 
 	@Then("^I should see General Questionscategory below of 'Shop N Zip FAQs' title\\.$")
-	public void i_should_see_General_Questionscategory_below_of_Shop_N_Zip_FAQs_title() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	   try{
-		   Assert.assertTrue(pageObjects.FAQs.FAQsGeneralQuwstions(driver).isDisplayed());
-	   }catch(Exception e){
-		   System.out.println(e);
-		   Assert.fail("General qns link is not displaying");
-	   }
-	   
+	public void i_should_see_General_Questionscategory_below_of_Shop_N_Zip_FAQs_title()
+			throws Throwable {
+		// Write code here that turns the phrase above into concrete actions
+		try {
+			Assert.assertTrue(pageObjects.FAQs.FAQsGeneralQuwstions(driver)
+					.isDisplayed());
+		} catch (Exception e) {
+			System.out.println(e);
+			Assert.fail("General qns link is not displaying");
+		}
+
 	}
 
 	@Then("^I should see My Accountcategory below of 'Shop N Zip FAQs' title\\.$")
-	public void i_should_see_My_Accountcategory_below_of_Shop_N_Zip_FAQs_title() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	   try{
-		   Assert.assertTrue(pageObjects.FAQs.FAQsMyAccounts(driver).isDisplayed());
-	   }catch(Exception e){
-		   System.out.println(e);
-		   Assert.fail("My accaount link is not displaying");
-	   }
+	public void i_should_see_My_Accountcategory_below_of_Shop_N_Zip_FAQs_title()
+			throws Throwable {
+		// Write code here that turns the phrase above into concrete actions
+		try {
+			Assert.assertTrue(pageObjects.FAQs.FAQsMyAccounts(driver)
+					.isDisplayed());
+		} catch (Exception e) {
+			System.out.println(e);
+			Assert.fail("My accaount link is not displaying");
+		}
 	}
 
 	@Then("^I should see My Itemscategory below of 'Shop N Zip FAQs' title\\.$")
-	public void i_should_see_My_Itemscategory_below_of_Shop_N_Zip_FAQs_title() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-		 try{
-			   Assert.assertTrue(pageObjects.FAQs.FAQsMyItems(driver).isDisplayed());
-		   }catch(Exception e){
-			   System.out.println(e);
-			   Assert.fail("My items link is not displaying");
-		   }
+	public void i_should_see_My_Itemscategory_below_of_Shop_N_Zip_FAQs_title()
+			throws Throwable {
+		// Write code here that turns the phrase above into concrete actions
+		try {
+			Assert.assertTrue(pageObjects.FAQs.FAQsMyItems(driver)
+					.isDisplayed());
+		} catch (Exception e) {
+			System.out.println(e);
+			Assert.fail("My items link is not displaying");
+		}
 	}
 
 	@Then("^I should see General Shipping Informationcategory below of 'Shop N Zip FAQs' title\\.$")
-	public void i_should_see_General_Shipping_Informationcategory_below_of_Shop_N_Zip_FAQs_title() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-		 try{
-			   Assert.assertTrue(pageObjects.FAQs.FAQsGeneralShippngInfo(driver).isDisplayed());
-		   }catch(Exception e){
-			   System.out.println(e);
-			   Assert.fail("General shipping info link is not displaying");
-		   }
+	public void i_should_see_General_Shipping_Informationcategory_below_of_Shop_N_Zip_FAQs_title()
+			throws Throwable {
+		// Write code here that turns the phrase above into concrete actions
+		try {
+			Assert.assertTrue(pageObjects.FAQs.FAQsGeneralShippngInfo(driver)
+					.isDisplayed());
+		} catch (Exception e) {
+			System.out.println(e);
+			Assert.fail("General shipping info link is not displaying");
+		}
 	}
 
 	@Then("^I should see Returnscategory below of 'Shop N Zip FAQs' title\\.$")
-	public void i_should_see_Returnscategory_below_of_Shop_N_Zip_FAQs_title() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-		 try{
-			   Assert.assertTrue(pageObjects.FAQs.FAQsReturns(driver).isDisplayed());
-		   }catch(Exception e){
-			   System.out.println(e);
-			   Assert.fail("Return link is not displaying");
-		   }
+	public void i_should_see_Returnscategory_below_of_Shop_N_Zip_FAQs_title()
+			throws Throwable {
+		// Write code here that turns the phrase above into concrete actions
+		try {
+			Assert.assertTrue(pageObjects.FAQs.FAQsReturns(driver)
+					.isDisplayed());
+		} catch (Exception e) {
+			System.out.println(e);
+			Assert.fail("Return link is not displaying");
+		}
 	}
 
 	@Then("^I should be able to see  'Contact Us' link in page$")
-	public void i_should_be_able_to_see_Contact_Us_link_in_page() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-		try{
+	public void i_should_be_able_to_see_Contact_Us_link_in_page()
+			throws Throwable {
+		// Write code here that turns the phrase above into concrete actions
+		try {
 			Assert.assertTrue(FAQs.FAQsContactUsLink(driver).isEnabled());
-		}
-	catch(Exception e)
-	{
-		Assert.fail("contactUs  link is  not displaying");
+		} catch (Exception e) {
+			Assert.fail("contactUs  link is  not displaying");
 		}
 	}
-	
 
 	@Then("^I should see there are three ad slots displayed in the page$")
-	public void i_should_see_there_are_three_ad_slots_displayed_in_the_page() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-		try{
-			Assert.assertTrue(FAQs.FAQsAdSlot1Squire(driver).isDisplayed()&& FAQs.FAQsAdSlot3rectangualr(driver)
-						.isDisplayed()&&FAQs.FAQsAdSlot2rightside(driver)
-						.isDisplayed());
-			String saddslotSrc = FAQs.FAQsAdSlot1Squire(driver)
-					.getAttribute("src");
+	public void i_should_see_there_are_three_ad_slots_displayed_in_the_page()
+			throws Throwable {
+		// Write code here that turns the phrase above into concrete actions
+		try {
+			Assert.assertTrue(FAQs.FAQsAdSlot1Squire(driver).isDisplayed()
+					&& FAQs.FAQsAdSlot3rectangualr(driver).isDisplayed()
+					&& FAQs.FAQsAdSlot2rightside(driver).isDisplayed());
+			String saddslotSrc = FAQs.FAQsAdSlot1Squire(driver).getAttribute(
+					"src");
 			if (saddslotSrc == null) {
 				Assert.fail("squire ad slot is not displaying in FAQ page");
 			}
@@ -138,120 +147,160 @@ public class FAQsPage_stepDef {
 			if (vaddslotSrc == null) {
 				Assert.fail("vertical ad slot is not displaying in FAQ page");
 			}
-				
-				
-			}
-		catch(Exception e){
+
+		} catch (Exception e) {
 			Assert.fail("ad slots are not available");
 		}
-		}
+	}
 
 	@When("^I clicked on General Questions category$")
 	public void i_clicked_on_General_Questions_category() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-		try{
-			
-			Assert.assertTrue(FAQs.FAQsGeneralQuestionSection(driver).isEnabled());
-					FAQs.FAQsGeneralQuestionSection(driver).click();
-				}
-			catch(Exception e){
-				Assert.fail("general qns category is not available");
-			}
-			}
-	
+		// Write code here that turns the phrase above into concrete actions
+		try {
+
+			Assert.assertTrue(FAQs.FAQsGeneralQuwstions(driver).isEnabled());
+			FAQs.FAQsGeneralQuwstions(driver).click();
+		} catch (Exception e) {
+			Assert.fail("general qns category is not available");
+		}
+	}
 
 	@Then("^I should be moved to the General Questions area within the FAQ page$")
-	public void i_should_be_moved_to_the_General_Questions_area_within_the_FAQ_page() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-		try{
-			boolean description = FAQs.FAQsGeneralQuestionSection(driver)
-					.isDisplayed();
-			
+	public void i_should_be_moved_to_the_General_Questions_area_within_the_FAQ_page()
+			throws Throwable {
+		// Write code here that turns the phrase above into concrete actions
+		try {
+			FAQs.FAQsGeneralQuestionsDetailsSection(driver).isDisplayed();
+		} catch (Exception e) {
+			Assert.fail("General Questions area within the FAQ page is not displaying");
 		}
-	catch(Exception e){
-		Assert.fail("General Questions area within the FAQ page is not displaying");
 	}
-	}
-	
 
 	@When("^I clicked on My Account category$")
 	public void i_clicked_on_My_Account_category() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+		try {
+			Assert.assertTrue(FAQs.FAQsMyAccounts(driver).isEnabled());
+			FAQs.FAQsMyAccounts(driver).click();
+		} catch (Exception e) {
+			Assert.fail("My accounts category is not available");
+		}
 	}
 
 	@Then("^I should be moved to the My Account area within the FAQ page$")
-	public void i_should_be_moved_to_the_My_Account_area_within_the_FAQ_page() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+	public void i_should_be_moved_to_the_My_Account_area_within_the_FAQ_page()
+			throws Throwable {
+		try {
+			Assert.assertTrue(FAQs.FAQsMyAccountDetailsSection(driver)
+					.isEnabled()
+					&& FAQs.FAQsMyAccountDetailsSection(driver).getText()
+							.equalsIgnoreCase("My Account"));
+
+		} catch (Exception e) {
+			Assert.fail("failed to move to my account area in FAQs page");
+		}
 	}
 
 	@When("^I clicked on My Items category$")
 	public void i_clicked_on_My_Items_category() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+		try {
+			Assert.assertTrue(FAQs.FAQsMyItems(driver).isEnabled());
+			FAQs.FAQsMyItems(driver).click();
+		} catch (Exception e) {
+			Assert.fail("My Items category is not available");
+		}
 	}
 
 	@Then("^I should be moved to the My Items area within the FAQ page$")
-	public void i_should_be_moved_to_the_My_Items_area_within_the_FAQ_page() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+	public void i_should_be_moved_to_the_My_Items_area_within_the_FAQ_page()
+			throws Throwable {
+		try {
+			Assert.assertTrue(FAQs.FAQsMyItemsDetailsSection(driver)
+					.isEnabled()
+					&& FAQs.FAQsMyItemsDetailsSection(driver).getText()
+							.equalsIgnoreCase("My Items"));
+		} catch (Exception e) {
+			Assert.fail("failed to move to my account area in FAQs page");
+		}
 	}
 
 	@When("^I clicked on General Shipping Information category$")
-	public void i_clicked_on_General_Shipping_Information_category() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+	public void i_clicked_on_General_Shipping_Information_category()
+			throws Throwable {
+		try {
+			Assert.assertTrue(FAQs.FAQsGeneralShippngInfo(driver).isEnabled());
+			FAQs.FAQsGeneralShippngInfo(driver).click();
+		} catch (Exception e) {
+			Assert.fail("General shipping category is not available");
+		}
 	}
 
 	@Then("^I should be moved to the General Shipping Information area within the FAQ page$")
-	public void i_should_be_moved_to_the_General_Shipping_Information_area_within_the_FAQ_page() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+	public void i_should_be_moved_to_the_General_Shipping_Information_area_within_the_FAQ_page()
+			throws Throwable {
+		try {
+			Assert.assertTrue(FAQs
+					.FAQsGeneralShippingInformationDetailsSection(driver)
+					.isEnabled()
+					&& FAQs.FAQsGeneralShippingInformationDetailsSection(driver)
+							.getText()
+							.equalsIgnoreCase("General Shipping Information"));
+		} catch (Exception e) {
+			Assert.fail("failed to move to my account area in FAQs page");
+		}
 	}
 
 	@When("^I clicked on Returns category$")
 	public void i_clicked_on_Returns_category() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+		try {
+			Assert.assertTrue(FAQs.FAQsReturns(driver).isEnabled());
+			FAQs.FAQsReturns(driver).click();
+		} catch (Exception e) {
+			Assert.fail("Returns category is not available");
+		}
 	}
 
 	@Then("^I should be moved to the Returns area within the FAQ page$")
-	public void i_should_be_moved_to_the_Returns_area_within_the_FAQ_page() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+	public void i_should_be_moved_to_the_Returns_area_within_the_FAQ_page()
+			throws Throwable {
+		try {
+			Assert.assertTrue(FAQs.FAQsReturnsDetailsSection(driver)
+					.isEnabled()
+					&& FAQs.FAQsReturnsDetailsSection(driver).getText()
+							.equalsIgnoreCase("Returns"));
+		} catch (Exception e) {
+			Assert.fail("failed to move to my account area in FAQs page");
+		}
 	}
 
 	@When("^I clicked on 'Contact Us' link$")
 	public void i_clicked_on_Contact_Us_link() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-		try{
-			
-			Assert.assertTrue(pageObjects.FAQs.FAQsContactUsLink(driver).isEnabled());
-					FAQs.FAQsContactUsLink(driver).click();
-				}
-			catch(Exception e){
-				Assert.fail("contact us link is not enabled ");
+		// Write code here that turns the phrase above into concrete actions
+		try {
+
+			Assert.assertTrue(pageObjects.FAQs.FAQsContactUsLink(driver)
+					.isEnabled());
+			FAQs.FAQsContactUsLink(driver).click();
+		} catch (Exception e) {
+			Assert.fail("contact us link is not enabled ");
+		}
 	}
-	}
+
 	@Then("^I should be navigated to 'Contact Us' page where I can ask FAQs$")
-	public void i_should_be_navigated_to_Contact_Us_page_where_I_can_ask_FAQs() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-		try{
+	public void i_should_be_navigated_to_Contact_Us_page_where_I_can_ask_FAQs()
+			throws Throwable {
+		// Write code here that turns the phrase above into concrete actions
+		try {
 			String actual = driver.getTitle();
 			System.out.println(actual);
 			String Expected = "";
 			if (actual.equalsIgnoreCase(Expected)) {
-				
+
 				Assert.assertEquals("Shop n Zip - Contact Us", actual);
 			} else {
 				System.out.println("method is failed");
 			}
-		}catch(Exception e){
+		} catch (Exception e) {
 			Assert.fail(" I am not able to contact us page");
 		}
-		}
 	}
-
-
-
+}

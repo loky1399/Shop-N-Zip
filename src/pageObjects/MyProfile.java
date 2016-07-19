@@ -32,7 +32,7 @@ public class MyProfile {
 	}
 
 	public static WebElement EmailIdWithUserEmailId(WebDriver driver) {
-		element = driver.findElement(By.xpath(".//*[@class='profile_main col-sm-3']/h3[2]"));
+		element = driver.findElement(By.xpath("//span[contains(@id,'lblemail')]"));
 		return element;
 	}
 
@@ -72,7 +72,7 @@ public class MyProfile {
 	}
 
 	public static WebElement phonNumebrError(WebDriver driver) {
-		element = driver.findElement(By.xpath(".//*[text() =' Invalid phone number']"));
+		element = driver.findElement(By.xpath(".//*[@id='txtph']"));
 		return element;
 	}
 
@@ -98,7 +98,7 @@ public class MyProfile {
 	}
 
 	public static WebElement EditProfileFirstNameText(WebDriver driver) {
-		element = driver.findElement(By.xpath("(.//*[@class='col-md-2 col-sm-3'])[1]"));
+		element = driver.findElement(By.xpath(".//*[@id='txtfirstname']"));
 		return element;
 	}
 
@@ -152,7 +152,7 @@ public class MyProfile {
 	}
 
 	public static WebElement PhoneNumbertextField(WebDriver driver) {
-		element = driver.findElement(By.xpath("(.//*[@class='col-md-10 col-sm-9'])[4]"));
+		element = driver.findElement(By.xpath(".//*[@id='txtph']"));
 		return element;
 	}
 
@@ -167,7 +167,7 @@ public class MyProfile {
 	}
 
 	public static WebElement ZipCodetextField(WebDriver driver) {
-		element = driver.findElement(By.xpath("(.//*[@class='col-md-10 col-sm-9'])[7]"));
+		element = driver.findElement(By.xpath(".//*[@id='txtzipcode']"));
 		return element;
 	}
 	public static WebElement ZipCodeError(WebDriver driver) {
@@ -176,7 +176,7 @@ public class MyProfile {
 	}
 
 	public static WebElement CountryDropDown(WebDriver driver) {
-		element = driver.findElement(By.xpath("(.//*[@class='col-md-10 col-sm-9'])[8]"));
+		element = driver.findElement(By.xpath("(.//*[@class='col-md-10 col-sm-9'])[8]/select"));
 		return element;
 	}
 
@@ -206,16 +206,16 @@ public class MyProfile {
 	}
 
 	public static WebElement DisconnectedOptionWithFB(WebDriver driver) {
-		element = driver.findElement(By.xpath("(.//*[@class='gig-edit-connections-information-details'])[1]"));
+		element = driver.findElement(By.xpath(".//*[@id='addConnectionsPanel']/div/ul/li[1]/div[2]/div[2]/a"));
 		return element;
 	}
 
 	public static WebElement DisconnectedOptionWithGmail(WebDriver driver) {
-		element = driver.findElement(By.xpath("(.//*[@class='gig-edit-connections-information-details'])[2]"));
+		element = driver.findElement(By.xpath(".//*[@id='addConnectionsPanel']/div/ul/li[2]/div[2]/div[2]/a"));
 		return element;
 	}
 	public static WebElement DisconnectedOptionWithTwitter(WebDriver driver) {
-		element = driver.findElement(By.xpath("(.//*[@class='gig-edit-connections-information-details'])[3]"));
+		element = driver.findElement(By.xpath(".//*[@id='addConnectionsPanel']/div/ul/li[3]/div[2]/div[2]/a"));
 		return element;
 	}
 	public static WebElement EditprofilepageSaveButton(WebDriver driver) {
@@ -223,15 +223,15 @@ public class MyProfile {
 		return element;
 	}
 	public static WebElement ConnectOptionwWithfacebook(WebDriver driver) {
-		element = driver.findElement(By.xpath("(.//*[@class='gig-edit-connections-social-provider']/a)[1]"));
+		element = driver.findElement(By.xpath(".//*[@id='addConnectionsPanel']/div/ul/li[1]/div/a"));
 		return element;
 	}
 	public static WebElement ConnectOptionWithgooglePlush(WebDriver driver) {
-		element = driver.findElement(By.xpath("(.//*[@class='gig-edit-connections-social-provider']/a)[2]"));
+		element = driver.findElement(By.xpath(".//*[@id='addConnectionsPanel']/div/ul/li[2]/div/a"));
 		return element;
 	}
 	public static WebElement ConnectOptionWithTwitter(WebDriver driver) {
-		element = driver.findElement(By.xpath(".(.//*[@class='gig-edit-connections-social-provider']/a)[3]"));
+		element = driver.findElement(By.xpath(".//*[@id='addConnectionsPanel']/div/ul/li[3]/div/a"));
 		return element;
 	}
 	public static WebElement CloseWindowOption(WebDriver driver) {
@@ -241,15 +241,15 @@ public class MyProfile {
 	
 	
 	public static WebElement FaceBoookuserName(WebDriver driver) {
-		element = driver.findElement(By.xpath("(.//*[@class='inputtext _55r1 inputtext inputtext'])[1]"));
+		element = driver.findElement(By.xpath(".//*[@id='email']"));
 		return element;
 	}
 	public static WebElement FacebookPasswordField(WebDriver driver) {
-		element = driver.findElement(By.xpath("(.//*[@class='inputtext _55r1 inputtext inputtext'])[2]"));
+		element = driver.findElement(By.xpath(".//*[@id='pass']"));
 		return element;
 	}
 	public static WebElement FacebookLoginButton(WebDriver driver) {
-		element = driver.findElement(By.xpath(".//*[@class='uiButton uiButtonConfirm uiButtonLarge']"));
+		element = driver.findElement(By.xpath(".//*[@id='u_0_2']"));
 		return element;
 	}
 	public static WebElement GmailUserName(WebDriver driver) {

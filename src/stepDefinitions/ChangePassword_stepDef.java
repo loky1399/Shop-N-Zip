@@ -5,6 +5,7 @@ import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
+import pageObjects.ChangePassword;
 import bsh.org.objectweb.asm.Constants;
 import utils.Constant;
 import cucumber.api.DataTable;
@@ -396,15 +397,23 @@ public class ChangePassword_stepDef {
 
 	@Then("^I should see error message 'This field is required' for 'password' text field\\.$")
 	public void i_should_see_error_message_This_field_is_required_for_password_text_field() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
-	}
+		 try {
+			   ChangePassword.ThisFieldIsRewuiredError(driver).isDisplayed();
+			  } catch (Exception e) {
+			   System.out.println(e);
+			   Assert.fail("error message is not displayed while trying to change password by leaving new password and retype password fields empty");
+			  }
+			 }
 
 	@Then("^I should see error message 'This field is required' for 'retype password' text field\\.$")
 	public void i_should_see_error_message_This_field_is_required_for_retype_password_text_field() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
-	}
+		try {
+			   ChangePassword.ThisFieldIsRewuiredError(driver).isDisplayed();
+			  } catch (Exception e) {
+			   System.out.println(e);
+			   Assert.fail("error message is not displayed while trying to change password by leaving new password and retype password fields empty");
+			  }
+			 }
 
 	@Then("^I should see  message 'This field is required' with current password field\\.$")
 	public void i_should_see_message_This_field_is_required_with_current_password_field() throws Throwable {

@@ -3,6 +3,7 @@ package stepDefinitions;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
+import pageObjects.SignIn;
 import cucumber.api.DataTable;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
@@ -18,14 +19,20 @@ public class Add_address_stepDef {
 
 	@When("^I logged In$")
 	public void i_logged_In() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		SignIn_stepDef.signIn(driver);
+		Thread.sleep(1000);
+		//SignIn.welcomePopup_closeButton(driver).click();
 	}
 
 	@When("^I clicked on my username drop-down in header$")
 	public void i_clicked_on_my_username_drop_down_in_header() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		try{
+			Assert.assertTrue(pageObjects.MyProfile.UserName_Menulink(driver).isDisplayed());
+			pageObjects.MyProfile.UserName_Menulink(driver).click();
+		}catch(Exception e){
+			System.out.println(e);
+			Assert.fail("Fail to click on menulink user name");
+		}
 	}
 
 	@When("^I selected  'My account' from drop down option$")

@@ -77,7 +77,7 @@ Feature: Forgot password (Including reset password)
     And I should see 'To sign in with your new password, click here.' for sigin with shop n zip site.
     When I click on 'To sign in with your new password, click here.' link .
     Then I should be redirected to the sigin page of shop n zip site.
-@test
+
   Scenario: Verify the forgot password link exipre time(click on link after 24 hours)
     Given I am in Sign in page
     When I clicked on 'Forgot Password'
@@ -115,7 +115,7 @@ Feature: Forgot password (Including reset password)
     Then I should not be able to enter more than specified character length data in 'Password' text field
 
   #Negative
- 
+ @test
   Scenario: Verifying the functionality of forgot password (without providing any email address)
     Given I am in Sign in page
     When I clicked on 'Forgot Password'
