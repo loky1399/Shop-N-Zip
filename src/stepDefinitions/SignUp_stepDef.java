@@ -4,7 +4,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
@@ -344,7 +343,7 @@ public class SignUp_stepDef {
 					Utils.generateRandomEmail(20));
 			Thread.sleep(1000);
 			SignUp.phoneNumberTextBox(driver).sendKeys(
-					Utils.generateRandomPhoneNumber());
+					Utils.generateRandomPhoneNumber(10));
 			Thread.sleep(1000);
 			SignUp.passWordTextBox(driver).sendKeys(password);
 			Thread.sleep(1000);
@@ -506,7 +505,7 @@ public class SignUp_stepDef {
 						Utils.generateRandomEmail(20));
 				Thread.sleep(1000);
 				SignUp.phoneNumberTextBox(driver).sendKeys(
-						Utils.generateRandomPhoneNumber());
+						Utils.generateRandomPhoneNumber(12));
 				Thread.sleep(1000);
 				SignUp.passWordTextBox(driver).sendKeys(password);
 				Thread.sleep(1000);
@@ -560,7 +559,7 @@ public class SignUp_stepDef {
 					Utils.generateRandomEmail(20));
 			Thread.sleep(1000);
 			SignUp.phoneNumberTextBox(driver).sendKeys(
-					Utils.generateRandomPhoneNumber());
+					Utils.generateRandomPhoneNumber(12));
 			Thread.sleep(1000);
 			SignUp.passWordTextBox(driver).sendKeys(password);
 			Thread.sleep(1000);
@@ -603,7 +602,7 @@ public class SignUp_stepDef {
 				Thread.sleep(1000);
 				
 				SignUp.phoneNumberTextBox(driver).sendKeys(
-						Utils.generateRandomPhoneNumber());
+						Utils.generateRandomPhoneNumber(12));
 				Thread.sleep(1000);
 				SignUp.passWordTextBox(driver).sendKeys(password);
 				Thread.sleep(1000);
@@ -690,7 +689,7 @@ public class SignUp_stepDef {
 					Utils.generateRandomEmail(20));
 			Thread.sleep(1000);
 			SignUp.phoneNumberTextBox(driver).sendKeys(
-					Utils.generateRandomPhoneNumber());
+					Utils.generateRandomPhoneNumber(12));
 			Thread.sleep(1000);
 			
 			SignUp.reTypePasswordTextBox(driver).sendKeys(password);
@@ -735,7 +734,7 @@ public class SignUp_stepDef {
 					Utils.generateRandomEmail(20));
 			Thread.sleep(1000);
 			SignUp.phoneNumberTextBox(driver).sendKeys(
-					Utils.generateRandomPhoneNumber());
+					Utils.generateRandomPhoneNumber(12));
 			Thread.sleep(1000);
 			SignUp.passWordTextBox(driver).sendKeys(password);
 			Thread.sleep(1000);

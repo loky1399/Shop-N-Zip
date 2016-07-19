@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class FAQs{
+public class FAQs {
 	public static WebElement element = null;
 
 	public static WebElement FAQsHeading(WebDriver driver) {
@@ -23,47 +23,62 @@ public class FAQs{
 
 	public static WebElement FAQsGeneralQuwstions(WebDriver driver) {
 		element = driver.findElement(By
-				.xpath(".//*[@class='faq_cont']/div/p[2]"));
+				.xpath("//a[text()='General Questions']"));
 		return element;
 	}
 
 	public static WebElement FAQsMyAccounts(WebDriver driver) {
-		element = driver.findElement(By
-				.xpath(".//*[@class='faq_cont']/div/p[3]"));
+		element = driver.findElement(By.xpath("//a[text()='My Account']"));
 		return element;
 	}
 
 	public static WebElement FAQsMyItems(WebDriver driver) {
-		element = driver.findElement(By
-				.xpath(".//*[@class='faq_cont']/div/p[4]"));
+		element = driver.findElement(By.xpath("//a[text()='My Items']"));
 		return element;
 	}
 
 	public static WebElement FAQsGeneralShippngInfo(WebDriver driver) {
 		element = driver.findElement(By
-				.xpath(".//*[@class='faq_cont']/div/p[5]"));
+				.xpath("//a[text()='General Shipping Information']"));
 		return element;
 	}
 
+	public static WebElement FAQsMyItemsDetailsSection(WebDriver driver) {
+		return driver.findElement(By.xpath("//div[@class='gnl_qstns']/p[1]"));
+
+	}
+
+	public static WebElement FAQsMyAccountDetailsSection(WebDriver driver) {
+		return driver.findElement(By.xpath("//div[@class='gnl_qstns']/p[1]"));
+
+	}
+
+	
+	public static WebElement FAQsGeneralQuestionsDetailsSection(WebDriver driver) {
+		return driver.findElement(By.xpath("//div[@class='gnl_qstns']/p[1]"));
+
+	}
+
+	public static WebElement FAQsGeneralShippingInformationDetailsSection(WebDriver driver) {
+		return driver.findElement(By.xpath("//div[@class='gnl_qstns']/p[1]"));
+
+	}
+	
+	public static WebElement FAQsReturnsDetailsSection(WebDriver driver) {
+		return driver.findElement(By.xpath("//div[@class='gnl_qstns']/p[1]"));
+
+	}
+
 	public static WebElement FAQsReturns(WebDriver driver) {
-		element = driver.findElement(By
-				.xpath(".//*[@class='faq_cont']/div/p[6]"));
+		element = driver.findElement(By.xpath("//a[text()='Returns']"));
 		return element;
 	}
 
 	public static WebElement FAQsContactUsLink(WebDriver driver) {
-		element = driver
-				.findElement(By
-						.xpath(".//*[@class='findanswr']/a"));
+		element = driver.findElement(By.xpath(".//*[@class='findanswr']/a"));
 		return element;
 	}
 
-	public static WebElement FAQsGeneralQuestionSection(WebDriver driver) {
-		element = driver
-				.findElement(By
-						.xpath(".//*[@id='form']/div[6]/section/div[1]/div/div/div[1]/div/div[2]"));
-		return element;
-	}
 
 	public static WebElement FAQsSignUpOptionInDescription(WebDriver driver) {
 		element = driver

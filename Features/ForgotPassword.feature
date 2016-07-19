@@ -1,3 +1,4 @@
+@dailyRun
 Feature: Forgot password (Including reset password)
 
   #Field validations are missed out (password)
@@ -49,7 +50,6 @@ Feature: Forgot password (Including reset password)
     Given I am in sign in page
     And I am a registered user
     And I clicked on 'Forgot Password' link in 'Sign In' page
-    And 'Sign In' is highlighted in menu grids
     When I entered registered email address in 'Forgot password page'
     And I clicked on 'Reset password'
     Then I should get a link to reset the password to my email
@@ -58,7 +58,7 @@ Feature: Forgot password (Including reset password)
     Then I should be able to see 'Save New Password' button
 
   #Possitive
-  
+  @test
   Scenario: verifying the fucntionality of 'forgot password' (with valid email address)
     Given I am in Sign in page
     When I clicked on 'Forgot Password'
@@ -77,7 +77,7 @@ Feature: Forgot password (Including reset password)
     And I should see 'To sign in with your new password, click here.' for sigin with shop n zip site.
     When I click on 'To sign in with your new password, click here.' link .
     Then I should be redirected to the sigin page of shop n zip site.
-@test
+
   Scenario: Verify the forgot password link exipre time(click on link after 24 hours)
     Given I am in Sign in page
     When I clicked on 'Forgot Password'

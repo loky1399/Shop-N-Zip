@@ -1,3 +1,4 @@
+@dailyRun
 Feature: Footer  Header
   
   As a user, I should see the Footer  will be same for all the pages is in the application
@@ -20,12 +21,12 @@ Feature: Footer  Header
       | Provided by ABS-CBN International             |
       | Terms and conditions                          |
       | Contact Us                                    |
-
-  Scenario: Verifying the displaying  elements color in footer.
-    Then I should be able to see <Elements>  elements in  <Color name> color.
+@test
+  Scenario: Verifying the displaying elements color in footer.
+    Then I should be able to see <Elements> elements in <Color> color.
       | Elements                                      | Color        |
       | Shop N zip logo which should not be clickeble | Gray color   |
-      | All Rights Reserved -@2015                    | Gray color   |
+      | All Rights Reserved -@2016                    | Gray color   |
       | Provided by ABS-CBN International             | Gray color   |
       | Terms and conditions                          | Orange color |
       | Contact Us                                    | Orange color |
@@ -41,7 +42,8 @@ Feature: Footer  Header
   Scenario: Verifying functionality of 'Terms and Conditions ' link in footer.
     When I clicked on 'Terms and Conditions ' link in footer.
     Then I should be redirected on 'Terms and Conditions' page of Shop N Zip.
-@test
+
+
   Scenario: Verifying functionality of 'Contact Us' link in footer.
     When I clicked on 'Contact Us ' link in footer.
     Then I should be redirected on 'Contact Us' page of Shop N Zip.

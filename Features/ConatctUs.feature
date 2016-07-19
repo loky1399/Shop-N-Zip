@@ -15,7 +15,7 @@ Feature: Contact us
   #   | sections                            |
   #  | Live chat with us                   |
   # | Send us your feedback bout the site |
-  @MyTest
+
   Scenario: Verifying available sections in contact us page
     When I clicked on 'contact us' option in page
     Then I should see the following sectionsin page
