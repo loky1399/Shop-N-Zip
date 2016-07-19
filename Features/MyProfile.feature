@@ -1,3 +1,4 @@
+@dailyRun
 Feature: My profile page
 
   Background: 
@@ -39,6 +40,7 @@ Feature: My profile page
 
   #Positive
   Scenario: Verifying functionality of 'Edit profile' option
+<<<<<<< HEAD
     When I clicked on 'Edit profile' linkk
     Then I should be able to redirected on 'Edit profile' page
 
@@ -49,10 +51,22 @@ Feature: My profile page
 
   Scenario Outline: Verifying the validation message with invalid data in fields.
     When I clicked on 'Edit profile' linkk
+=======
+    When I clicked on 'Edit profile' link
+    Then I should be able to redirected on 'Edit profile' page
+
+  Scenario: Verifying the status of 'Email'
+      Given: I clicked on 'Edit profile' link
+
+    Then I should see it is in disable state(It should not be editable)
+
+  Scenario Outline: Verifying the validation message with invalid data in fields.
+>>>>>>> f7041b28c0a973a7fbdfa55ea33609107a321e12
     When I entered <inalid data> in <Field>.
     Then I should validation message <Error message> for <Fields>
 
     Examples: 
+<<<<<<< HEAD
       | Field    | inalid data                            | Error message            |  
       | Phone    | more than twelve digit                 | Not a valid phone number |  
       | phone    | less than ten digit                    | Not a valid phone number |  
@@ -60,6 +74,15 @@ Feature: My profile page
       | Zip code | more than six digit                    | Not a valid Zip code     |  
       | Zip code | less than four digit                   | Not a valid Zip code     | 
       | Zip code | alfanumeric                            | Not a valid zip code     |
+=======
+      | Field    | inalid data                            | Error message            |                          |
+      | Phone    | more than twelve digit                 |                          | Not a valid phone number |
+      | phone    | less than ten digit                    | Not a valid phone number |                          |
+      | Phone    | alfanumeri data should not be excepted | not be excepted          |                          |
+      | Zip code | more than six digit                    | Not a valid Zip code     |                          |
+      | Zip code | less than four digit                   | Not a valid Zip code     |                          |
+      | Zip code | alfanumeric                            | Not a valid zip code     |                          |
+>>>>>>> f7041b28c0a973a7fbdfa55ea33609107a321e12
 
   # Scenario Outline: Validating 'name'text box in 'Edit profile'
   #Given: I clicked on 'Edit profile' link
@@ -70,9 +93,15 @@ Feature: My profile page
   #  | data         | result      |
   # | Valid name   | Accepted    |
   #| Invalid name | notaccepted |
+<<<<<<< HEAD
    
   Scenario Outline: Validating 'Phone number'text box 'Edit profile'
     And I clicked on 'Edit profile' link
+=======
+  Scenario Outline: Validating 'Phone number'text box 'Edit profile'
+    And: I clicked on 'Edit profile' link
+
+>>>>>>> f7041b28c0a973a7fbdfa55ea33609107a321e12
     When I entered <data> in phone number text box
     And click on save button
     Then It should be <result>
@@ -81,37 +110,63 @@ Feature: My profile page
       | data         | result      |
       | Valid name   | Accepted    |
       | Invalid name | notaccepted |
+<<<<<<< HEAD
  
   Scenario: Validating country dop down optin 'Edit profile'
     And I clicked on 'Edit profile' link
+=======
+
+  Scenario: Validating country dop down optin 'Edit profile'
+    And: I clicked on 'Edit profile' link
+
+>>>>>>> f7041b28c0a973a7fbdfa55ea33609107a321e12
     When I clicked on Country drop-down option
     Then I should be able to select country name from displaying drop down option
 
   Scenario: Validating use of back button 'Edit profile'
+<<<<<<< HEAD
     And I clicked on 'Edit profile' link
+=======
+    And: I clicked on 'Edit profile' link
+
+>>>>>>> f7041b28c0a973a7fbdfa55ea33609107a321e12
     When I clicked on back button
     Then I shoul be able to navigated on 'My profile' page
 
   #Negative
+<<<<<<< HEAD
 
   Scenario Outline: Verifying functionality of Social sharing icons in my profile page
+=======
+  Scenario Outline: Verifying functionality of socila sharing icons in my profile page
+>>>>>>> f7041b28c0a973a7fbdfa55ea33609107a321e12
     Given I clicked on 'Edit profile' link
     And Social sharing icons <Social sharing icon> is displaying with 'Connect' title <Icon with text connect>.
     When I clicked on 'Connect' title  below of <Social sharing icon> when user is not logged in with respective  Social sharing sites
     Then I should be able to redirected on new popup on my screen <Result page>
 
     Examples: 
+<<<<<<< HEAD
       | Social sharing icon | Icon with text connect | Result page         |
       | Facebook sharing    | connect title          | facebook login page |
       | Twitter sharing     | connect title          | Twitterlogin page   |
       | G+ Social sharing   | connect title          | G+ login page       |
  
   Scenario Outline: Verifying functionality of Social sharing icons in my profile page
+=======
+      | Socila sharing icon | Icon with text connect | Result page         |
+      | Facebook sharing    | connect title          | facebook login page |
+      | Twitter sharing     | connect title          | Twitterlogin page   |
+      | G+ socila sharing   | connect title          | G+ login page       |
+
+  Scenario Outline: Verifying functionality of socila sharing icons in my profile page
+>>>>>>> f7041b28c0a973a7fbdfa55ea33609107a321e12
     Given I clicked on 'Edit profile' link
     And Social sharing icons <Social sharing icon> is displaying with 'Connect' title <Icon with text connect>.
     When I clicked on 'Connect' title  below of <Social sharing icon> when user is logged in with respective  Social sharing sites
     Then I should be able to see new open window with 'close window' option.
     When I click on 'close window' option
+<<<<<<< HEAD
     Then I should be able to see,status is 'Disconnect'  with respective icons <Social sharing icon>.
 
     Examples: 
@@ -134,6 +189,30 @@ Feature: My profile page
     And I should see <Social sharing icon> under 'Social Profiles:'
 
     Examples: 
+=======
+    Then I should be able to see,status is 'Disconnect'  with respective icons <Socila sharing icon>.
+
+    Examples: 
+      | Socila sharing icon | Icon with text connect | Result page        |
+      | Facebook sharing    | connect title          | facebook home page |
+      | Twitter sharing     | connect title          | Twitter home  page |
+      | G+ socila sharing   | connect title          | G+ home page       |
+
+  Scenario: Verify the save functionality.
+    Given I clicked on 'Edit profile' link
+    And I maked some changes in data(optional)
+    When I click on 'save' buuton.
+    Then I should see 'Successfully Updated your Profile ' message at top of the page.
+
+  Scenario Outline: Verifying connected social sharing icons in 'my profile' page.
+    Given I clicked on 'Edit profile' link
+    When I check  <Social sharing icon> with 'Disconnect' title.
+    And I click on 'back' button in edit profile page.
+    Then I should redirected to the 'my profile' page.
+    And I should see <Social sharing icon> under 'Social Profiles:'
+
+    Examples: 
+>>>>>>> f7041b28c0a973a7fbdfa55ea33609107a321e12
       | Social sharing icon |
       | Face Book           |
       | Twitter             |
@@ -147,7 +226,11 @@ Feature: My profile page
       | Social sharing icon | result              |
       | Facebook sharing    | facebook login page |
       | Twitter sharing     | Twitterlogin page   |
+<<<<<<< HEAD
       | G+ Social sharing   | G+ login page       |
+=======
+      | G+ socila sharing   | G+ login page       |
+>>>>>>> f7041b28c0a973a7fbdfa55ea33609107a321e12
 
   Scenario Outline: verifying the functinality of 'Social Profiles:' icons when user  is   logged in with social sites.
     When I click on <Social sharing icon> under 'Social Profiles:' in 'My profile' page.
@@ -157,8 +240,13 @@ Feature: My profile page
       | Social sharing icon | result             |
       | Facebook sharing    | facebook home page |
       | Twitter sharing     | Twitter home  page |
+<<<<<<< HEAD
       | G+ Social sharing   | G+ home page       |
  @test 
+=======
+      | G+ socila sharing   | G+ home page       |
+
+>>>>>>> f7041b28c0a973a7fbdfa55ea33609107a321e12
   Scenario: Verifying the 'Change password' link in edit profile page
     Given I clicked on 'Edit profile' link
     When I click on 'Change password' link under 'edit profile ' page.

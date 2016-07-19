@@ -5,6 +5,7 @@ import java.util.List;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
+import pageObjects.Footer;
 import cucumber.api.DataTable;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Then;
@@ -173,6 +174,20 @@ public class Footer_stepDef {
 			System.out.println(e);
 			Assert.fail("contact us page is not displaying after clicking on libnk in footer.");
 			
+		}
+	}
+	
+	@Then("^I should be able to see <Elements> elements in <Color> color\\.$")
+	public void i_should_be_able_to_see_Elements_elements_in_Color_color(DataTable color) throws Throwable {
+	    List<List<String>> data=color.raw();
+	    try {
+			Assert.assertTrue(Footer.footerShopNZipLogo(driver).isDisplayed());
+			Assert.assertTrue(Footer.footerTermsAndConditionlink(driver).isDisplayed()&& Footer.footerTermsAndConditionlink(driver).getTagName().equals("a"));
+			Assert.assertTrue(Footer.footerSectionPoweredbyABS_CBNInternationalLink(driver).isDisplayed());
+			Assert.assertTrue(Footer.footerContactUslink(driver).isDisplayed() && Footer.footerContactUslink(driver).getTagName().equals("a"));
+		} catch (Exception e) {
+			System.out.println(e);
+			Assert.fail("All footer elements are might not be displayed");
 		}
 	}
 

@@ -8,10 +8,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
-import pageObjects.BaseClass;
-import utils.Constant;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
@@ -27,9 +24,9 @@ public class Hooks {
 	 */
 	public void openBrowser() throws MalformedURLException {
 		System.out.println("Called openBrowser");
-		//driver = new FirefoxDriver();
+//		driver = new FirefoxDriver();
 		 System.setProperty("webdriver.chrome.driver",
-		 "C:\\Users\\babykumari\\Downloads\\chromedriver.exe");
+		 "D:\\lib_SNZ\\chromedriver.exe");
 		 driver=new ChromeDriver();
 
 		driver.manage().deleteAllCookies();
@@ -56,7 +53,7 @@ public class Hooks {
 			}
 
 		}
-		//driver.quit();
+		driver.quit();
 
 	}
 }
